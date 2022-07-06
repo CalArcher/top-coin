@@ -4,7 +4,10 @@
   color: rgb(43, 120, 221);
 }
 
-
+.customLinksUnderlined{
+  @extend .customLinks;
+  text-decoration: underline;
+}
 
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
