@@ -1,8 +1,9 @@
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import { Stack, Card } from 'react-bootstrap'
 import CoinCard from './components/CoinCard'
 import CoinLabels from './components/CoinLabels'
 import TopCoin from './components/TopCoin'
+
 
 
 function App() {

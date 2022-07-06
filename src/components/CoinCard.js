@@ -11,7 +11,7 @@ export default function CoinCard({ name, currentPrice, percentChange, dailyChang
           gap: '1rem',
         }}>
           <h5 style={{alignContent: 'center', width: '100%'}}className='me-auto'>{rank}</h5>
-          <h5 className='me-auto'>{name}</h5>
+          <a className="customLinks" href='#'><h5 className='me-auto'>{name}</h5></a>
           <span class="me-auto">{currencyFormatter.format(currentPrice)}</span>
           <span class="me-auto">{percentageFormatter.format(percentChange)}</span>
           <span class="me-auto">{percentageFormatter.format(dailyChange)}</span>
