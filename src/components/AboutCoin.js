@@ -1,12 +1,11 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
+import PriceChart from './PriceChart'
 
 export default function AboutCoin() {
   return (
-    <div>
-      <h1>Hello</h1>
-
-      <span>this is a test</span>
-     
-    </div>
+    <Container>
+      <PriceChart className="me-auto" name="Nano" ></PriceChart>
+    </Container>
   )
 }
