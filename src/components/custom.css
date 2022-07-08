@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
 .customLinks, .customLinksUnderlined {
   text-decoration: none;
   color: rgb(43, 120, 221);

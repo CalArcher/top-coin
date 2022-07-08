@@ -6,6 +6,7 @@ import TopCoin from './TopCoin'
 import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
 
 
+
 function Home() {
   return (
       <Container className="my-4">
@@ -15,9 +16,6 @@ function Home() {
         <CoinCard rank ="2" name="Cardano" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
         <CoinCard rank ="3" name="Coin 3" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
         <CoinCard rank ="4" name="Coin 4" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
-
-        <h1><Link to="/about">Hello</Link></h1>
-
         <CoinCard rank ="5" name="Coin 5" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
         <CoinCard rank ="6" name="Coin 6" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
         <CoinCard rank ="7" name="Coin 7" currentPrice={1.537} percentChange={0.09891} dailyChange={.021}></CoinCard>
