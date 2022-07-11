@@ -1,33 +1,12 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+import { Chart as ChartJS } from 'chart.js/auto'
 
 
 //need to define an array here of all days (dates) as the labels, and the data will be an array of the prices on those days
 
 export default function PriceChart( { name } ) {
-
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
   const data = {
     labels,
     datasets: [
@@ -39,15 +18,17 @@ export default function PriceChart( { name } ) {
       }
     ],
   }
-
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
+      tooltip: {
+        caretSize: 10,
+        caretPadding: 5,
+        padding: 12
+      },
       legend: {
         display: false
-      },
-      Tooltip: {
-        // TODO: Figure out how to customize Tooltip
       },
       title: {
         display: true,
@@ -55,15 +36,17 @@ export default function PriceChart( { name } ) {
       },
     },
   }
-
   const chartStyle = {
-    width: '1000px',
-    height: '500px',
+    width: '100%',
+    minWidth: '700px',
+    height: '60vh'
   }
 
   return (
-    <div style={chartStyle}>
-      <Line options={options} data={data} />
+    <div className='priceChartWrapper'>
+      <div style={chartStyle}>
+        <Line className='priceChart' options={options} data={data} />
+      </div>
     </div>
     
   )

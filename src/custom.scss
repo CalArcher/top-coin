@@ -7,6 +7,19 @@
   text-decoration: underline;
 }
 
+.priceChart{
+  cursor: crosshair;
+}
+
+.priceChartWrapper{
+  display: flex;
+  justify-content: center;  
+  margin: 0;
+  padding: 6rem 0 0 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(222, 100, 100)
+}
 
 
 
