@@ -1,33 +1,33 @@
-// import modules
+// import modules / declaring variables
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-require('dotenv').config()
 
-const port = process.env.PORT || 8000
-
-// app
+const port = process.env.PORT 
 const app = express()
 
-// server
-app.listen(port, () => {
-  console.log('listening...')
+// db
+mongoose.connect('mongodb://localhost/coindata')
+const db = mongoose.connection
+db.on('error', (error) => {
+  console.error(error)
 })
+db.once('open', () => console.log('server started'))
 
 // middleware
 app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 app.use(cors())
 
-// db
-mongoose.connect('mongodb://localhost/coindata')
-const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('server started'))
+// server
+app.listen(port || 3000, () => {
+  console.log('listening...')
+})
 
 
 // routes
-
+const coinDataRouter = require('./routes/coindata')
 
 
 //port
