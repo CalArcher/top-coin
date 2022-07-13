@@ -2,18 +2,24 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const mongoose = require('mongoose')
+const { MongoClient, ObjectId } = require('mongodb')
 
 const port = process.env.PORT 
 const app = express()
 
-// db
-mongoose.connect(process.env.DATABASE_URL)
-const db = mongoose.connection
-db.on('error', (error) => {
-  console.error(error)
-})
-db.once('open', () => console.log('connected to DB'))
+//db
+let db,
+  dbConnectionStr = process.env.DATABASE_URL
+  dbName = 'top_coin'
+  collection
+
+MongoClient.connect(dbConnectionStr)
+  .then(client => {
+    db = client.db(dbName)
+    collection = db.collection('coin_data')
+    console.log('connected to DB')
+  })
+
 
 // middleware
 app.use(express.urlencoded({extended : true}))

@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const coindata = require('../models/coindata')
 
 
-router.get('/', (req, res) => {
-  res.send('Hello')
-})
+// router.get('/', async (req, res) => {
+//   try{
+//     const coindata = 
+//   } catch {
+
+//   }
+// })
 
 router.get('/:id', (req, res) => {
   res.send(req.params.id)
