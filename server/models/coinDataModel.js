@@ -1,35 +1,35 @@
 const mongoose = require('mongoose')
 
+const Schema = mongoose.Schema
 
-
-const coindataSchema = new mongoose.Schema({
+const coinDataSchema = new Schema({
     name: {
       type: String,
       required: false
     },
     rank: {
       type: Array,
-      required: false
+      required: true
     },
     current_price: {
       type: Array,
-      required: false
+      required: true
     },
     percent_change_24h: {
       type: Number,
-      required: false
+      required: true
     },
     percent_change_7d: {
       type: Number,
-      required: false
+      required: true
     },
     percent_change_30d: {
       type: Number,
-      required: false
+      required: true
     },
     percent_change_1y:{
       type: Number,
-      required: false
+      required: true
     },
     currencyLogo: {
       type: String,
@@ -37,8 +37,10 @@ const coindataSchema = new mongoose.Schema({
     },
     date: {
       type: Array,
-      required: false
+      required: true
     }
-})
+}, { timestamps: true })
 
-module.exports = mongoose.model('coinData', coindataSchema)
+module.exports = mongoose.model('CoinData', coinDataSchema)
+
+
