@@ -7,7 +7,6 @@ const {
   updateCoinData,
 } = require('../controllers/coinDataController')
 
-
 //Get all coin data
 router.get('/', getCoinData)
 
@@ -16,6 +15,7 @@ router.post('/', createCoinData)
 
 //Update an existing coin data document
 router.patch('/:id', updateCoinData)
+
 
 
 module.exports = router

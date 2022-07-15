@@ -20,12 +20,7 @@ app.use(express.json())
 app.use(cors())
 
 // routes
-
 app.use('/coindata', coinDataRoutes)
-
-// app.get('/hi', (req, res) => {
-//   res.json({mssg: 'hello'})
-// })
 
 //Db
 mongoose.connect(process.env.DATABASE_URL)
@@ -38,9 +33,3 @@ mongoose.connect(process.env.DATABASE_URL)
   .catch(err => {
     console.log(err)
   })
-
-
-
-
-
-

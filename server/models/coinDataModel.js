@@ -41,6 +41,9 @@ const coinDataSchema = new Schema({
     }
 }, { timestamps: true })
 
+
+
+
 module.exports = mongoose.model('CoinData', coinDataSchema)
 
 
