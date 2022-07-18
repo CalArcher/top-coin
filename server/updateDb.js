@@ -37,8 +37,8 @@ class UpdateData{
       console.log(err)
     }
   }
-  async fetchCurrent('http://localhost:3000/coindata'){
-    let url = ''
+  async fetchCurrentData(){
+    let url = 'http://10.0.0.69:3000/coindata'
     try{
       let data = await (await fetch(url)).json()
       console.log(data.slice(0,1))
@@ -55,4 +55,4 @@ class UpdateData{
 
 let generateApiData = new UpdateData()
 
-generateApiData.checkExistingData()
+generateApiData.fetchCurrentData()

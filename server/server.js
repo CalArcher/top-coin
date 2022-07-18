@@ -2,6 +2,7 @@ require('dotenv').config()
 
 // import modules / declaring variables
 const express = require('express')
+const axios = require('axios')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const schedule = require('node-schedule')
@@ -37,12 +38,9 @@ mongoose.connect(process.env.DATABASE_URL)
 
 
 
+//Schedule DB update every 24 hours
+// schedule.scheduleJob('* * * * *', fetchCurrent)
 
-schedule.scheduleJob('* * * * *', scheduleFunction)
-
-function scheduleFunction(){
-  console.log('hello')
-}
 
 
 
@@ -54,16 +52,17 @@ class GetDbData{
   async fetchCurrent(){
     let url = 'http://localhost:3000/coindata'
     try{
-      let data = await (await fetch(url)).json()
-      console.log(data.slice(0,1))
-      return data.slice(1,2)
-    } catch(err){
-      console.log(err)
+      let data = await axios.get(url)
+      console.log(data)
+      return data
+    } catch(error){
+      console.log(error)
     }
-   
   }
+  
 }
 
 let newCoinData = new GetDbData()
 
 newCoinData.fetchCurrent()
+
