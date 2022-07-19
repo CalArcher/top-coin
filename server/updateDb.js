@@ -1,4 +1,6 @@
 require('dotenv').config()
+const schedule = require('node-schedule')
+
 
 
 class UpdateData{
@@ -17,6 +19,7 @@ class UpdateData{
       for(let i = 0; i<top10Today.length; i++){
         let date = top10Today[i].last_updated.slice(0,10)
         let changeOneYear = top10Today[i].price_change_percentage_1y_in_currency === null ? -9999 : top10Today[i].price_change_percentage_1y_in_currency
+        let changeOneMonth = top10Today[i].price_change_percentage_30d_in_currency === null ? -9999 : top10Today[i].price_change_percentage_30d_in_currency
         newObjs.push(
           {
             name: top10Today[i].id,
@@ -24,7 +27,7 @@ class UpdateData{
             current_price: top10Today[i].current_price,
             percent_change_24h: top10Today[i].price_change_percentage_24h_in_currency,
             percent_change_7d: top10Today[i].price_change_percentage_7d_in_currency,
-            percent_change_30d: top10Today[i].price_change_percentage_30d_in_currency,
+            percent_change_30d: changeOneMonth,
             percent_change_1y: changeOneYear,
             currencyLogo: top10Today[i].image,
             date: date
@@ -49,25 +52,22 @@ class UpdateData{
   }
 
   async compareAndUpdate(){
-    let currentData = await this.fetchCurrent()
-    let newData = await this.getNewData()
+    let localThis = this
+    let currentData = await localThis.fetchCurrent()
+    let newData = await localThis.getNewData()
    
     let update = {}
     let updateId = ''
     let newCoin = {}
-
-    
-
     let currentObj = {}
+
     for(let i=0; i<currentData.length; i++){
       let name = currentData[i].name
       currentObj[name] = currentData[i]
     }
-    console.log(newData)
-    console.log(currentObj)
     for(let i=0; i<newData.length; i++){
       let name = newData[i].name
-  
+
       if(currentObj[name]){
 
         let oldRanks = currentObj[name].rank
@@ -128,13 +128,19 @@ class UpdateData{
       }
     }
   }
- 
+  
+// //Schedule DB update every 24 hours
+  scheduleRun(){
+    let thisObj = this //not needed, but better safe than sorry
+    schedule.scheduleJob('0 0 * * *', async () => {
+      thisObj.compareAndUpdate()
+    })
+  }
 }
 
 
 
 
 let generateApiData = new UpdateData()
-
 
 module.exports = generateApiData
