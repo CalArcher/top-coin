@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
+import axios from 'axios'
 
 
-//need to define an array here of all days (dates) as the labels, and the data will be an array of the prices on those days
+//need to use useEffect react hook to achieve below goal
 
-export default function PriceChart( { name } ) {
+async function getData(){
+  let res = await axios.get('http://localhost:3030/coindata')
+  let coinDataSorted = await res.data.sort((a,b) => b.percent_change_24h - a.percent_change_24h).slice(0,10)
+  console.log(coinDataSorted)
+  return coinDataSorted
+}
+
+export default function PriceChart( { name, dates, ranks, prices} ) {
+  let coinData = getData()
+ 
   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   const data = {
     labels,
@@ -48,6 +58,5 @@ export default function PriceChart( { name } ) {
         <Line className='priceChart' options={options} data={data} />
       </div>
     </div>
-    
   )
 }
