@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 //Get
 const getCoinData = async (req, res) => {
   try{
-    const coinData = await CoinData.find({})
+    const coinData = await CoinData.find({}).sort({updatedAt: -1})
     res.status(200).json(coinData)
   } catch(err){
     console.log(err)

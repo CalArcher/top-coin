@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
 import axios from 'axios'
@@ -6,23 +6,33 @@ import axios from 'axios'
 
 //need to use useEffect react hook to achieve below goal
 
-async function getData(){
-  let res = await axios.get('http://localhost:3030/coindata')
-  let coinDataSorted = await res.data.sort((a,b) => b.percent_change_24h - a.percent_change_24h).slice(0,10)
-  console.log(coinDataSorted)
-  return coinDataSorted
-}
+
+
 
 export default function PriceChart( { name, dates, ranks, prices} ) {
-  let coinData = getData()
- 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+  const [labelData, setLabelData] = useState([])
+  const [priceData, setPriceData] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3030/coindata')
+      .then(data => {
+        let coinDataSorted = data.data.slice(0,10)
+        console.log(coinDataSorted)
+        let coinDates = coinDataSorted[6].date
+        let coinPrices = coinDataSorted[6].current_price
+        setLabelData(coinDates)
+        setPriceData(coinPrices)
+      })
+
+  }, [])
+  const labels = labelData
   const data = {
     labels,
     datasets: [
       {
         label: name + ' price',
-        data: [1,1,2,3,4.5,9,33,],
+        data: priceData,
         borderColor: 'rgb(0, 104, 249)',
         backgroundColor: 'rgba(0, 104, 249, 0.5)',
       }

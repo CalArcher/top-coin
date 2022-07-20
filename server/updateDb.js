@@ -54,6 +54,7 @@ class UpdateData{
   async compareAndUpdate(){
     let currentData = await this.fetchCurrent()
     let newData = await this.getNewData()
+    console.log(newData)
    
     let update = {}
     let updateId = ''
@@ -131,7 +132,7 @@ class UpdateData{
 // //Schedule DB update every 24 hours
   scheduleRun(){
     let thisObj = this //not needed, but better safe than sorry
-    schedule.scheduleJob('1/20 * * * *', async () => {
+    schedule.scheduleJob('* * * * *', async () => {
       thisObj.compareAndUpdate()
     })
   }

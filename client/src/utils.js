@@ -1,7 +1,7 @@
 export const currencyFormatter = new Intl.NumberFormat(undefined, {
   currency: "usd",
   style: "currency",
-  maximumFractionDigits: 2,
+  maximumFractionDigits: 4,
 })
 
 export const percentageFormatter = new Intl.NumberFormat(undefined, {

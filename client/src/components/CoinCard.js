@@ -5,7 +5,7 @@ import AboutCoin from './AboutCoin'
 import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
 
 
-export default function CoinCard({ name, currentPrice, percentChange, dailyChange, rank }) {
+export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank }) {
 
   const stackStyle = {
     display: 'grid',
@@ -20,8 +20,8 @@ export default function CoinCard({ name, currentPrice, percentChange, dailyChang
               <h5 style={{alignContent: 'center', width: '100%'}}className='me-auto'>{rank}</h5>
               <Link to='/about' style={{textDecoration: 'none'}}><h5 className='me-auto'>{name}</h5></Link>
               <span class="me-auto">{currencyFormatter.format(currentPrice)}</span>
-              <span class="me-auto">{percentageFormatter.format(percentChange)}</span>
               <span class="me-auto">{percentageFormatter.format(dailyChange)}</span>
+              <span class="me-auto">{percentageFormatter.format(weeklyChange)}</span>
               <Link to='/about' style={{textDecoration: 'none'}}><Button variant="primary">Historical Data</Button></Link>
             </Stack>
           </Card.Body>
