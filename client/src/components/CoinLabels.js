@@ -7,7 +7,7 @@ export default function CoinLabels() {
       <Card.Body>
         <Stack class="mb-4" direction="horizontal" style={{
           display: 'grid',
-          gridTemplateColumns: '45px 1fr 1fr 1fr 1fr 1fr',
+          gridTemplateColumns: '50px 1.75fr 1fr .9fr .9fr 1.1fr',
           gap: '1rem',
         }}>
           <span border="1px solid red" class="me-auto">rank</span>

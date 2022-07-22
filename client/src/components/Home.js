@@ -7,6 +7,8 @@ import TopCoin from './TopCoin'
 import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
 
 
+//TODO prices in PriceChart are reverse of chart in 
+
 
 function Home() {
   const [coins, setCoinData] = useState([])
@@ -27,10 +29,10 @@ function Home() {
     <div>
       {isLoading ? <span className='col-md-6'>LOADING...</span> : 
         <Container className="my-4">
-        <TopCoin name={coins[0].name} dailyChange={coins[0].percent_change_24h/100}></TopCoin> 
+        <TopCoin number={0} name={coins[0].name} dailyChange={coins[0].percent_change_24h/100}></TopCoin> 
         <CoinLabels></CoinLabels>
         {coins.map((coin, i) => {
-          return <CoinCard key={i} number={i} name={coin.name} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} ></CoinCard>
+          return <CoinCard key={i} number={i} name={coin.name} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
         })}
       </Container>
       }

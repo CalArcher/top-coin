@@ -7,7 +7,8 @@ import { useParams, useSearchParams } from 'react-router-dom';
 export default function AboutCoin( ) {
   const { id } = useParams()
   const [searchParams] = useSearchParams()
-  let q = searchParams.get('g')
+  let q = searchParams.get('q')
+  console.log(q)
   
   return (
     <Container>
