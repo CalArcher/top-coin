@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route path="/about" exact element={ <AboutCoin/> }></Route>
+          <Route path={"/about/:id"} exact element={ <AboutCoin/> }></Route>
           <Route path='/' exact element={ <Home/> }></Route>
           <Route path='*' exact element={ <NotFound/> }></Route>
         </Routes>

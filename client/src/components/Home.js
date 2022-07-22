@@ -16,18 +16,16 @@ function Home() {
     axios.get('http://localhost:3030/coindata')
       .then(data => {
         let coinDataSorted = data.data.slice(0,10).sort((a,b) => b.percent_change_24h - a.percent_change_24h)
-        console.log('AAA', data.data.slice(0,10))
         setCoinData(coinDataSorted)
         setLoading(false)
       })
       .catch(e => console.log(e))
-
   }, [])
   console.log(coins)
   
   return (
     <div>
-      {isLoading ? <span className='col-md-6'>Loading</span> : 
+      {isLoading ? <span className='col-md-6'>LOADING...</span> : 
         <Container className="my-4">
         <TopCoin name={coins[0].name} dailyChange={coins[0].percent_change_24h/100}></TopCoin> 
         <CoinLabels></CoinLabels>

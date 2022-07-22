@@ -4,16 +4,10 @@ import { Chart as ChartJS } from 'chart.js/auto'
 import axios from 'axios'
 
 
-//need to use useEffect react hook to achieve below goal
 
-
-
-
-export default function PriceChart( { name, dates, ranks, prices} ) {
-
+export default function PriceChart( { name } ) {
   const [labelData, setLabelData] = useState([])
   const [priceData, setPriceData] = useState([])
-
   useEffect(() => {
     axios.get('http://localhost:3030/coindata')
       .then(data => {
@@ -52,7 +46,7 @@ export default function PriceChart( { name, dates, ranks, prices} ) {
       },
       title: {
         display: true,
-        text: name + ' price history',
+        text:   name + ' price history',
       },
     },
   }
@@ -67,6 +61,8 @@ export default function PriceChart( { name, dates, ranks, prices} ) {
       <div style={chartStyle}>
         <Line className='priceChart' options={options} data={data} />
       </div>
+      <h1>{name}</h1>
+
     </div>
   )
 }
