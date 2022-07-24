@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
 import axios from 'axios'
+import LoadingScreen from './LoadingScreen';
 
 
 
@@ -39,6 +40,11 @@ export default function PriceChart( { name, number } ) {
       datasets: [
         {
           label: name + ' price',
+          pointStyle: 'circle',
+          pointHoverRadius: 7,
+          pointHoverBackgroundColor: 'rgba(255, 0, 0, 0.5)',
+          pointHoverBorderColor: 'rgba(255, 0, 0, 1)',
+          pointRadius: 3,
           data: toChartPrices,
           borderColor: 'rgb(0, 104, 249)',
           backgroundColor: 'rgba(0, 104, 249, 0.5)',
@@ -79,17 +85,20 @@ export default function PriceChart( { name, number } ) {
       minWidth: '700px',
       height: '60vh'
     }
+    const loadStyle = {
+      width: '100%',
+      minWidth: '700px',
+      height: '60vh',
+      filter: 'blur(10px)'
+    }
 
 
   return (
 
       <div>
-        {isLoading ? <span className='col-md-6'>
-          
-          LOADING...
-          
-          </span> :
-          
+        {isLoading ? 
+          <LoadingScreen></LoadingScreen>
+        :
           <div className='priceChartWrapper'>
             <div style={chartStyle}>
               <Line className='priceChart' options={options} data={data} />

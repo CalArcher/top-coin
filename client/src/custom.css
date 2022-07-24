@@ -17,6 +17,62 @@
   margin: 0;
   padding: 6rem 0 0 0;
   width: 100%;
-  height: 100%;
-  background: rgb(222, 100, 100);
 }/*# sourceMappingURL=custom.css.map */
+
+.loadingScreen{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+.spinners{
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+.spinner{
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top-color: rgba(0,104,249, 0.6);
+  border-radius: 50%;
+  animation: firstSpinner 1.6s linear infinite;
+}
+.spinners div:nth-child(2){
+  border: 8px solid transparent;
+  border-bottom-color: rgba(0,104,249, 0.6);
+  animation: secondSpinner .6s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* **************
+Animations------------
+************** */
+
+@keyframes firstSpinner{
+  0% { transform: rotate(0deg); border-width: 8px;}
+  50% { transform: rotate(180deg); border-width: 2px;}
+  100% { transform: rotate(360deg); border-width: 8px;}
+}
+
+@keyframes secondSpinner{
+  0% { transform: rotate(0deg); border-width: 2px;}
+  50% { transform: rotate(180deg); border-width: 8px;}
+  100% { transform: rotate(360deg); border-width: 2px;}
+}
