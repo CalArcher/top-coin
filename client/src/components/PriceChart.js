@@ -82,7 +82,7 @@ export default function PriceChart( { name, number } ) {
         },
         title: {
           display: true,
-          text: `History of ${name} being in the top 10 best performing coins of the day`,
+          text: `${name}'s performance history while ranked in the top 10 coins of the day`,
           font: {
             weight: 'bold',
             size: '18px'
@@ -102,8 +102,8 @@ export default function PriceChart( { name, number } ) {
       height: '60vh',
       filter: 'blur(10px)'
     }
-
-
+  let searchName = name.charAt(0).toLowerCase() + name.slice(1)
+  let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
   return (
       <div>
         {isLoading ? 
@@ -112,7 +112,7 @@ export default function PriceChart( { name, number } ) {
           <div className='priceChartWrapper'>
             <div className='coinTitle'>
                 <img src={logoLink} alt='cryptocurrency logo'></img>
-                <h1>{name}</h1>
+                <h1><a style={{ textDecoration: 'none' }} href={moreCoinInfo} target='_blank'>{name}</a></h1>
             </div>
             <div style={chartStyle}>
               <Line className='priceChart' options={options} data={data} />

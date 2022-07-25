@@ -1,12 +1,13 @@
 import { Card, Stack, Button, Image } from "react-bootstrap";
 import { currencyFormatter, percentageFormatter } from "../utils";
 import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
+import NotFound from "./NotFound";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
 
 
-export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
+export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo, coinNames }) {
   
   const stackStyle = {
     display: 'grid',

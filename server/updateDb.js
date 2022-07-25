@@ -131,10 +131,14 @@ class UpdateData{
   
 // //Schedule DB update every 24 hours
   scheduleRun(){
-    let thisObj = this //not needed, but better safe than sorry
-    schedule.scheduleJob('1/10 * * * *', async () => {
-      thisObj.compareAndUpdate()
-    })
+    try{
+      let thisObj = this //not needed, but better safe than sorry
+      schedule.scheduleJob('1/10 * * * *', async () => {
+        thisObj.compareAndUpdate()
+      })
+    } catch(error){
+      console.log(error)
+    }
   }
 }
 

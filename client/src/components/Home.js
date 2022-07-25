@@ -20,10 +20,13 @@ function Home() {
       })
       .catch(e => console.log(e))
   }, [])
-           
+  
+  let coinNames = []
+  console.log(coinNames)
   let coinsUpper = []
   if(isLoading === false){
     for(let i=0; i<coins.length; i++){
+      coinNames.push(coins[i].name)
       if(typeof coins[i].name.charAt(0) === 'string'){
         coins[i].name = coins[i].name.charAt(0).toUpperCase() + coins[i].name.slice(1)
       }
@@ -40,7 +43,7 @@ function Home() {
         <TopCoin number={0} name={coins[0].name} dailyChange={coins[0].percent_change_24h/100}></TopCoin> 
         <CoinLabels></CoinLabels>
         {coins.map((coin, i) => {
-          return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
+          return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} coinNames={coinNames} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
         })}
       </Container>
       }
