@@ -7,10 +7,6 @@ import TopCoin from './TopCoin'
 import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
 import LoadingScreen from './LoadingScreen';
 
-
-//TODO prices in PriceChart are reverse of chart in 
-
-
 function Home() {
   const [coins, setCoinData] = useState([])
   const [isLoading, setLoading] = useState(true)
@@ -24,8 +20,17 @@ function Home() {
       })
       .catch(e => console.log(e))
   }, [])
-  console.log(coins)
-  
+           
+  let coinsUpper = []
+  if(isLoading === false){
+    for(let i=0; i<coins.length; i++){
+      if(typeof coins[i].name.charAt(0) === 'string'){
+        coins[i].name = coins[i].name.charAt(0).toUpperCase() + coins[i].name.slice(1)
+      }
+      coinsUpper.push(coins[i].name)
+    }
+  }
+ 
   return (
     <div>
       {isLoading ? 
@@ -35,13 +40,11 @@ function Home() {
         <TopCoin number={0} name={coins[0].name} dailyChange={coins[0].percent_change_24h/100}></TopCoin> 
         <CoinLabels></CoinLabels>
         {coins.map((coin, i) => {
-          return <CoinCard key={i} number={i} name={coin.name} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
+          return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
         })}
       </Container>
       }
-      
     </div>
-      
   )
 }
 

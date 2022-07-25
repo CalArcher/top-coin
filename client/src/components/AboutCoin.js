@@ -8,8 +8,6 @@ export default function AboutCoin( ) {
   const { id } = useParams()
   const [searchParams] = useSearchParams()
   let q = searchParams.get('q')
-  console.log(q)
-  
   return (
     <Container>
       <PriceChart name={id} number={q} className="me-auto"></PriceChart>

@@ -10,7 +10,7 @@ export default function TopCoin({ number, name, dailyChange }) {
         <div>
           <span style={{
             fontSize: '1.75rem'
-          }}>Today's top coin is <Link style={{textDecoration: 'none'}} to={`/about/${name}?q=${number}`} number={number}><span style={{color: '#49D282'}}> { name } </span></Link>, and it's up {percentageFormatter.format(dailyChange)}</span>
+          }}>Today's top coin is <Link style={{textDecoration: 'none'}} to={`/about/${name}?q=${number}`} number={number}><span style={{color: '#49D282'}}> { name } </span></Link>, and it's up {percentageFormatter.format(dailyChange)} in the past 24 hours</span>
         </div>
       </Card.Title>
     </Card>
