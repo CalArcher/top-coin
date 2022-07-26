@@ -3,38 +3,21 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
 import axios from 'axios'
 import LoadingScreen from './LoadingScreen';
-
+import useFetchData from './useFetchData';
 
 
 export default function PriceChart( { name, number } ) {
-  const [chartData, setChartData] = useState([])
-  const [isLoading, setLoading] = useState(true)
+  const { coinData, isLoading } = useFetchData('http://localhost:3030/coindata')
 
-
-  useEffect(() => {
-    axios.get('http://localhost:3030/coindata')
-      .then(data => {
-        let coinDataSorted = data.data.slice(0,10).sort((a,b) => b.percent_change_24h - a.percent_change_24h)
-        console.log(coinDataSorted)
-        let chartData = coinDataSorted[number]
-        setChartData(chartData)
-        setLoading(false)
-      })
-
-  }, [])
-
-  let toChartRanks = [1,2,3]
-  let toChartDates = [1,2,3]
-  let toChartPrices = [1,2,3]
+  let toChartDates, toChartPrices, toChartRanks
   let logoLink = ''
-
-  if(isLoading === false){
-    logoLink = chartData.currencyLogo
-    toChartRanks = chartData.rank
-    toChartDates = chartData.date
-    toChartPrices = chartData.current_price
+  if(!isLoading){
+    logoLink = coinData[number].currencyLogo
+    toChartRanks = coinData[number].rank
+    toChartDates = coinData[number].date
+    toChartPrices = coinData[number].current_price
   }
-  console.log()
+
   const labels = toChartDates
     const data = {
       labels,
@@ -104,24 +87,23 @@ export default function PriceChart( { name, number } ) {
     }
   let searchName = name.charAt(0).toLowerCase() + name.slice(1)
   let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
+
   return (
-      <div>
-        {isLoading ? 
-          <LoadingScreen></LoadingScreen>
-        :
-          <div className='priceChartWrapper'>
-            <div className='coinTitle'>
-                <img src={logoLink} alt='cryptocurrency logo'></img>
-                <h1><a style={{ textDecoration: 'none' }} href={moreCoinInfo} target='_blank'>{name}</a></h1>
-            </div>
-            <div style={chartStyle}>
-              <Line className='priceChart' options={options} data={data} />
-            </div>
-          </div>
-        }
-
-
+    <div>
+    {isLoading ? <LoadingScreen/>
+    :
+    <div className='priceChartWrapper'>
+      <div className='coinTitle'>
+          <img src={logoLink} alt='cryptocurrency logo'></img>
+          <a href={moreCoinInfo} target='_blank'>{name}</a>
+      </div>
+      <div style={chartStyle}>
+        <Line className='priceChart' options={options} data={data} />
+      </div>
     </div>
+    }
+    </div>
+        
    
   )
 }
