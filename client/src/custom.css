@@ -64,7 +64,11 @@
   animation: secondSpinner .6s linear infinite;
 }
 
-
+.chartStyle{
+  width: 100%;
+  min-width: 700px;
+  height: 60vh;
+}
 
 
 

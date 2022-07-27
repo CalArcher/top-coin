@@ -40,5 +40,3 @@ mongoose.connect(process.env.DATABASE_URL)
 
 
 
-// //Schedule DB update every 24 hours
-

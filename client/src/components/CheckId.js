@@ -1,32 +1,22 @@
 import NotFound from "./NotFound";
 import AboutCoin from "./AboutCoin";
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
-import axios from 'axios'
-import LoadingScreen from "./LoadingScreen";
-import useFetchData from "./useFetchData";
+import React, { useContext } from 'react';
+import { Context } from '../hooks/SetContext'
 
 export default function IdCheck() {
+  const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
   const { id } = useParams()
-  const { coinData, isLoading, currentNames } = useFetchData('http://localhost:3030/coindata')
 
-  let response
+  let response = currentNames
   
-  if(isLoading === false){
-    if (currentNames.includes(id)){
-      response = (<AboutCoin></AboutCoin>)
-    } else{
-      response = (<NotFound></NotFound>)
-    }
+  if (currentNames.includes(id)){
+    response = (<AboutCoin></AboutCoin>)
+  } else{
+    response = (<NotFound></NotFound>)
   }
 
   return (
-    <div>
-       {isLoading ? <LoadingScreen/>
-      :
-       response
-      }
-    </div>
-   
+   response
   )
 }
