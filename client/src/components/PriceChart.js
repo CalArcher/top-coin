@@ -11,7 +11,6 @@ export default function PriceChart( { name, number } ) {
   let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
 
   
-
   return (
     <div className='priceChartWrapper'>
       <div className='coinTitle'>

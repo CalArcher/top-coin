@@ -1,6 +1,10 @@
 import React, { useContext } from 'react'
 import { Context } from '../hooks/SetContext'
 import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, registerables } from 'chart.js'
+
+ChartJS.register(...registerables)
+
 
 export default function LineChart({ name, number}) {
   
