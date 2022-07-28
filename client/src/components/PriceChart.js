@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from '../hooks/SetContext'
+import { Context } from '../contexts/DataContext'
 import LineChart from './LineChart';
 
 export default function PriceChart( { name, number } ) {

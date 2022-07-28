@@ -3,15 +3,19 @@ Imports------------
 ************** */
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
-.customLinks, .customLinksUnderlined {
-  text-decoration: none;
-}
 
 /* **************
 General------------
 ************** */
+* {
+  margin: 0;
+  padding: 0;
+}
 .customLinksUnderlined {
   text-decoration: underline;
+}
+.customLinks {
+  text-decoration: none;
 }
 
 /* **************
@@ -63,7 +67,7 @@ TopCoin.js------------
 ************** */
 
 .topCoinTitle{
-  margin-bottom: 2rem;
+  padding: 4rem 0;
 }
 
 /* **************
@@ -109,4 +113,19 @@ LoadingScreen.js------------
   0% { transform: rotate(0deg); border-width: 2px;}
   50% { transform: rotate(180deg); border-width: 8px;}
   100% { transform: rotate(360deg); border-width: 2px;}
+}
+
+/* **************
+Light/Dark Mode------------
+************** */
+#light{
+  color: black;
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  background-color: sandybrown;
+}
+#dark{
+  background-color: black;
+  color: white;
 }

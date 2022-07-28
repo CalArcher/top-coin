@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import Container from 'react-bootstrap/Container';
+import { Container } from 'react-bootstrap';
 import CoinCard from './CoinCard'
 import CoinLabels from './CoinLabels'
 import TopCoin from './TopCoin'
-import { Context } from '../hooks/SetContext'
+import { Context } from '../contexts/DataContext'
 
 
 //TODO every time db is updated, update homepage
@@ -24,7 +24,7 @@ function Home() {
   }
  
   return (
-    <Container className="my-4">
+    <Container>
       <TopCoin number={0} name={coinDataSorted[0].name} dailyChange={coinDataSorted[0].percent_change_24h/100}></TopCoin> 
       <CoinLabels></CoinLabels>
       {coinDataSorted.map((coin, i) => {
