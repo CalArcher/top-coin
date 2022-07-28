@@ -1,31 +1,23 @@
+/* **************
+Imports------------
+************** */
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 .customLinks, .customLinksUnderlined {
   text-decoration: none;
 }
 
+/* **************
+General------------
+************** */
 .customLinksUnderlined {
   text-decoration: underline;
 }
-.priceChart {
-  cursor: crosshair;
-}
-.coinTitle a{
-  font-weight: 500;
-  font-size: 40px;
-  text-decoration: none;
-}
-.coinTitle{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-}
-.coinTitle img{
-  width: 60px;
-  height: 60px;
-  margin-right: 1rem;
-}
+
+/* **************
+PriceChart.js------------
+************** */
+
 .priceChartWrapper {
   display: flex;
   flex-direction: column;
@@ -34,6 +26,49 @@
   padding: 3rem 0 0 0;
   width: 100%;
 }
+.coinTitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.coinTitle a{
+  font-weight: 500;
+  font-size: 40px;
+  text-decoration: none;
+}
+.coinTitle img{
+  width: 60px;
+  height: 60px;
+  margin-right: 1rem;
+}
+
+
+/* **************
+LineChart.js------------
+************** */
+
+.priceChart {
+  cursor: crosshair;
+}
+.chartStyle{
+  width: 100%;
+  min-width: 700px;
+  height: 60vh;
+}
+
+/* **************
+TopCoin.js------------
+************** */
+
+.topCoinTitle{
+  margin-bottom: 2rem;
+}
+
+/* **************
+LoadingScreen.js------------
+************** */
 
 .loadingScreen{
   width: 100%;
@@ -63,26 +98,6 @@
   border-bottom-color: rgba(0,104,249, 0.6);
   animation: secondSpinner .6s linear infinite;
 }
-
-.chartStyle{
-  width: 100%;
-  min-width: 700px;
-  height: 60vh;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* **************
-Animations------------
-************** */
 
 @keyframes firstSpinner{
   0% { transform: rotate(0deg); border-width: 8px;}
