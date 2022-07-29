@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import useFetchData from "../hooks/useFetchData";
 import LoadingScreen from "../components/LoadingScreen";
 import axios from "axios";
 
 export const Context = React.createContext()
-export const ThemeContext = React.createContext()
 
 const DataContext = ({ children }) => {
-  
-
 
   const [isLoading, setLoading] = useState(true)
   const [state, setState] = useState([])
@@ -32,9 +28,7 @@ const DataContext = ({ children }) => {
       {isLoading ? 
         <LoadingScreen></LoadingScreen>
       : 
-        <ThemeContext.Provider>
           <Context.Provider value={[state, setState]}>{children}</Context.Provider>
-        </ThemeContext.Provider>
       }
     </div>
   )

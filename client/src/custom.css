@@ -10,6 +10,7 @@ General------------
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 .customLinksUnderlined {
   text-decoration: underline;
@@ -67,7 +68,7 @@ TopCoin.js------------
 ************** */
 
 .topCoinTitle{
-  padding: 4rem 0;
+  padding: 1rem 0 3rem 0;
 }
 
 /* **************
@@ -116,16 +117,112 @@ LoadingScreen.js------------
 }
 
 /* **************
-Light/Dark Mode------------
+Home.js------------
+************** */
+
+.switchStyle{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.25em 3em;
+  border: 1px solid red;
+  width: 100%;
+}
+.switchStyle span{
+  padding-left: 1rem;
+}
+
+/* **************
+ModeToggle.js------------
+************** */
+#check *{
+  border: 5px solid red;
+}
+
+:root {
+  --white: #f0f0f0;
+  --light-grey: #e4e4e4;
+  --black: #111111;
+  --dark-grey: #272727;
+  --bg: var(--white);
+  --txt: var(--black);
+  --dark-opacity: 0;
+  --light-opacity: 1;
+}
+
+.moon{
+  color: white;
+}
+.lightbulb{
+  color: black;
+}
+.content {
+  transition: background 0.3s ease;
+}
+
+.checkbox {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: var(--txt);
+  border-radius: 5rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 5rem;
+  font-size: 1.5rem;
+  transition: background 0.5s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+.toggleContainer{
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5rem;
+  background: black;
+}
+
+.label .ball {
+  position: absolute;
+  background-color: var(--bg);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  transform: translateX();
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.checkbox:checked + .content .label .ball {
+  transform: translateX(2.5rem);
+}
+
+.checkbox:checked + .content {
+  --bg: var(--black);
+  --txt: var(--white);
+  --dark-opacity: 1;
+  --light-opacity: 0;
+}
+
+
+/* **************
+Light Mode------------
 ************** */
 #light{
-  color: black;
-  margin: 0;
-  padding: 0;
-  height: fit-content;
-  background-color: sandybrown;
 }
+
+
+/* **************
+Dark Mode------------
+************** */
+
 #dark{
-  background-color: black;
+  background-color: gray;
+}
+#dark .switchStyle span{
   color: white;
 }
