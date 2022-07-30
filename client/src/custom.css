@@ -7,6 +7,15 @@ Imports------------
 /* **************
 General------------
 ************** */
+:root{
+  --black-color: rgba(29,29,29,1);
+  --white-color: rgba(240,240,240,1);
+  --thin-white-color: rgba(240,240,240,.25);
+  --green-color: rgba(34,124,75,1);
+  --blue-color: rgba(0,104,249);
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -80,6 +89,7 @@ LoadingScreen.js------------
 ************** */
 
 .loadingScreen{
+  background-color: var(--white-color);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -234,21 +244,73 @@ ModeToggle.js------------
 .toggleStyle:hover .modeText{
   visibility: visible;
 }
-    
+/* **************
+CoinCard.js------------
+************** */
+
+#coinCard{
+  min-width: 850px;
+}
+
+#iconStyle{
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+#coinCardStack{
+  display: grid;
+  grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
+  gap: 1rem;
+}
+.coinInfoHeading{
+  margin: 0;
+  padding: 0;
+}
+#nameStyle{
+  color: var(--black-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* **************
+CoinLabels.js------------
+************** */
+
+
 /* **************
 Light Mode------------
 ************** */
 #light{
-  background-color: red;
+  background-color: white;
 }
 
 /* **************
 Dark Mode------------
 ************** */
-
 #dark{
-  background-color: gray;
+  background-color: var(--black-color);
+  color: var(--white-color);
 }
+#dark #coinCard{
+  border: 1px solid var(--thin-white-color);
+  background-color: var(--black-color);
+}
+
+#dark #nameStyle{
+  color: var(--white-color);
+}
+#dark #coinLabelStyle{
+  min-width: 850px;
+  background-color: var(--black-color);
+  border: 1px solid var(--thin-white-color);
+}
+
 
 /* **************
 PriceChart.js------------

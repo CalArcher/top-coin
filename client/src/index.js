@@ -8,11 +8,11 @@ import ThemeContextSet from './contexts/ThemeContextSet';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <ThemeContextSet>
       <DataContext>
         <App />
       </DataContext>
     </ThemeContextSet>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
