@@ -11,7 +11,7 @@ General------------
   --black-color: rgba(29,29,29,1);
   --white-color: rgba(240,240,240,1);
   --thin-white-color: rgba(240,240,240,.25);
-  --green-color: rgba(34,124,75,1);
+  --green-color: rgb(134, 190, 69);
   --blue-color: rgba(0,104,249);
 }
 
@@ -27,7 +27,12 @@ General------------
 .customLinks {
   text-decoration: none;
 }
-
+.successGreen{
+  color: var(--green-color);
+}
+.primaryBlue{
+  color: var(--blue-color);
+}
 /* **************
 PriceChart.js------------
 ************** */
@@ -310,7 +315,8 @@ Dark Mode------------
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
-
+#dark .priceChart{
+}
 
 /* **************
 PriceChart.js------------
