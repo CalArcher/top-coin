@@ -6,7 +6,6 @@ export default function PriceChart( { name, number } ) {
   const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
   
   let logoLink = coinDataSorted[number].currencyLogo
-
   let searchName = name.charAt(0).toLowerCase() + name.slice(1)
   let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
 

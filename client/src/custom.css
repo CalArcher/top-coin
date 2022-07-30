@@ -26,10 +26,11 @@ PriceChart.js------------
 .priceChartWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0;
-  padding: 3rem 0 0 0;
+  padding: 0.5em 0 0 0;
   width: 100%;
+  height: 100vh;
 }
 .coinTitle{
   display: flex;
@@ -60,7 +61,8 @@ LineChart.js------------
 .chartStyle{
   width: 100%;
   min-width: 700px;
-  height: 60vh;
+  height: 60%;
+  min-height: 450px;
 }
 
 /* **************
@@ -69,6 +71,8 @@ TopCoin.js------------
 
 .topCoinTitle{
   padding: 1rem 0 3rem 0;
+}
+#topCoinTitle{
 }
 
 /* **************
@@ -120,101 +124,123 @@ LoadingScreen.js------------
 Home.js------------
 ************** */
 
-.switchStyle{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1.25em 3em;
-  border: 1px solid red;
-  width: 100%;
-}
-.switchStyle span{
-  padding-left: 1rem;
-}
+
+
 
 /* **************
 ModeToggle.js------------
 ************** */
-#check *{
-  border: 5px solid red;
-}
-
-:root {
-  --white: #f0f0f0;
-  --light-grey: #e4e4e4;
-  --black: #111111;
-  --dark-grey: #272727;
-  --bg: var(--white);
-  --txt: var(--black);
-  --dark-opacity: 0;
-  --light-opacity: 1;
-}
-
-.moon{
-  color: white;
-}
-.lightbulb{
-  color: black;
-}
-.content {
-  transition: background 0.3s ease;
-}
-
-.checkbox {
-  display: none;
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  background: var(--txt);
-  border-radius: 5rem;
-  padding: 0.5rem;
-  height: 2.5rem;
-  width: 5rem;
-  font-size: 1.5rem;
-  transition: background 0.5s ease;
-  cursor: pointer;
-  z-index: 1;
-}
 .toggleContainer{
   display: flex;
+  width: 100%;
+  justify-content: flex-end;
   align-items: center;
-  border: 2px solid black;
-  border-radius: 5rem;
-  background: black;
+  padding: 1.25em 3em;
 }
-
-.label .ball {
+.toggleStyle{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+.modeText{
+  width: fit-content;
+  padding: 0 1em 0 0;
+  align-self: center;
+}
+.checkbox {
   position: absolute;
-  background-color: var(--bg);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.space {
+  position: relative;
+  height: 2em;
+  width: 4em;
+  border: 2px solid #e4e7ec;
+  border-radius: 5em;
+  background-color: white;
+  transition: background-color 250ms;
+}
+
+.checkbox:checked ~ .space {
+  background-color: #374151;
+}
+
+.button {
+  transform: translate(.25em, .18em);
+  position: absolute;
+  height: 1.35em;
+  width: 1.35em;
   border-radius: 50%;
-  height: 2rem;
-  width: 2rem;
-  transform: translateX();
-  transition: transform 0.3s ease, background-color 0.5s ease;
+  background-color: #ffeccf;
+  box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
 }
 
-.checkbox:checked + .content .label .ball {
-  transform: translateX(2.5rem);
+.checkbox:checked ~ .space .button {
+  background-color: #485367;
+  box-shadow: inset 0px 0px 0px 0.75em white;
+  transform: translate(2.1em, .185em);
 }
 
-.checkbox:checked + .content {
-  --bg: var(--black);
-  --txt: var(--white);
-  --dark-opacity: 1;
-  --light-opacity: 0;
+.lightbulb {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  color: #ffbb52;
 }
 
+.lightbulbWrapper {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  opacity: 1;
+  transform: translate(2.35em, .35em);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
 
+.checkbox:checked ~ .space .lightbulbWrapper {
+  opacity: 0;
+  transform: translate(1rem, 0) rotate(45deg);
+}
+
+.moon {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  color: white;
+}
+
+.moonWrapper {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  opacity: 0;
+  transform: translate(1rem, 0) rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+}
+
+.checkbox:checked ~ .space .moonWrapper {
+  opacity: 1;
+  transform: translate(.35em, .35em) rotate(-15deg);
+}
+.modeText{
+  visibility: hidden;
+}
+.toggleStyle:hover .modeText{
+  visibility: visible;
+}
+    
 /* **************
 Light Mode------------
 ************** */
 #light{
+  background-color: red;
 }
-
 
 /* **************
 Dark Mode------------
@@ -223,6 +249,12 @@ Dark Mode------------
 #dark{
   background-color: gray;
 }
-#dark .switchStyle span{
-  color: white;
+
+/* **************
+PriceChart.js------------
+************** */
+.notFound{
+  padding-top: 4em;
+  height: 100vh;
+  width: 100%;
 }

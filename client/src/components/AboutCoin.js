@@ -2,6 +2,7 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import PriceChart from './PriceChart'
 import { useParams, useSearchParams } from 'react-router-dom';
+import ModeToggle from './ModeToggle';
 
 
 export default function AboutCoin() {
@@ -10,8 +11,12 @@ export default function AboutCoin() {
   let q = searchParams.get('q')
 
   return (
-    <Container>
-      <PriceChart name={id} number={q} className="me-auto"></PriceChart>
-    </Container>
+    <div>
+      <ModeToggle></ModeToggle>
+      <Container>
+        <PriceChart name={id} number={q} className="me-auto"></PriceChart>
+      </Container>
+    </div>
+    
   )
 }
