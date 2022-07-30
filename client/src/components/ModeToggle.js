@@ -7,9 +7,6 @@ import { ThemeContext } from '../contexts/ThemeContextSet'
 export default function ModeToggle() {
   const {check, theme, toggleTheme } = useContext(ThemeContext)
   let mode = check === true ? 'Dark Mode' : 'Light Mode'
-  console.log('MODE: ',theme)  
-  console.log('checkToggle: ', check)
-  console.log('---------------------')
   return (
     <div className='toggleContainer'>
       <div className='toggleStyle'>
