@@ -9,13 +9,12 @@ General------------
 ************** */
 :root{
   --black-color: rgba(29,29,29,1);
+  --thin-black-color: rgba(29,29,29,.25);
   --white-color: rgba(240,240,240,1);
-  --thin-white-color: rgba(240,240,240,.25);
+  --thin-white-color: rgba(240,240,240,.15);
   --green-color: rgb(134, 190, 69);
   --blue-color: rgba(0,104,249);
 }
-
-
 * {
   margin: 0;
   padding: 0;
@@ -136,11 +135,28 @@ LoadingScreen.js------------
 }
 
 /* **************
-Home.js------------
+Header.js------------
 ************** */
-
-
-
+#header * {
+}
+#header{
+  height: 90px;
+  border-bottom: 1px solid var(--thin-black-color);
+  padding: 1em 5em;
+  width: 100vw;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#header h3{
+  padding: 0;
+  margin: 0;
+}
+#headerToggle{
+  min-width: 450px;
+}
 
 /* **************
 ModeToggle.js------------
@@ -150,7 +166,6 @@ ModeToggle.js------------
   width: 100%;
   justify-content: flex-end;
   align-items: center;
-  padding: 1.25em 3em;
 }
 .toggleStyle{
   display: flex;
@@ -315,8 +330,12 @@ Dark Mode------------
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
-#dark .priceChart{
+#dark #header{
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
 }
+
 
 /* **************
 PriceChart.js------------

@@ -13,9 +13,9 @@ export default function LineChart({ name, number}) {
   let chartColor = 'rgb(0,104,249)'
   let fontColor = 'rgba(29,29,29,1)'
   if(theme === 'dark'){
-    fontColor = 'rgba(240,240,240,.6)'
+    fontColor = 'rgba(240,240,240,.7)'
     bgColor = 'rgb(29,29,29)'
-    fgColor = 'rgba(240,240,240,.25)'
+    fgColor = 'rgba(240,240,240,.15)'
   }
 
   const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
@@ -46,15 +46,26 @@ export default function LineChart({ name, number}) {
     const options = {
       scales: {
         x: {
+          title: {
+            color: 'rgb(222,2,2)'
+          },
           grid: {
             color: fgColor
           },
           ticks: {
+            color: fontColor,
             maxRotation: 0,
             maxTicksLimit: 7
           }
         },
         y: {
+          ticks: {
+            color: fontColor,
+            callback: function(value, index, ticks) {
+              value = +value.toFixed(5)
+              return "$" + value
+            }
+          },
           grid: {
             color: fgColor
           }
@@ -91,13 +102,7 @@ export default function LineChart({ name, number}) {
       },
     }
 
- 
-    const loadStyle = {
-      width: '100%',
-      minWidth: '700px',
-      height: '60vh',
-      filter: 'blur(10px)'
-    }
+
     return (<Line className='priceChart' options={options} data={data} />)
 
 }

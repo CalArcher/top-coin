@@ -24,7 +24,6 @@ function Home() {
  
   return (
     <div>
-        <ModeToggle></ModeToggle>
         <Container>
           <TopCoin number={0} name={coinDataSorted[0].name} dailyChange={coinDataSorted[0].percent_change_24h/100}></TopCoin> 
           <CoinLabels></CoinLabels>

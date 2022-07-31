@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../contexts/ThemeContextSet'
 
-
 export default function ModeToggle() {
   const {check, theme, toggleTheme } = useContext(ThemeContext)
   let mode = check === true ? 'Dark Mode' : 'Light Mode'
