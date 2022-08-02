@@ -15,7 +15,8 @@ export default function LineChart({ name, number}) {
   let fgColor = 'rgba(29,29,29,.25)'
   let redColor = 'rgba(231,71,92,1)'
   let greenColor = 'rgba(134,190,69,1)'
-  let chartColor = 'rgb(0,104,249)'
+  let chartColor = 'rgba(0,104,249.1)'
+  let chartColorThin = 'rgba(0,104,249,.5)'
   let fontColor = 'rgba(29,29,29,1)'
   if(theme === 'dark'){
     fontColor = 'rgba(240,240,240,.7)'
@@ -36,9 +37,9 @@ export default function LineChart({ name, number}) {
         {
           label: name + ' price',
           pointStyle: 'circle',
-          pointHoverRadius: 7,
-          pointHoverBackgroundColor: 'rgba(255, 0, 0, 0.5)',
-          pointHoverBorderColor: 'rgba(255, 0, 0, 1)',
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: chartColorThin,
+          pointHoverBorderColor: chartColor,
           pointRadius: 2,
           data: toChartPrices,
           borderColor: (context) => {
@@ -52,6 +53,7 @@ export default function LineChart({ name, number}) {
           backgroundColor: bgColor,
           tension: 0.3,
           pointHitRadius: 8,
+          pointHitDetectionRadius: 8,
         }
       ],
     }
@@ -84,15 +86,14 @@ export default function LineChart({ name, number}) {
         }
       },
       responsive: true,
+      interaction: {
+        intersect: false,
+        mode: 'index',
+      },
       maintainAspectRatio: false,
       plugins: {
-        hover: {
-          mode: 'nearest',
-          intersect: false
-        },
         tooltip: {
-          mode: 'index',
-          intersect: false,
+          displayColors: false,
           titleSpacing: 0,
           bodySpacing: 6,
           footerSpacing: 0,
@@ -132,10 +133,7 @@ export default function LineChart({ name, number}) {
       return gradientBorder
     }
 
-   
- 
     return (
-        <Line id='myChart' className='priceChart' options={options} data={data}/>
+      <Line id='myChart' className='priceChart' options={options} data={data}/>
     )
-
 }
