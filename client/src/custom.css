@@ -228,11 +228,11 @@ ul .dropdownUl{
   flex-direction: column;
   width: fit-content;
   min-width: 200px;
-  padding: .35em 1em;
+  padding: .75em 1em;
 }
-ul .dropdownUl li{
+ul .dropdownUl li:not(:last-child){
   font-size: 14px;
-  padding-bottom: .5em;
+  padding-bottom: 1.5em;
 }
 #light .hoverColor:hover, .dropdown:hover .hoverColor{
   color: var(--green-color);
@@ -247,12 +247,19 @@ ul .dropdownUl li{
   border: 1px solid var(--thin-black-color);
   border-radius: .2em;
   z-index: 1;
-  padding-top: .5em;
+  padding: .5em 0;
 }
 .dropdown:hover .dropdown-content {
   display: block;
   width: fit-content;
 }
+.dropdownUl a:hover{
+  color: var(--green-color);
+}
+.dropdownUl a{
+  color: var(--black-color);
+}
+
 
 /* **************
 ModeToggle.js------------
@@ -406,6 +413,7 @@ CoinLabels.js------------
 /* **************
 Light Mode------------
 ************** */
+/* General */
 #light{
   background-color: var(--white-color);
 }
@@ -413,30 +421,29 @@ Light Mode------------
 /* **************
 Dark Mode------------
 ************** */
-
+/* General */
 #dark{
   background-color: var(--black-color);
   color: var(--white-color);
 }
+/* Coincard */
 #dark #coinCard{
   border: 1px solid var(--thin-white-color);
   background-color: var(--black-color);
 }
-#dark .dropdown-content {
-  border: 1px solid var(--thin-white-color);
+#dark #coinCard:hover{
+  background-color: var(--hover-dark-color);
 }
 #dark #nameStyle{
   color: var(--white-color);
 }
+/* CoinLabels */
 #dark #coinLabelStyle{
   min-width: 850px;
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
 
-#dark #coinCard:hover{
-  background-color: var(--hover-dark-color);
-}
 /* Footer */
 #dark #footer{
   border-top: 1px solid var(--thin-white-color);
@@ -453,7 +460,7 @@ Dark Mode------------
 #dark .header h3{
   color: var(--white-color);
 }
-#dark .hoverColor:hover, .dropdown:hover .hoverColor{
+#dark .hoverColor:hover{
   color: var(--green-color);
 }
 #dark .dropdown-content {
@@ -461,7 +468,15 @@ Dark Mode------------
   color: var(--white-color);
   border: 1px solid var(--thin-white-color);
 }
-
+#dark .dropdown-content {
+  border: 1px solid var(--thin-white-color);
+}
+#dark .dropdownUl a{
+  color: var(--white-color);
+}
+#dark .dropdownUl a:hover{
+  color: var(--green-color);
+}
 /* **************
 PriceChart.js------------
 ************** */
