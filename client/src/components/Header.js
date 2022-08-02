@@ -8,12 +8,12 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Header() {
   return (
-    <header id='darkAst' className='header'>
+    <header className='header'>
         <ul>
           <li><Link to='/' className='customLinks'><h3>Top Coin</h3></Link></li>
           <li>
             <div className='dropdown'>
-              <a className='hoverColor'>Cryptocurrencies <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></a>
+              <h6 className='hoverColor'>Cryptocurrencies <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></h6>
               <div  className='dropdown-content'>
                 <ul className='dropdownUl'>
                   <li>Hello World!</li>
@@ -26,7 +26,7 @@ export default function Header() {
 
           <li>
             <div className='dropdown'>
-              <a className='hoverColor'>Learn About Crypto <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></a>
+              <h6 className='hoverColor'>Learn About Crypto <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></h6>
               <div  className='dropdown-content'>
                 <ul className='dropdownUl'>
                   <li>Hello World!</li>

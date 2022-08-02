@@ -19,6 +19,7 @@ General------------
   --hover-dark-color: rgb(40,40,40);
   --hover-light-color: rgb(237,237,237);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -192,6 +193,10 @@ Header.js------------
   align-items: center;
 
 }
+.header h6{
+  font-weight: 400;
+  margin: 0;
+}
 .header ul{
   list-style-type: none;
   display: grid;
@@ -229,15 +234,9 @@ ul .dropdownUl li{
   font-size: 14px;
   padding-bottom: .5em;
 }
-.header a{
-  color: var(--black-color);
-}
-
-.hoverColor:hover, .dropdown:hover .hoverColor{
+#light .hoverColor:hover, .dropdown:hover .hoverColor{
   color: var(--green-color);
 }
-
-
 .dropdown {
   position: relative;
 }
@@ -250,7 +249,6 @@ ul .dropdownUl li{
   z-index: 1;
   padding-top: .5em;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
   width: fit-content;
@@ -415,9 +413,7 @@ Light Mode------------
 /* **************
 Dark Mode------------
 ************** */
-#dark *{
-  background-color: var(--black-color);
-}
+
 #dark{
   background-color: var(--black-color);
   color: var(--white-color);
@@ -437,26 +433,34 @@ Dark Mode------------
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
-#dark .header{
-  color: var(--white-color);
-  background-color: var(--black-color);
-  border-bottom: 1px solid var(--thin-white-color);
-}
+
 #dark #coinCard:hover{
   background-color: var(--hover-dark-color);
 }
-#dark .header h3{
-  color: var(--white-color);
-}
+/* Footer */
 #dark #footer{
   border-top: 1px solid var(--thin-white-color);
 }
 #dark #footer a{
   color: var(--white-color);
 }
-
-
-
+/* Header */
+#dark .header{
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
+}
+#dark .header h3{
+  color: var(--white-color);
+}
+#dark .hoverColor:hover, .dropdown:hover .hoverColor{
+  color: var(--green-color);
+}
+#dark .dropdown-content {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: 1px solid var(--thin-white-color);
+}
 
 /* **************
 PriceChart.js------------
