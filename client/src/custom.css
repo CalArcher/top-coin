@@ -73,9 +73,9 @@ PriceChart.js------------
 LineChart.js------------
 ************** */
 
-.priceChart {
+/* .priceChart {
   cursor: crosshair;
-}
+} */
 .chartStyle{
   width: 100%;
   min-width: 700px;

@@ -7,9 +7,12 @@ ChartJS.register(...registerables)
 
 
 export default function LineChart({ name, number}) {
+
   const {check, theme, toggleTheme } = useContext(ThemeContext)
   let bgColor = 'rgba(0, 104, 249, 0.5)'
   let fgColor = 'rgba(29,29,29,.25)'
+  let redColor = 'rgba(231,71,92,1)'
+  let greenColor = 'rgba(134,190,69,1)'
   let chartColor = 'rgb(0,104,249)'
   let fontColor = 'rgba(29,29,29,1)'
   if(theme === 'dark'){
@@ -19,8 +22,6 @@ export default function LineChart({ name, number}) {
   }
 
   const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
-  console.log("Names",currentNames)
-  console.log('coindatasorted',coinDataSorted)
 
   let toChartRanks = coinDataSorted[number].rank
   let toChartDates = coinDataSorted[number].date
@@ -36,10 +37,19 @@ export default function LineChart({ name, number}) {
           pointHoverRadius: 7,
           pointHoverBackgroundColor: 'rgba(255, 0, 0, 0.5)',
           pointHoverBorderColor: 'rgba(255, 0, 0, 1)',
-          pointRadius: 3,
+          pointRadius: 2,
           data: toChartPrices,
-          borderColor: chartColor,
+          borderColor: (context) => {
+            const chart = context.chart
+            const { ctx, chartArea, data, scales } = chart
+            if(!chartArea){
+              return null
+            }
+            return getGradient(ctx, chartArea, data, scales)
+          },
           backgroundColor: bgColor,
+          tension: 0.3,
+          pointHitRadius: 8,
         }
       ],
     }
@@ -74,7 +84,13 @@ export default function LineChart({ name, number}) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
+        hover: {
+          mode: 'nearest',
+          intersect: false
+        },
         tooltip: {
+          mode: 'index',
+          intersect: false,
           titleSpacing: 0,
           bodySpacing: 6,
           footerSpacing: 0,
@@ -102,6 +118,18 @@ export default function LineChart({ name, number}) {
       },
     }
 
+    function getGradient(ctx, chartArea, data, scales){
+      const { left, right, top, bottom, width, height } = chartArea
+      const {x, y} = scales
+      const gradientBorder = ctx.createLinearGradient(0,0,0,bottom)
+      const shift = y.getPixelForValue(data.datasets[0].data[0]) / bottom
+      gradientBorder.addColorStop(0,greenColor)
+      gradientBorder.addColorStop(shift,greenColor)
+      gradientBorder.addColorStop(shift,redColor)
+      gradientBorder.addColorStop(1,redColor)
+      return gradientBorder
+    }
+    
 
     return (<Line className='priceChart' options={options} data={data} />)
 
