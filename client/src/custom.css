@@ -2,6 +2,8 @@
 Imports------------
 ************** */
 
+
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 /* **************
@@ -10,10 +12,12 @@ General------------
 :root{
   --black-color: rgba(29,29,29,1);
   --thin-black-color: rgba(29,29,29,.25);
-  --white-color: rgba(240,240,240,1);
-  --thin-white-color: rgba(240,240,240,.15);
+  --white-color: rgba(253,253,253,1);
+  --thin-white-color: rgba(253,253,253,.15);
   --green-color: rgb(134, 190, 69);
   --blue-color: rgba(0,104,249);
+  --hover-dark-color: rgb(40,40,40);
+  --hover-light-color: rgb(237,237,237);
 }
 * {
   margin: 0;
@@ -133,29 +137,123 @@ LoadingScreen.js------------
   50% { transform: rotate(180deg); border-width: 8px;}
   100% { transform: rotate(360deg); border-width: 2px;}
 }
+/* **************
+Footer.js------------
+************** */
+#footer * {
+  /* border: 1px solid red; */
+}
+#footer{
+  height: 70px;
+  border-top: 1px solid var(--thin-black-color);
+  padding: .75em 5.5em;
+  width: 100%;
+  margin-top: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+#footer div{
+  min-width: 170px;
+}
+#footer ul{
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  min-width: 170px;
+}
+#footer li{
+  padding-left: 2em;
+  list-style-type: none;
+}
+#footer a{
+  color: var(--black-color);
+  text-decoration: none;
+}
+
 
 /* **************
 Header.js------------
 ************** */
-#header * {
+.header * {
+  /* border: 1px solid red; */
 }
-#header{
+.header{
   height: 90px;
   border-bottom: 1px solid var(--thin-black-color);
-  padding: 1em 5em;
-  width: 100vw;
+  padding: 1em 5.5em;
+  width: 100%;
   margin-bottom: 2em;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
 }
-#header h3{
-  padding: 0;
+.header ul{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(170px, 1fr));
+  width: 40vw;
+}
+.header li{
+  display: flex;
+  align-items: flex-end;
+  line-height: normal;
+}
+.header li a {
+  line-height: normal;
+  text-decoration: none;
+}
+.header h3{
   margin: 0;
+  text-decoration: none;
+  color: var(--black-color);
+  min-width: 170px;
 }
 #headerToggle{
   min-width: 450px;
+}
+
+/* header dropdown */
+ul .dropdownUl{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 200px;
+  padding: .35em 1em;
+}
+ul .dropdownUl li{
+  font-size: 14px;
+  padding-bottom: .5em;
+}
+.header a{
+  color: var(--black-color);
+}
+
+.hoverColor:hover, .dropdown:hover .hoverColor{
+  color: var(--green-color);
+}
+
+
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--white-color);
+  border: 1px solid var(--thin-black-color);
+  border-radius: .2em;
+  z-index: 1;
+  padding-top: .5em;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  width: fit-content;
 }
 
 /* **************
@@ -163,7 +261,7 @@ ModeToggle.js------------
 ************** */
 .toggleContainer{
   display: flex;
-  width: 100%;
+  min-width: 180px;
   justify-content: flex-end;
   align-items: center;
 }
@@ -190,7 +288,7 @@ ModeToggle.js------------
   width: 4em;
   border: 2px solid #e4e7ec;
   border-radius: 5em;
-  background-color: white;
+  background-color: var(--white-color);
   transition: background-color 250ms;
 }
 
@@ -241,7 +339,7 @@ ModeToggle.js------------
   position: absolute;
   height: 1rem;
   width: 1rem;
-  color: white;
+  color: var(--white-color);
 }
 
 .moonWrapper {
@@ -269,7 +367,11 @@ CoinCard.js------------
 ************** */
 
 #coinCard{
+  background-color: var(--white-color);
   min-width: 850px;
+}
+#coinCard:hover{
+  background-color: var(--hover-light-color);
 }
 
 #iconStyle{
@@ -307,12 +409,15 @@ CoinLabels.js------------
 Light Mode------------
 ************** */
 #light{
-  background-color: white;
+  background-color: var(--white-color);
 }
 
 /* **************
 Dark Mode------------
 ************** */
+#dark *{
+  background-color: var(--black-color);
+}
 #dark{
   background-color: var(--black-color);
   color: var(--white-color);
@@ -321,7 +426,9 @@ Dark Mode------------
   border: 1px solid var(--thin-white-color);
   background-color: var(--black-color);
 }
-
+#dark .dropdown-content {
+  border: 1px solid var(--thin-white-color);
+}
 #dark #nameStyle{
   color: var(--white-color);
 }
@@ -330,11 +437,25 @@ Dark Mode------------
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
-#dark #header{
+#dark .header{
   color: var(--white-color);
   background-color: var(--black-color);
   border-bottom: 1px solid var(--thin-white-color);
 }
+#dark #coinCard:hover{
+  background-color: var(--hover-dark-color);
+}
+#dark .header h3{
+  color: var(--white-color);
+}
+#dark #footer{
+  border-top: 1px solid var(--thin-white-color);
+}
+#dark #footer a{
+  color: var(--white-color);
+}
+
+
 
 
 /* **************

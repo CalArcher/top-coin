@@ -12,9 +12,9 @@ export default function CoinLabels() {
     <Card id='coinLabelStyle'>
       <Card.Body>
         <Stack class="mb-4" direction="horizontal" style={stackStyle}>
-          <span border="1px solid red" class="me-auto">rank</span>
-          <span border="1px solid red" class="me-auto">name</span>
-          <span border="1px solid red" class="me-auto">price</span>
+          <span border="1px solid red" class="me-auto">Rank</span>
+          <span border="1px solid red" class="me-auto">Name</span>
+          <span border="1px solid red" class="me-auto">Price</span>
           <span border="1px solid red" class="me-auto">24h%</span>
           <span border="1px solid red" class="me-auto">7d%</span>
           <span></span>

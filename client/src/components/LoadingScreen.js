@@ -3,7 +3,7 @@ import { ThemeContext } from '../contexts/ThemeContextSet'
 
 export default function LoadingScreen() {
   const {check, theme, toggleTheme } = useContext(ThemeContext)
-  let bgColor = 'rgb(240,240,240)'
+  let bgColor = 'rgb(253,253,253)'
   let fgColor = 'rgba(0,104,249, 0.6)'
   if(theme === 'dark'){
     bgColor = 'rgb(29,29,29)'

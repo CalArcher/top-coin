@@ -12,15 +12,15 @@ function App() {
   let themeId = check === true ? 'dark' : 'light'
   return (
     <div id={themeId}>
-      <Header></Header>
       <Router>
+        <Header></Header>
         <Routes>
           <Route path={"/about/:id"} exact element={ <CheckId/> }></Route>
           <Route path='/' exact element={ <Home/> }></Route>
           <Route path='*' exact element={ <NotFound/> }></Route>
         </Routes>
+        <Footer></Footer>
       </Router>
-      <Footer></Footer>
     </div>
   )
 }
