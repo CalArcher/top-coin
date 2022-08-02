@@ -79,7 +79,7 @@ LineChart.js------------
 .chartStyle{
   width: 100%;
   min-width: 700px;
-  height: 60%;
+  height: 60vh;
   min-height: 450px;
 }
 
@@ -186,18 +186,19 @@ Header.js------------
   border-bottom: 1px solid var(--thin-black-color);
   padding: 1em 5.5em;
   width: 100%;
+  min-width: 865px;
   margin-bottom: 2em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
 }
 .header h6{
   font-weight: 400;
   margin: 0;
 }
 .header ul{
+  margin-bottom: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(170px, 1fr));
@@ -205,21 +206,22 @@ Header.js------------
 }
 .header li{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   line-height: normal;
 }
 .header li a {
   line-height: normal;
   text-decoration: none;
 }
-.header h3{
+.header h4{
   margin: 0;
   text-decoration: none;
   color: var(--black-color);
-  min-width: 170px;
+  min-width: 100px;
 }
 #headerToggle{
   min-width: 450px;
+  margin-bottom: 1em;
 }
 
 /* header dropdown */
@@ -457,7 +459,7 @@ Dark Mode------------
   background-color: var(--black-color);
   border-bottom: 1px solid var(--thin-white-color);
 }
-#dark .header h3{
+#dark .header h4{
   color: var(--white-color);
 }
 #dark .hoverColor:hover{
@@ -485,3 +487,4 @@ PriceChart.js------------
   height: 100vh;
   width: 100%;
 }
+

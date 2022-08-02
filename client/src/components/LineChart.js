@@ -8,6 +8,8 @@ ChartJS.register(...registerables)
 
 export default function LineChart({ name, number}) {
 
+  
+
   const {check, theme, toggleTheme } = useContext(ThemeContext)
   let bgColor = 'rgba(0, 104, 249, 0.5)'
   let fgColor = 'rgba(29,29,29,.25)'
@@ -129,8 +131,11 @@ export default function LineChart({ name, number}) {
       gradientBorder.addColorStop(1,redColor)
       return gradientBorder
     }
-    
 
-    return (<Line className='priceChart' options={options} data={data} />)
+   
+ 
+    return (
+        <Line id='myChart' className='priceChart' options={options} data={data}/>
+    )
 
 }

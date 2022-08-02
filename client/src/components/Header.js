@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className='header'>
         <ul>
-          <li><Link to='/' className='customLinks'><h3>Top Coin</h3></Link></li>
+          <li><Link to='/' className='customLinks'><h4>Top Coin</h4></Link></li>
           <li>
             <div className='dropdown'>
               <h6 className='hoverColor'>Cryptocurrencies <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></h6>
