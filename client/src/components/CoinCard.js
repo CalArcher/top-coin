@@ -10,14 +10,17 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
   let link = `/about/${name}?q=${number}`
 
   return (
-      <Card id='coinCard'>
-        <Card.Body>
-          <Stack direction="horizontal" id='coinCardStack'>
+      <Card className='coinCard'>
+        <Card.Body className='coinCardBody'>
+          <Stack direction="horizontal" className='coinCardStack'>
             <h5 className="coinInfoHeading">{rank}</h5>
-            <Link to={link} number={number} id='nameStyle'>
-              <Image id='iconStyle' className="hover-shadow" src={coinLogo}></Image>
-              <h5 className='coinInfoHeading'>{name}</h5>
-            </Link>
+            <div className='nameStyle'>
+              <Link to={link} number={number} className='customLinks coinTitleImg'>
+                <Image className='iconStyle hover-shadow' src={coinLogo}></Image>
+                <h5 className='coinInfoHeading'>{name}</h5>
+              </Link>
+            </div>
+           
             <span>{currencyFormatter.format(currentPrice)}</span>
             <span>{percentageFormatter.format(dailyChange)}</span>
             <span>{percentageFormatter.format(weeklyChange)}</span>

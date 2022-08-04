@@ -1,28 +1,545 @@
-.customLinks{
-  text-decoration: none;
+/* **************
+Imports------------
+************** */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+@mixin animate {
+  transition: all 0.15s ease-in-out;
 }
 
-.customLinksUnderlined{
-  @extend .customLinks;
+/* **************
+General------------
+************** */
+:root{
+  --black-color: rgba(29,29,29,1);
+  --thin-black-color: rgba(29,29,29,.25);
+  --white-color: rgba(253,253,253,1);
+  --text-white-color: rgba(253,253,253,.85);
+  --thin-white-color: rgba(253,253,253,.15);
+  --green-color: rgb(134, 190, 69);
+  --blue-color: rgba(0,104,249);
+  --hover-dark-color: rgb(40,40,40);
+  --hover-light-color: rgb(237,237,237);
+}
+.hoverColor{
+  cursor: pointer;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.customLinksUnderlined {
   text-decoration: underline;
+}
+.customLinks:hover,
+.customLinks:active,
+.customLinks,
+.customLinks:visited {
+  @include animate;
+  color: var(--black-color);
+  text-decoration: inherit;
+}
+.successGreen{
+  color: var(--green-color);
+}
+.primaryBlue{
+  color: var(--blue-color);
+}
+/* **************
+PriceChart.js------------
+************** */
+
+.priceChartWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0.5em 0 0 0;
+  width: 100%;
 }
 
 .priceChart{
   cursor: crosshair;
 }
-
-.priceChartWrapper{
+.coinTitle{
   display: flex;
-  justify-content: center;  
-  margin: 0;
-  padding: 6rem 0 0 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(222, 100, 100)
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.coinTitle a{
+  font-weight: 500;
+  font-size: 40px;
+  text-decoration: none;
+}
+.coinTitle img{
+  width: 60px;
+  height: 60px;
+  margin-right: 1rem;
 }
 
 
+/* **************
+LineChart.js------------
+************** */
 
-@import 'bootstrap/dist/css/bootstrap.min.css';
+/* .priceChart {
+  cursor: crosshair;
+} */
+.chartStyle{
+  width: 100%;
+  min-width: 700px;
+  height: 60vh;
+  min-height: 450px;
+}
+
+/* **************
+TopCoin.js------------
+************** */
+
+.topCoinTitle{
+  padding: 1rem 0 3rem 0;
+}
+#topCoinTitle{
+}
+
+/* **************
+LoadingScreen.js------------
+************** */
+
+.loadingScreen{
+  background-color: var(--white-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+.spinners{
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+.spinner{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top-color: rgba(0,104,249, 0.6);
+  border-radius: 50%;
+  animation: firstSpinner 1.6s linear infinite;
+}
+.spinners div:nth-child(2){
+  border: 8px solid transparent;
+  border-bottom-color: rgba(0,104,249, 0.6);
+  animation: secondSpinner .6s linear infinite;
+}
+
+@keyframes firstSpinner{
+  0% { transform: rotate(0deg); border-width: 8px;}
+  50% { transform: rotate(180deg); border-width: 2px;}
+  100% { transform: rotate(360deg); border-width: 8px;}
+}
+
+@keyframes secondSpinner{
+  0% { transform: rotate(0deg); border-width: 2px;}
+  50% { transform: rotate(180deg); border-width: 8px;}
+  100% { transform: rotate(360deg); border-width: 2px;}
+}
+/* **************
+Footer.js------------
+************** */
+#footer * {
+  /* border: 1px solid red; */
+}
+#footer{
+  height: 70px;
+  border-top: 1px solid var(--thin-black-color);
+  padding: .75em 5.5em;
+  width: 100%;
+  margin-top: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+#footer div{
+  min-width: 170px;
+}
+#footer ul{
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  min-width: 170px;
+}
+#footer li{
+  padding-left: 2em;
+  list-style-type: none;
+}
+#footer a{
+  color: var(--black-color);
+  text-decoration: none;
+}
 
 
+/* **************
+Header.js------------
+************** */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 90px;
+  border-bottom: 1px solid var(--thin-black-color);
+  padding: 1em 5.5em;
+  width: 100%;
+  min-width: 865px;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h6{
+  font-weight: 400;
+  margin: 0;
+}
+.header ul{
+  margin-bottom: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(170px, 1fr));
+  width: 40vw;
+}
+.header li{
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.header li a {
+  line-height: normal;
+  text-decoration: none;
+}
+.header h4{
+  margin: 0;
+  text-decoration: none;
+  color: var(--black-color);
+  min-width: 100px;
+}
+#headerToggle{
+  min-width: 450px;
+  margin-bottom: 1em;
+}
+
+/* header dropdown */
+ul .dropdownUl{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 200px;
+  padding: .75em 1em;
+}
+ul .dropdownUl li:not(:last-child){
+  font-size: 14px;
+  padding-bottom: 1.5em;
+}
+#light .hoverColor:hover, .dropdown:hover .hoverColor{
+  color: var(--green-color);
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--white-color);
+  border: 1px solid var(--thin-black-color);
+  border-radius: .2em;
+  z-index: 1;
+  padding: .5em 0;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  width: fit-content;
+}
+.dropdownUl a:hover{
+  color: var(--green-color);
+}
+.dropdownUl a{
+  color: var(--black-color);
+}
+
+
+/* **************
+ModeToggle.js------------
+************** */
+.toggleContainer{
+  display: flex;
+  min-width: 180px;
+  justify-content: flex-end;
+  align-items: center;
+}
+.toggleStyle{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+.modeText{
+  @include animate;
+  opacity: 0;
+  pointer-events: none;
+  width: fit-content;
+  padding: 0 1em 0 0;
+  align-self: center;
+}
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.space {
+  position: relative;
+  height: 2em;
+  width: 4em;
+  border: 2px solid #e4e7ec;
+  border-radius: 5em;
+  background-color: var(--white-color);
+  transition: background-color 250ms;
+}
+
+.checkbox:checked ~ .space {
+  background-color: #374151;
+}
+
+.button {
+  transform: translate(.25em, .18em);
+  position: absolute;
+  height: 1.35em;
+  width: 1.35em;
+  border-radius: 50%;
+  background-color: #ffeccf;
+  box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
+  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.checkbox:checked ~ .space .button {
+  background-color: #485367;
+  box-shadow: inset 0px 0px 0px 0.75em white;
+  transform: translate(2.1em, .185em);
+}
+
+.lightbulb {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  color: #ffbb52;
+}
+
+.lightbulbWrapper {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  opacity: 1;
+  transform: translate(2.35em, .35em);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+}
+
+.checkbox:checked ~ .space .lightbulbWrapper {
+  opacity: 0;
+  transform: translate(1rem, 0) rotate(45deg);
+}
+
+.moon {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  color: var(--white-color);
+}
+
+.moonWrapper {
+  position: absolute;
+  height: 1rem;
+  width: 1rem;
+  opacity: 0;
+  transform: translate(1rem, 0) rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+}
+
+.checkbox:checked ~ .space .moonWrapper {
+  opacity: 1;
+  transform: translate(.35em, .35em) rotate(-15deg);
+}
+.toggleStyle:hover .modeText{
+  opacity: 1;
+}
+/* **************
+Home.js------------
+************** */
+.homeCont{
+  min-width: 1000px;
+  flex-grow: 1;
+}
+
+
+/* **************
+CoinCard.js------------
+************** */
+.coinCard *{
+  /* border: 1px solid red; */
+}
+.coinCard{
+  @include animate;
+  color: var(--text-white-color);
+  background-color: var(--white-color);
+  min-width: 850px;
+}
+.coinCard .coinCardBody, .coinLabelStyle .coinLabelBody{
+  min-width: 850px;
+}
+.coinCard:hover{
+  color: var(--white-color);
+  background-color: var(--hover-light-color);
+}
+
+.iconStyle{
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+.coinTitleImg{
+  display: flex;
+  flex-direction: row;
+}
+.coinCard .coinCardStack{
+  display: grid;
+  grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
+  gap: 1rem;
+}
+.coinInfoHeading{
+  margin: 0;
+  padding: 0;
+}
+.nameStyle{
+  /* color: var(--black-color); */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* **************
+CoinLabels.js------------
+************** */
+
+
+/* **************
+Light Mode------------
+************** */
+/* General */
+#light{
+  background-color: var(--white-color);
+}
+
+/* **************
+Dark Mode------------
+************** */
+/* General */
+#dark{
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+/* Coincard */
+#dark .coinCard{
+  border: 1px solid var(--thin-white-color);
+  background-color: var(--black-color);
+}
+#dark .coinCard:hover{
+  background-color: var(--hover-dark-color);
+}
+.dark .nameStyle{
+  color: var(--white-color);
+}
+/* CoinLabels */
+#dark .coinLabelStyle{
+  min-width: 850px;
+  background-color: var(--black-color);
+  border: 1px solid var(--thin-white-color);
+}
+
+/* Footer */
+#dark #footer{
+  border-top: 1px solid var(--thin-white-color);
+  background-color: var(--black-color);
+}
+#dark #footer a{
+  color: var(--white-color);
+}
+/* Header */
+#dark .header{
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
+}
+#dark .header h4{
+  color: var(--white-color);
+}
+#dark .hoverColor:hover{
+  color: var(--green-color);
+}
+#dark .dropdown-content {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: 1px solid var(--thin-white-color);
+}
+#dark .dropdown-content {
+  border: 1px solid var(--thin-white-color);
+}
+#dark .dropdownUl a{
+  color: var(--white-color);
+}
+#dark .dropdownUl a:hover{
+  color: var(--green-color);
+}
+
+#dark .customLinks:hover,
+#dark .customLinks:active,
+#dark .customLinks,
+#dark .customLinks:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* **************
+NotFound.js------------
+************** */
+.notFound{
+  padding-top: 4em;
+  flex-grow: 1;
+}
+.notFound h3{
+  padding-bottom: 20px;
+}
+html{
+  height: 100%;
+}
+#root, body, #root>div{
+  height: inherit;
+}
+#dark, #light{
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}

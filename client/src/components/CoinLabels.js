@@ -9,8 +9,8 @@ export default function CoinLabels() {
   }
 
   return (
-    <Card id='coinLabelStyle'>
-      <Card.Body>
+    <Card className='coinLabelStyle'>
+      <Card.Body className='coinLabelBody'>
         <Stack class="mb-4" direction="horizontal" style={stackStyle}>
           <span border="1px solid red" class="me-auto">Rank</span>
           <span border="1px solid red" class="me-auto">Name</span>

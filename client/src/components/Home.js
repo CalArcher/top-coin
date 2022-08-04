@@ -23,16 +23,13 @@ function Home() {
   }
  
   return (
-    <div>
-        <Container>
-          <TopCoin number={0} name={coinDataSorted[0].name} dailyChange={coinDataSorted[0].percent_change_24h/100}></TopCoin> 
-          <CoinLabels></CoinLabels>
+    <Container className='homeCont'>
+      <TopCoin number={0} name={coinDataSorted[0].name} dailyChange={coinDataSorted[0].percent_change_24h/100}></TopCoin> 
+      <CoinLabels></CoinLabels>
           {coinDataSorted.map((coin, i) => {
           return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} coinNames={coinNames} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
           })}
-        </Container>
-    </div>
- 
+    </Container>
   )
 }
 

@@ -8,13 +8,12 @@ import ModeToggle from './ModeToggle';
 export default function NotFound() {
 
   return (
-    <dvi className='notFound'>
-      <ModeToggle></ModeToggle>
-      <Container >
+    <div className='notFound'>
+      <Container className='notFoundCont'>
         <h3>404 page not found :(</h3>
         <Link to='/'><Button className="secondary">Take me home</Button></Link>
       </Container>
-    </dvi>
-    
+      <div></div>
+    </div>
   )
 }

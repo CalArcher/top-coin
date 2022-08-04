@@ -24,6 +24,5 @@ export default function ModeToggle() {
         </label>
       </div>
     </div>
-  
   )
 }

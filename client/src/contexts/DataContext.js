@@ -21,6 +21,9 @@ const DataContext = ({ children }) => {
         setState({coinDataSorted, currentNames})
         setLoading(false)
       })
+      .catch(e => {
+        console.log(e)
+      })
   }, [url])
 
   return (
