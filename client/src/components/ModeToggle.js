@@ -7,10 +7,13 @@ export default function ModeToggle() {
   const {check, theme, toggleTheme } = useContext(ThemeContext)
   let mode = check === true ? 'Dark Mode' : 'Light Mode'
   return (
+
     <div className='toggleContainer'>
+
+
+
       <div className='toggleStyle'>
-        <span className='modeText'>{mode}</span>
-        <label>
+        <label id='test'>
           <input onChange={toggleTheme} className='checkbox' type='checkbox' checked={check}></input>
           <div className='space'>
             <div className='lightbulbWrapper'>
@@ -23,6 +26,12 @@ export default function ModeToggle() {
           </div>
         </label>
       </div>
+      
+      <span className='modeText'>{mode}</span>
+
+
+
     </div>
+
   )
 }

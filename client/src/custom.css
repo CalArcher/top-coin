@@ -9,7 +9,7 @@ General------------
   --black-color: rgba(29,29,29,1);
   --thin-black-color: rgba(29,29,29,.25);
   --white-color: rgba(253,253,253,1);
-  --text-white-color: rgba(253,253,253,.85);
+  --text-white-color: rgba(235,235,235,1);
   --thin-white-color: rgba(253,253,253,.15);
   --green-color: rgb(134, 190, 69);
   --blue-color: rgba(0,104,249);
@@ -207,7 +207,7 @@ Footer.js------------
 #footer {
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
-  padding: 0.75em 5.5em;
+  padding: 2em 5.5em;
   width: 100%;
   margin-top: 5em;
   display: flex;
@@ -229,11 +229,14 @@ Footer.js------------
 }
 
 #footer li {
+  display: flex;
   padding-left: 2em;
   list-style-type: none;
 }
 
 #footer a {
+  display: inline-flex;
+  align-self: center;
   color: var(--black-color);
   text-decoration: none;
 }
@@ -242,13 +245,14 @@ Footer.js------------
 Header.js------------
 ************** */
 .header {
+  background: var(--white-color);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1;
   height: 90px;
   border-bottom: 1px solid var(--thin-black-color);
-  padding: 1em 5.5em;
+  padding: 2.5em 5.5em;
   width: 100%;
   min-width: 865px;
   margin-bottom: 2em;
@@ -305,8 +309,11 @@ ul .dropdownUl {
   padding: 0.75em 1em;
 }
 
-ul .dropdownUl li:not(:last-child) {
+ul .dropdownUl li {
   font-size: 14px;
+}
+
+ul .dropdownUl li:not(:last-child) {
   padding-bottom: 1.5em;
 }
 
@@ -344,12 +351,16 @@ ul .dropdownUl li:not(:last-child) {
 }
 
 /* **************
+AboutCoin.js------------
+************** */
+/* **************
 ModeToggle.js------------
 ************** */
 .toggleContainer {
   display: flex;
+  flex-direction: row-reverse;
   min-width: 180px;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 
@@ -452,7 +463,7 @@ ModeToggle.js------------
   transform: translate(0.35em, 0.35em) rotate(-15deg);
 }
 
-.toggleStyle:hover .modeText {
+.toggleStyle:hover ~ .modeText {
   opacity: 1;
 }
 
@@ -472,8 +483,7 @@ CoinCard.js------------
 }
 
 .coinCard {
-  transition: all 0.15s ease-in-out;
-  color: var(--text-white-color);
+  color: var(--black-color);
   background-color: var(--white-color);
   min-width: 850px;
 }
@@ -483,7 +493,7 @@ CoinCard.js------------
 }
 
 .coinCard:hover {
-  color: var(--white-color);
+  color: var(--black-color);
   background-color: var(--hover-light-color);
 }
 
@@ -540,18 +550,16 @@ Dark Mode------------
   color: var(--white-color);
 }
 
-/* Coincard */
 #dark .coinCard {
   border: 1px solid var(--thin-white-color);
+  color: var(--text-white-color);
   background-color: var(--black-color);
+  min-width: 850px;
 }
 
 #dark .coinCard:hover {
-  background-color: var(--hover-dark-color);
-}
-
-.dark .nameStyle {
   color: var(--white-color);
+  background-color: var(--hover-dark-color);
 }
 
 /* CoinLabels */
