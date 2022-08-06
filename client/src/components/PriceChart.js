@@ -4,9 +4,10 @@ import LineChart from './LineChart';
 
 export default function PriceChart( { name, number } ) {
 
-  const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
+  const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
+
   
-  let logoLink = coinDataSorted[number].currencyLogo
+  let logoLink = coinData[number].currencyLogo
   let searchName = name.charAt(0).toLowerCase() + name.slice(1)
   let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
   

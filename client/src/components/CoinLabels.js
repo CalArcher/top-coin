@@ -1,5 +1,7 @@
 import React from 'react'
 import { Card, Stack } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function CoinLabels() {
   let stackStyle = {
@@ -8,15 +10,17 @@ export default function CoinLabels() {
     gap: '1rem'
   }
 
+  
+
   return (
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>
-        <Stack class="mb-4" direction="horizontal" style={stackStyle}>
-          <span border="1px solid red" class="me-auto">Rank</span>
-          <span border="1px solid red" class="me-auto">Name</span>
-          <span border="1px solid red" class="me-auto">Price</span>
-          <span border="1px solid red" class="me-auto">24h%</span>
-          <span border="1px solid red" class="me-auto">7d%</span>
+        <Stack direction="horizontal" style={stackStyle}>
+          <span border="1px solid red">Rank</span>
+          <span border="1px solid red">Name</span>
+          <span border="1px solid red">Price <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></span>
+          <span border="1px solid red">24h%</span>
+          <span border="1px solid red">7d%</span>
           <span></span>
         </Stack>
       </Card.Body>
