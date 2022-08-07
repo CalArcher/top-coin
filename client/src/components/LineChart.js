@@ -24,11 +24,12 @@ export default function LineChart({ name, number}) {
     fgColor = 'rgba(240,240,240,.15)'
   }
 
-  const [{ coinDataSorted, currentNames }, setState] = useContext(Context)
+  const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
 
-  let toChartRanks = coinDataSorted[number].rank
-  let toChartDates = coinDataSorted[number].date
-  let toChartPrices = coinDataSorted[number].current_price
+
+  let toChartRanks = coinData[number].rank
+  let toChartDates = coinData[number].date
+  let toChartPrices = coinData[number].current_price
 
   const labels = toChartDates
     const data = {

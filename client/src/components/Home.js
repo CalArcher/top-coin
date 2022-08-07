@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import CoinCard from './CoinCard'
 import CoinLabels from './CoinLabels'
-import ModeToggle from './ModeToggle';
 import TopCoin from './TopCoin'
 import { Context } from '../contexts/DataContext'
 
