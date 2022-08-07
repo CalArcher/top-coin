@@ -14,30 +14,49 @@ export default function CoinLabels() {
     gap: '1rem'
   }
 
-  const [sortOrder, setSortOrder] = useState('highLow24h')
-  const [caretUpDown, setCaretUpDown] = useState('faCaretDown')
 
-  function orderIt(){
-    if(sortOrder === ''){
 
+  //highLowPrice lowHighPrice highLow24h lowHigh24h highLow7d lowHigh7d
+
+  
+  let upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
+  let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
+  let nullComponent = <span></span>
+  let sortSymbol1 = nullComponent
+  let sortSymbol2 = upComponent
+  let sortSymbol3 = nullComponent
+
+  function orderIt1(){
+    if(sortSymbol1 === upComponent){
+      sortSymbol1 = downComponent
+      sortSymbol2 = nullComponent
+      sortSymbol3 = nullComponent
+      setSortState('lowHighPrice')
+    }else{
+      sortSymbol1 = upComponent
+      sortSymbol2 = nullComponent
+      sortSymbol3 = nullComponent
+      setSortState('highLowPrice')
     }
+    console.log("AFTER", sortSymbol1, sortSymbol2, sortSymbol3)
   }
+  console.log("BEFORE", sortSymbol1, sortSymbol2, sortSymbol3)
 
-  //IN PROGRESS^^
-  //IN PROGRESS
-  //IN PROGRESS
-  //IN PROGRESS
-
-
+  function orderIt2(){
+    console.log('24h')
+  }
+  function orderIt3(){
+    console.log('24h')
+  }
   return (
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>
         <Stack direction="horizontal" style={stackStyle}>
           <span border="1px solid red">Rank</span>
           <span border="1px solid red">Name</span>
-          <span onClick={orderIt} border="1px solid red">Price <FontAwesomeIcon icon={allIcons[caretUpDown]}></FontAwesomeIcon></span>
-          <span onClick={orderIt} border="1px solid red">24h% <FontAwesomeIcon icon={allIcons[caretUpDown]}></FontAwesomeIcon></span>
-          <span onClick={orderIt} border="1px solid red">7d% <FontAwesomeIcon icon={allIcons[caretUpDown]}></FontAwesomeIcon></span>
+          <span onClick={orderIt1} border="1px solid red">Price {sortSymbol1}</span>
+          <span onClick={orderIt2} border="1px solid red">24h% {sortSymbol2}</span>
+          <span onClick={orderIt3} border="1px solid red">7d% {sortSymbol3}</span>
           <span></span>
         </Stack>
       </Card.Body>

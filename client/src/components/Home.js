@@ -21,7 +21,7 @@ function Home() {
  
   return (
     <Container className='homeCont'>
-      <div onClick={() => setSortState('highLow7d')}>Change State</div>
+      <div onClick={() => setSortState('highLowPrice')}>Change State</div>
       <TopCoin number={0} name={topCoin.name} dailyChange={topCoin.percent_change_24h/100}></TopCoin> 
       <CoinLabels></CoinLabels>
           {coinData.map((coin, i) => {
