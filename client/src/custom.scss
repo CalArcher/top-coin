@@ -419,7 +419,7 @@ CoinCard.js------------
 .coinCard .coinCardStack{
   display: grid;
   grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
-  gap: 1rem;
+  gap: 1em;
 }
 .coinInfoHeading{
   margin: 0;
@@ -439,7 +439,11 @@ CoinCard.js------------
 /* **************
 CoinLabels.js------------
 ************** */
-
+.coinLabelStyle .stackStyle{
+  display: grid;
+  grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
+  gap: 1em;
+}
 
 /* **************
 Light Mode------------

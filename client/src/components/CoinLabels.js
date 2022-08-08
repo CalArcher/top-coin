@@ -6,15 +6,7 @@ import { Context } from '../contexts/DataContext'
 
 
 export default function CoinLabels() {
-  const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
-
-  let stackStyle = {
-    display: 'grid',
-    gridTemplateColumns: '50px 1.75fr 1fr .9fr .9fr 1.1fr',
-    gap: '1rem'
-  }
-
-
+  const [{ coinData, currentNames, sortState, setSortState, topCoin, arrow1, setArrow1, arrow2, setArrow2, arrow3, setArrow3 }, setState] = useContext(Context)
 
   //highLowPrice lowHighPrice highLow24h lowHigh24h highLow7d lowHigh7d
 
@@ -22,36 +14,41 @@ export default function CoinLabels() {
   let upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
   let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
   let nullComponent = <span></span>
-  let sortSymbol1 = nullComponent
-  let sortSymbol2 = upComponent
-  let sortSymbol3 = nullComponent
+  let sortSymbol1 = arrow1
+  let sortSymbol2 = arrow2
+  let sortSymbol3 = arrow3
 
   function orderIt1(){
+    //if condition not working right now, just else
     if(sortSymbol1 === upComponent){
-      sortSymbol1 = downComponent
-      sortSymbol2 = nullComponent
-      sortSymbol3 = nullComponent
+      console.log('---------------------')
+      console.log('SORT DOWN')
+      console.log('---------------------')
+      setArrow1(downComponent)
+      setArrow2(nullComponent)
+      setArrow3(nullComponent) 
       setSortState('lowHighPrice')
     }else{
-      sortSymbol1 = upComponent
-      sortSymbol2 = nullComponent
-      sortSymbol3 = nullComponent
+      setArrow1(upComponent)
+      setArrow2(nullComponent)
+      setArrow3(nullComponent) 
       setSortState('highLowPrice')
     }
     console.log("AFTER", sortSymbol1, sortSymbol2, sortSymbol3)
   }
   console.log("BEFORE", sortSymbol1, sortSymbol2, sortSymbol3)
+  console.log('-----LOADED------')
 
   function orderIt2(){
     console.log('24h')
   }
   function orderIt3(){
-    console.log('24h')
+    console.log('7d')
   }
   return (
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>
-        <Stack direction="horizontal" style={stackStyle}>
+        <Stack className='stackSyle' direction="horizontal">
           <span border="1px solid red">Rank</span>
           <span border="1px solid red">Name</span>
           <span onClick={orderIt1} border="1px solid red">Price {sortSymbol1}</span>
