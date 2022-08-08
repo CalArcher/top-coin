@@ -539,6 +539,13 @@ CoinLabels.js------------
   gap: 1em;
 }
 
+.stackStyle span {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 /* **************
 Light Mode------------
 ************** */

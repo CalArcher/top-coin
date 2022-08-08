@@ -444,6 +444,10 @@ CoinLabels.js------------
   grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
   gap: 1em;
 }
+.stackStyle span{
+  cursor: pointer;
+  width: fit-content;
+}
 
 /* **************
 Light Mode------------
