@@ -19,7 +19,7 @@ const DataContext = ({ children }) => {
 
   useEffect(() => {
     let coinNames = []
-    let coinsUpper = []
+    // let coinsUpper = []
     let coinList = []
 
     axios.get(url)
