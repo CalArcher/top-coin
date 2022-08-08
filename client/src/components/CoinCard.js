@@ -5,8 +5,8 @@ import React from 'react';
 
 
 export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
-
-  let link = `/about/${name}?q=${number}`
+  let lowName = name.toLowerCase()
+  let link = `/about/${lowName}?q=${number}`
   return (
     <Card className='coinCard'>
       <Card.Body className='coinCardBody'>
