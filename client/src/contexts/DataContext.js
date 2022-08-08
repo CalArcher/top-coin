@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as allIcons from '@fortawesome/free-solid-svg-icons';
 
 export const Context = React.createContext()
 
@@ -18,13 +16,6 @@ const DataContext = ({ children }) => {
   console.log('sortstate', sortState)
 
 
-  let upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
-  let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
-  let nullComponent = <span></span>
-
-  const [arrow1, setArrow1] = useState(nullComponent)
-  const [arrow2, setArrow2] = useState(upComponent)
-  const [arrow3, setArrow3] = useState(nullComponent)
 
 
   let url = 'http://localhost:3030/coindata'
@@ -102,7 +93,7 @@ const DataContext = ({ children }) => {
               coinsUpper.push(weeklyHighLow[i].name)
             }
           }
-          else if(sortState === 'low2High7d'){
+          else if(sortState === 'lowHigh7d'){
             let weeklyLowHigh = initCoinDataSorted.slice(0,10)
             weeklyLowHigh.sort((a,b) => a.percent_change_7d - b.percent_change_7d)
             coinList = weeklyLowHigh
@@ -134,7 +125,7 @@ const DataContext = ({ children }) => {
       .catch(e => {
         console.log(e)
       })
-  }, [sortState, arrow1, arrow2, arrow3])
+  }, [sortState])
 
 
   console.log('coindata',coinData)
@@ -143,7 +134,7 @@ const DataContext = ({ children }) => {
       {isLoading ? 
         <LoadingScreen></LoadingScreen>
       : 
-          <Context.Provider value={[{ coinData, currentNames, sortState, setSortState, topCoin, arrow1, setArrow1, arrow2, setArrow2, arrow3, setArrow3 }, setState]}>{children}</Context.Provider>
+          <Context.Provider value={[{ coinData, currentNames, sortState, setSortState, topCoin }, setState]}>{children}</Context.Provider>
       }
     </div>
   )
