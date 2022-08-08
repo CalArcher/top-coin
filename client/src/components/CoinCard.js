@@ -4,29 +4,26 @@ import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from '
 import React from 'react';
 
 
+export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
 
-export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo, coinNames }) {
-  
   let link = `/about/${name}?q=${number}`
-
   return (
-      <Card className='coinCard'>
-        <Card.Body className='coinCardBody'>
-          <Stack direction="horizontal" className='coinCardStack'>
-            <h5 className="coinInfoHeading">{rank}</h5>
-            <div className='nameStyle'>
-              <Link to={link} number={number} className='customLinks coinTitleImg'>
-                <Image className='iconStyle hover-shadow' src={coinLogo}></Image>
-                <h5 className='coinInfoHeading'>{name}</h5>
-              </Link>
-            </div>
-           
-            <span>{currencyFormatter.format(currentPrice)}</span>
-            <span>{percentageFormatter.format(dailyChange)}</span>
-            <span>{percentageFormatter.format(weeklyChange)}</span>
-            <Link to={`/about/${name}?q=${number}`} style={{textDecoration: 'none'}}><Button variant="primary">Historical Data</Button></Link>
-          </Stack>
-        </Card.Body>
-      </Card>
+    <Card className='coinCard'>
+      <Card.Body className='coinCardBody'>
+        <Stack direction="horizontal" className='coinCardStack'>
+          <h5 className="coinInfoHeading">{rank}</h5>
+          <div className='nameStyle'>
+            <Link to={link} number={number} className='customLinks coinTitleImg'>
+              <Image className='iconStyle hover-shadow' src={coinLogo}></Image>
+              <h5 className='coinInfoHeading'>{name}</h5>
+            </Link>
+          </div>
+          <span>{currencyFormatter.format(currentPrice)}</span>
+          <span>{percentageFormatter.format(dailyChange)}</span>
+          <span>{percentageFormatter.format(weeklyChange)}</span>
+          <Link to={link} style={{textDecoration: 'none'}}><Button variant="primary">Historical Data</Button></Link>
+        </Stack>
+      </Card.Body>
+    </Card>
   )
 }

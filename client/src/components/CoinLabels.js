@@ -34,12 +34,9 @@ export default function CoinLabels() {
   }
 
 
-
   function orderIt1(){
-    console.log('ORDERIT1', sortState)
     if(sortState === 'highLowPrice'){
       setSortState('lowHighPrice')
-      console.log('sorted')
     }else{
       setSortState('highLowPrice')
     }
@@ -58,10 +55,6 @@ export default function CoinLabels() {
       setSortState('highLow7d')
     }
   }
-  console.log('symb', sortSymbols)
-  console.log('-----------')
-  console.log('----LOADED---')
-  console.log('-----------')
 
   return (
     <Card className='coinLabelStyle'>

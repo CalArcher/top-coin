@@ -6,13 +6,15 @@ import { useParams, useSearchParams } from 'react-router-dom';
 
 export default function AboutCoin() {
   const { id } = useParams()
+  let idUp = id.charAt(0).toUpperCase() + id.slice(1)
+  
   const [searchParams] = useSearchParams()
   let q = searchParams.get('q')
 
   return (
     <div>
       <Container>
-        <PriceChart name={id} number={q} className="me-auto"></PriceChart>
+        <PriceChart name={idUp} number={q} className="me-auto"></PriceChart>
       </Container>
     </div>
     

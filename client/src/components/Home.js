@@ -9,23 +9,23 @@ import { Context } from '../contexts/DataContext'
 
 function Home() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
-  let coinsUpper = []
-  console.log(coinData)
 
-  for(let i=0; i<currentNames.length; i++){
-    if(typeof currentNames[i].charAt(0) === 'string'){
-      currentNames[i] = currentNames[i].charAt(0).toUpperCase() + currentNames[i].slice(1)
-    }
-    coinsUpper.push(currentNames[i])
-  }
+  let coinsUpper = currentNames
+
+  //let coinsUpper = []
+  // for(let i=0; i<currentNames.length; i++){
+  //   if(typeof currentNames[i].charAt(0) === 'string'){
+  //     currentNames[i] = currentNames[i].charAt(0).toUpperCase() + currentNames[i].slice(1)
+  //   }
+  //   coinsUpper.push(currentNames[i])
+  // }
  
   return (
     <Container className='homeCont'>
-      <div onClick={() => setSortState('highLowPrice')}>Change State</div>
       <TopCoin number={0} name={topCoin.name} dailyChange={topCoin.percent_change_24h/100}></TopCoin> 
       <CoinLabels></CoinLabels>
           {coinData.map((coin, i) => {
-          return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} coinNames={coinsUpper} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
+          return <CoinCard key={i} number={i} name={coinsUpper[i]} currentPrice={coin.current_price[coin.current_price.length-1]} rank={coin.rank[coin.rank.length-1]} dailyChange={coin.percent_change_24h/100} weeklyChange={coin.percent_change_7d/100} coinLogo={coin.currencyLogo} ></CoinCard>
           })}
     </Container>
   )
