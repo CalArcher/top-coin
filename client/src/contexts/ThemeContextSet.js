@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 export const ThemeContext = React.createContext()
 
 const ThemeContextSet = ({ children }) => {
-  //checks local storage for saved light/dark mode, defaults to false
+  //checks local storage for saved light/dark mode, defaults to false (light mode)
   let checkMode = JSON.parse(localStorage.getItem('check'))
   let startValue = false
   if(checkMode){
@@ -22,6 +22,7 @@ const ThemeContextSet = ({ children }) => {
     ans = theme === 'light' ? true : false
     setCheck(ans)
     localStorage.setItem('check', ans)
+    console.log('toggled' + ans)
   }
   
   return (
@@ -30,3 +31,6 @@ const ThemeContextSet = ({ children }) => {
 }
 
 export default ThemeContextSet;
+
+//NEW
+export const useTheme = () => useContext(ThemeContext)

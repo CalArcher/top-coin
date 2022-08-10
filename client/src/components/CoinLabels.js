@@ -62,8 +62,8 @@ export default function CoinLabels() {
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>
         <Stack className='noSelect stackStyle' direction="horizontal">
-          <span style={cursorStyle}>Rank</span>
-          <span style={cursorStyle}>Name</span>
+          <span>Rank</span>
+          <span>Name</span>
           <span className='clickable' onClick={orderIt1}>Price {sortSymbols[0]}</span>
           <span className='clickable' onClick={orderIt2}>24h% {sortSymbols[1]}</span>
           <span className='clickable' onClick={orderIt3}>7d% {sortSymbols[2]}</span>

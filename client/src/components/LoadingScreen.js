@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../contexts/ThemeContextSet'
+import React from 'react'
+import { useTheme } from '../contexts/ThemeContextSet'
 
 export default function LoadingScreen() {
-  const {check, theme, toggleTheme } = useContext(ThemeContext)
+  const {check, theme, toggleTheme } = useTheme()
   let bgColor = 'rgb(253,253,253)'
   let fgColor = 'rgba(0,104,249, 0.6)'
   if(theme === 'dark'){

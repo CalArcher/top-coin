@@ -1,19 +1,17 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faMoon } from '@fortawesome/free-solid-svg-icons'
-import { ThemeContext } from '../contexts/ThemeContextSet'
+import { useTheme } from '../contexts/ThemeContextSet'
 
 export default function ModeToggle() {
-  const {check, theme, toggleTheme } = useContext(ThemeContext)
+  const {check, toggleTheme } = useTheme()
+
   let mode = check === true ? 'Dark Mode' : 'Light Mode'
+
   return (
-
     <div className='toggleContainer'>
-
-
-
       <div className='toggleStyle'>
-        <label>
+        <label className='clickable'>
           <input onChange={toggleTheme} className='checkbox' type='checkbox' checked={check}></input>
           <div className='space'>
             <div className='lightbulbWrapper'>
@@ -28,6 +26,5 @@ export default function ModeToggle() {
       </div>
       <span className='noSelect modeText'>{mode}</span>
     </div>
-
   )
 }

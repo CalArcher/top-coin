@@ -26,10 +26,20 @@ export default function LineChart({ name, number}) {
 
   const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
 
+  let allChartRanks = coinData[number].rank
+  let rLength = allChartRanks.length
+  let allChartDates = coinData[number].date
+  let dLength = allChartDates.length
+  let allChartPrices = coinData[number].current_price
+  let pLength = allChartPrices.length
 
-  let toChartRanks = coinData[number].rank
-  let toChartDates = coinData[number].date
-  let toChartPrices = coinData[number].current_price
+  // let toChartRanks = allChartRanks
+  // let toChartDates = allChartDates
+  // let toChartPrices = allChartPrices
+
+  let toChartRanks = rLength > 100 ? allChartRanks.slice(rLength - 100, dLength) : allChartRanks
+  let toChartDates = dLength > 100 ? allChartDates.slice(dLength - 100, dLength) : allChartDates
+  let toChartPrices = pLength > 100 ? allChartPrices.slice(pLength - 100, pLength) : allChartPrices
 
   const labels = toChartDates
     const data = {
