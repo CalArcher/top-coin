@@ -2,6 +2,7 @@ require('dotenv').config()
 
 // import modules / declaring variables
 const express = require('express')
+const path = require('path')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const PORT = process.env.PORT 
@@ -23,7 +24,7 @@ app.use(cors())
 app.use(compression())
 
 // routes
-app.use('/coindata', coinDataRoutes)
+app.use('/api/coindata', coinDataRoutes)
 
 //db
 mongoose.connect(process.env.DATABASE_URL)
@@ -39,11 +40,12 @@ mongoose.connect(process.env.DATABASE_URL)
     console.log(err)
   })
 
-  if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, '/client/build')))
+//serve build folder
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, '/client/build')))
   
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-    })
-  }
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+  })
+}
   

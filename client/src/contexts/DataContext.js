@@ -15,7 +15,7 @@ const DataContext = ({ children }) => {
   const [coinDataSorted, setCoinDataSorted] = useState([])
 
 
-  let url = 'http://localhost:3030/coindata'
+  let url = 'http://localhost:3030/api/coindata'
 
   useEffect(() => {
     let coinNames = []

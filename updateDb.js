@@ -41,7 +41,7 @@ class UpdateData{
   }
 
   async fetchCurrent(){
-    let url = 'http://localhost:3030/coindata'
+    let url = 'http://localhost:3030/api/coindata'
     try{
       let res = await fetch(url)
       let data = await res.json()
@@ -92,7 +92,7 @@ class UpdateData{
           'percent_change_1y': newData[i].percent_change_1y,
           date: oldDates
         }
-        let updateURL = `http://localhost:3030/coindata/${updateId}`
+        let updateURL = `http://localhost:3030/api/coindata/${updateId}`
         try{
           fetch(updateURL, {
             method: 'PATCH',
@@ -109,7 +109,7 @@ class UpdateData{
         }
       } else {
         console.log('POST')
-        let postURL = 'http://localhost:3030/coindata'
+        let postURL = 'http://localhost:3030/api/coindata'
         newCoin = newData[i]
         console.log(newCoin)
         try{
