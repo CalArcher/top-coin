@@ -6,8 +6,8 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const PORT = process.env.PORT 
 const coinDataRoutes = require('./routes/CoinData')
+const compression = require('compression')
 let updateDb = require('./updateDb')
-const schedule = require('node-schedule')
 
 //app
 const app = express()
@@ -20,6 +20,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 app.use(cors())
+app.use(compression())
 
 // routes
 app.use('/coindata', coinDataRoutes)
