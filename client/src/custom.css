@@ -21,6 +21,10 @@ General------------
   cursor: pointer;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -547,7 +551,6 @@ CoinLabels.js------------
 }
 
 .stackStyle span {
-  cursor: pointer;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
