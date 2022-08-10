@@ -55,16 +55,18 @@ export default function CoinLabels() {
       setSortState('highLow7d')
     }
   }
-
+  let cursorStyle = {
+    cursor: 'default'
+  }
   return (
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>
-        <Stack className='stackStyle' direction="horizontal">
-          <span border="1px solid red">Rank</span>
-          <span border="1px solid red">Name</span>
-          <span onClick={orderIt1} border="1px solid red">Price {sortSymbols[0]}</span>
-          <span onClick={orderIt2} border="1px solid red">24h% {sortSymbols[1]}</span>
-          <span onClick={orderIt3} border="1px solid red">7d% {sortSymbols[2]}</span>
+        <Stack className='noSelect stackStyle' direction="horizontal">
+          <span style={cursorStyle}>Rank</span>
+          <span style={cursorStyle}>Name</span>
+          <span className='clickable' onClick={orderIt1}>Price {sortSymbols[0]}</span>
+          <span className='clickable' onClick={orderIt2}>24h% {sortSymbols[1]}</span>
+          <span className='clickable' onClick={orderIt3}>7d% {sortSymbols[2]}</span>
           <span></span>
         </Stack>
       </Card.Body>

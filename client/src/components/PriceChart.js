@@ -15,8 +15,8 @@ export default function PriceChart( { name, number } ) {
   return (
     <div className='priceChartWrapper'>
       <div className='coinTitle'>
-          <img src={logoLink} alt='cryptocurrency logo'></img>
-          <a href={moreCoinInfo} target='_blank'>{name}</a>
+          <img className='noSelect' src={logoLink} alt='cryptocurrency logo'></img>
+          <a className='noSelect' href={moreCoinInfo} target='_blank'>{name}</a>
       </div>
       <div className='chartStyle'>
         <LineChart name={name} number={number}></LineChart>

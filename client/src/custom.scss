@@ -25,10 +25,16 @@ General------------
 .hoverColor{
   cursor: pointer;
 }
+.clickable{
+  cursor: pointer;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.noSelect{
+  user-select: none;
 }
 .customLinksUnderlined {
   text-decoration: underline;
@@ -79,6 +85,7 @@ PriceChart.js------------
   width: 60px;
   height: 60px;
   margin-right: 1rem;
+  align-self: ;
 }
 
 
@@ -445,9 +452,9 @@ CoinLabels.js------------
   gap: 1em;
 }
 .stackStyle span{
-  cursor: pointer;
   width: fit-content;
 }
+
 
 /* **************
 Light Mode------------
@@ -545,3 +552,4 @@ html{
   display: flex;
   flex-direction: column;
 }
+

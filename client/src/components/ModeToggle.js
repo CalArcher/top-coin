@@ -13,7 +13,7 @@ export default function ModeToggle() {
 
 
       <div className='toggleStyle'>
-        <label id='test'>
+        <label>
           <input onChange={toggleTheme} className='checkbox' type='checkbox' checked={check}></input>
           <div className='space'>
             <div className='lightbulbWrapper'>
@@ -26,11 +26,7 @@ export default function ModeToggle() {
           </div>
         </label>
       </div>
-      
-      <span className='modeText'>{mode}</span>
-
-
-
+      <span className='noSelect modeText'>{mode}</span>
     </div>
 
   )
