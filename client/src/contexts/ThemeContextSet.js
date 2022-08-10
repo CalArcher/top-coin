@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 export const ThemeContext = React.createContext()
 
@@ -22,7 +22,6 @@ const ThemeContextSet = ({ children }) => {
     ans = theme === 'light' ? true : false
     setCheck(ans)
     localStorage.setItem('check', ans)
-    console.log('toggled' + ans)
   }
   
   return (
@@ -32,5 +31,4 @@ const ThemeContextSet = ({ children }) => {
 
 export default ThemeContextSet;
 
-//NEW
 export const useTheme = () => useContext(ThemeContext)

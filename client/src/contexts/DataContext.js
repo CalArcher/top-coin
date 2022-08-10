@@ -24,7 +24,6 @@ const DataContext = ({ children }) => {
 
     axios.get(url)
       .then(data => {
-        console.log('FETCHED')
         let initCoinDataSorted = data.data.slice(0,10).sort((a,b) => b.percent_change_24h - a.percent_change_24h)
         // let currentNames = []
         // initCoinDataSorted.forEach(coin => {
@@ -42,8 +41,6 @@ const DataContext = ({ children }) => {
         setCurrentNames(coinNames)
         setState({coinData, currentNames, sortState, setSortState, topCoin})
         setLoading(false)
-
-        console.log('coinNames/list', coinNames, coinList)
       })
       .catch(e => {
         console.log(e)

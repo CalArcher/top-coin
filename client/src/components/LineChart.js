@@ -8,9 +8,8 @@ ChartJS.register(...registerables)
 
 export default function LineChart({ name, number}) {
 
-  
-
   const {check, theme, toggleTheme } = useContext(ThemeContext)
+
   let bgColor = 'rgba(0, 104, 249, 0.5)'
   let fgColor = 'rgba(29,29,29,.25)'
   let redColor = 'rgba(231,71,92,1)'
@@ -18,6 +17,7 @@ export default function LineChart({ name, number}) {
   let chartColor = 'rgba(0,104,249.1)'
   let chartColorThin = 'rgba(0,104,249,.5)'
   let fontColor = 'rgba(29,29,29,1)'
+
   if(theme === 'dark'){
     fontColor = 'rgba(240,240,240,.7)'
     bgColor = 'rgb(29,29,29)'
@@ -33,9 +33,9 @@ export default function LineChart({ name, number}) {
   let allChartPrices = coinData[number].current_price
   let pLength = allChartPrices.length
 
-  // let toChartRanks = allChartRanks
-  // let toChartDates = allChartDates
-  // let toChartPrices = allChartPrices
+  //If I want to increase the fetch frequency, and therefor increase the length of ranks, dates, and prices arrays in the future, I will implement either a scroll bar (easier), add a date range selector (harder), or make a feature like CoinGecko has and take the average price of, for example, 7 consecutive days to make one data point. This will allow showing higher ranges without the need for thousands of data points. 
+
+  //Right now, a coin's date, rank, or price array won't get to over 100 for a few years. 
 
   let toChartRanks = rLength > 100 ? allChartRanks.slice(rLength - 100, dLength) : allChartRanks
   let toChartDates = dLength > 100 ? allChartDates.slice(dLength - 100, dLength) : allChartDates

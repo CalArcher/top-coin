@@ -18,5 +18,4 @@ router.post('/', createCoinData)
 router.patch('/:id', updateCoinData)
 
 
-
 module.exports = router
