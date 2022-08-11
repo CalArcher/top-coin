@@ -32,7 +32,7 @@ export default function Header() {
                   <li><a href='https://www.coingecko.com/learn/category/guides' target={"_blank"}>Guides</a></li>
                   <li><a href='https://www.coindesk.com/' target={"_blank"}>News</a></li>
                   <li><a href='https://www.coindesk.com/learn/what-are-nfts-and-how-do-they-work/' target={"_blank"}>What are NFTs</a></li>
-                  <li><a href='https://www.youtube.com/watch?v=NtcvJSA6B3M' target={"_blank"}>How does crypto work? (video) </a></li>
+                  <li><a href='https://www.youtube.com/watch?v=NtcvJSA6B3M' target={"_blank"}>What is Cryptocurrency? (video)</a></li>
                   <li><a href='https://coinmarketcap.com/airdrop/' target={"_blank"}>Airdrops</a></li>
 
                 </ul>
