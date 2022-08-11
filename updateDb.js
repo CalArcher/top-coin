@@ -54,7 +54,6 @@ class UpdateData{
   async compareAndUpdate(){
     let currentData = await this.fetchCurrent()
     let newData = await this.getNewData()
-    console.log(newData)
    
     let update = {}
     let updateId = ''
@@ -108,10 +107,8 @@ class UpdateData{
           console.log(e)
         }
       } else {
-        console.log('POST')
         let postURL = 'http://localhost:3030/api/coindata'
         newCoin = newData[i]
-        console.log(newCoin)
         try{
           fetch(postURL, {
             method: 'POST',
