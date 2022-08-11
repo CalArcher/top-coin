@@ -14,7 +14,7 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
           <h5 className="coinInfoHeading">{rank}</h5>
           <div className='nameStyle'>
             <Link to={link} number={number} className='customLinks coinTitleImg'>
-              <Image className='iconStyle hover-shadow' src={coinLogo}></Image>
+              <Image className='iconStyle hover-shadow' src={coinLogo} alt={`${name} logo`}></Image>
               <h5 className='coinInfoHeading'>{name}</h5>
             </Link>
           </div>
