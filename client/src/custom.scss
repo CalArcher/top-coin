@@ -419,6 +419,8 @@ CoinCard.js------------
 .coinTitleImg{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 .coinCard .coinCardStack{
   display: grid;
@@ -428,6 +430,9 @@ CoinCard.js------------
 .coinInfoHeading{
   margin: 0;
   padding: 0;
+}
+.nameStyle *{
+  border: 1px solid red;
 }
 .nameStyle{
   /* color: var(--black-color); */

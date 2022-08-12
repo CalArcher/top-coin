@@ -517,6 +517,8 @@ CoinCard.js------------
 .coinTitleImg {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .coinCard .coinCardStack {
@@ -528,6 +530,10 @@ CoinCard.js------------
 .coinInfoHeading {
   margin: 0;
   padding: 0;
+}
+
+.nameStyle * {
+  border: 1px solid red;
 }
 
 .nameStyle {
