@@ -532,10 +532,6 @@ CoinCard.js------------
   padding: 0;
 }
 
-.nameStyle * {
-  border: 1px solid red;
-}
-
 .nameStyle {
   /* color: var(--black-color); */
   display: flex;
