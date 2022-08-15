@@ -83,7 +83,7 @@ Step 4: Deployment:
 
 &nbsp;
 
-![](/readmeImg/top-coin-performance.png)
+![](/readmeImg/performance.png)
 
 &nbsp;
 
