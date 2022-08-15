@@ -24,6 +24,8 @@ export default function LineChart({ name, number}) {
     fgColor = 'rgba(240,240,240,.15)'
   }
 
+  let nameNoDash = name.replaceAll('-', ' ')
+
   const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
 
   let allChartRanks = coinData[number].rank
@@ -122,7 +124,7 @@ export default function LineChart({ name, number}) {
         },
         title: {
           display: true,
-          text: `${name}'s performance history while ranked in the top 10 coins of the day`,
+          text: `${nameNoDash}'s performance history while ranked in the top 10 coins of the day`,
           color: fontColor,
           font: {
             weight: 'bold',

@@ -7,6 +7,9 @@ import React from 'react';
 export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
   let lowName = name.toLowerCase()
   let link = `/about/${lowName}?q=${number}`
+
+  let nameNoDash = name.replaceAll('-', ' ')
+  
   return (
     <Card className='coinCard'>
       <Card.Body className='coinCardBody'>
@@ -15,7 +18,7 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
           <div className='nameStyle'>
             <Link to={link} number={number} className='customLinks coinTitleImg'>
               <Image className='iconStyle hover-shadow' src={coinLogo} alt={`${name} logo`}></Image>
-              <h5 className='coinInfoHeading'>{name}</h5>
+              <h5 className='coinInfoHeading'>{nameNoDash}</h5>
             </Link>
           </div>
           <span>{currencyFormatter.format(currentPrice)}</span>
