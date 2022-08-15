@@ -4,7 +4,18 @@
 
 &nbsp;
 
-![](/readmeImg/topCoinDemo.gif)
+![](https://img.shields.io/badge/MongoDB-informational?style=flat&logo=mongodb&logoColor=white&color=green)
+&nbsp;
+![](https://img.shields.io/badge/Express-informational?style=flat&logo=express&logoColor=white&color=lightgray)
+&nbsp; ![](https://img.shields.io/badge/React-informational?style=flat&logo=react&logoColor=white&color=informational)
+&nbsp; 
+![](https://img.shields.io/badge/Node.js-informational?style=flat&logo=node.js&logoColor=white&color=darkgreen) 
+&nbsp; 
+![](https://img.shields.io/badge/Chart.js-informational?style=flat&logo=Chart.js&logoColor=white&color=important)
+
+&nbsp;
+
+![](/readmeImg/top-coin-demo.gif)
 
 &nbsp;
 
@@ -16,7 +27,6 @@ In the end, this project took well over 200 hours from start to finish, and allo
 
 - [Overview](#overview)
 - [My process](#my-process)
-  - [Built with](#built-with)\
   - [Performance](#performance)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
@@ -63,29 +73,10 @@ Step 4: Deployment:
 
 &nbsp;
 
-### Built with:
-
-&nbsp;
-
-- ![](https://img.shields.io/badge/MongoDB-informational?style=flat&logo=mongodb&logoColor=white&color=green)
-
-- ![](https://img.shields.io/badge/Express-informational?style=flat&logo=express&logoColor=white&color=lightgray)
-
-- ![](https://img.shields.io/badge/React-informational?style=flat&logo=react&logoColor=white&color=informational)
-
-- ![](https://img.shields.io/badge/Node.js-informational?style=flat&logo=node.js&logoColor=white&color=darkgreen)
-
-- ![](https://img.shields.io/badge/Chart.js-informational?style=flat&logo=Chart.js&logoColor=white&color=important)
-
-&nbsp;
-
 ### Performance
-
-&nbsp;
 
 ![](/readmeImg/performance.png)
 
-&nbsp;
 
 - The first big performance improvement I made was learning about and utilized memoization (caching the result of a function's output). As each different page load was making another fetch request to my API, my load times were greatly reduced. I implemented this by setting a global context that stored the fetched data. It would only make another fetch request if the page was manually refreshed, not every time internal pages were routed to. You will now notice that when clicking on one of the top 10 coins from the home page, its corresponding chart will load instantly, as well as when you return back to the home page. 
 
@@ -93,11 +84,20 @@ Step 4: Deployment:
 
 ### What I learned
 
-
+&nbsp;
 
 ### Continued development
 
-In the future, I'll publish a live site for this and make it responsive for mobile phones and other screen sizes.
+- Currently, the site is not responsive or mobile friendly. The main purpose of this project was to improve my talents in MERN, so I prioritized that first. In the coming months I plan to have this site fully responsive. 
+- Right now, all of the links in the dropdown menus are to external sources. I would like to find a better way to do this, like having internal routes to that information. There is still a lot to plan here and think about, so this improvement might be a ways off.
+- The last big piece I see that needs fixing is the individual coin's charts. After around 250 data points are shown on the chart at a time, the chart starts lagging when you move your cursor over it. To solve this, I have the chart limited to 100 of the coin's most recent data points shown at a time. This is not currently a concern, as it is highly unlikely that within a year, a single coin will have accumulated over 100 data points. My solution to fix this is to either: 
+  
+  1. Display the data similar to how other coin tracker sites work, and have range selectors. If the user selects "all time data", I would have an array that has found the average price of however data points are necessary to keep the total data points on the chart (array length) less than 100.
+
+
+  2. Make a page system with two clickable arrows which will show 100 data points on each page, or a horizontal scroll bar. This would be idea for getting the exact dates of when the coin was in the top 10 coins of the day. For accuracy, I will most likely chose this option.  
+
+&nbsp;
 
 ### Useful resources
 
