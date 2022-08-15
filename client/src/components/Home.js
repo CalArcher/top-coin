@@ -5,21 +5,11 @@ import CoinLabels from './CoinLabels'
 import TopCoin from './TopCoin'
 import { Context } from '../contexts/DataContext'
 
-//TODO every time db is updated, update homepage
-
 function Home() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
 
   let coinsUpper = currentNames
 
-  //let coinsUpper = []
-  // for(let i=0; i<currentNames.length; i++){
-  //   if(typeof currentNames[i].charAt(0) === 'string'){
-  //     currentNames[i] = currentNames[i].charAt(0).toUpperCase() + currentNames[i].slice(1)
-  //   }
-  //   coinsUpper.push(currentNames[i])
-  // }
- 
   return (
     <Container className='homeCont'>
       <TopCoin number={0} name={topCoin.name} dailyChange={topCoin.percent_change_24h/100}></TopCoin> 

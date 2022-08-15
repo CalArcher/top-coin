@@ -4,13 +4,13 @@ import ModeToggle from './ModeToggle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
-
-
 export default function Header() {
   return (
     <header className='header'>
         <ul>
+
           <li><Link to='/' className='customLinks'><h4>Top Coin</h4></Link></li>
+          
           <li>
             <div className='dropdown'>
               <h6 className='hoverColor'>Cryptocurrencies <FontAwesomeIcon icon={faCaretDown}></FontAwesomeIcon></h6>
@@ -34,13 +34,12 @@ export default function Header() {
                   <li><a href='https://www.coindesk.com/learn/what-are-nfts-and-how-do-they-work/' target={"_blank"}>What are NFTs</a></li>
                   <li><a href='https://www.youtube.com/watch?v=NtcvJSA6B3M' target={"_blank"}>What is Cryptocurrency? (video)</a></li>
                   <li><a href='https://coinmarketcap.com/airdrop/' target={"_blank"}>Airdrops</a></li>
-
                 </ul>
               </div>
             </div>
           </li>
+
         </ul>
-        
       <ModeToggle id='headerToggle'></ModeToggle>
     </header>
   )

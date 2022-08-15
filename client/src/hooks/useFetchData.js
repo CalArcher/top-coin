@@ -1,12 +1,10 @@
-import React, { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import axios from 'axios'
-import LoadingScreen from '../components/LoadingScreen'
 
 const useFetchData = (url) => {
   const [isLoading, setLoading] = useState(true)
   const [coinData, setCoinData] = useState([])
   const [currentNames, setCurrentNames] = useState([])
-
 
   useEffect(() => {
     axios.get(url)
@@ -21,7 +19,6 @@ const useFetchData = (url) => {
         setLoading(false)
       })
   }, [url])
-
 
   return {coinData, isLoading, currentNames}
 }

@@ -8,9 +8,6 @@ import { Context } from '../contexts/DataContext'
 export default function CoinLabels() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
 
-  //highLowPrice lowHighPrice highLow24h lowHigh24h highLow7d lowHigh7d
-
-  
   let upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
   let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
   let nullComponent = <span></span>
@@ -33,7 +30,6 @@ export default function CoinLabels() {
     sortSymbols = [nullComponent, upComponent, nullComponent]
   }
 
-
   function orderIt1(){
     if(sortState === 'highLowPrice'){
       setSortState('lowHighPrice')
@@ -55,9 +51,7 @@ export default function CoinLabels() {
       setSortState('highLow7d')
     }
   }
-  let cursorStyle = {
-    cursor: 'default'
-  }
+
   return (
     <Card className='coinLabelStyle'>
       <Card.Body className='coinLabelBody'>

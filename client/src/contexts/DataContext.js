@@ -14,21 +14,16 @@ const DataContext = ({ children }) => {
   const [state, setState] = useState([])
   const [coinDataSorted, setCoinDataSorted] = useState([])
 
-
   let url = 'http://localhost:3030/api/coindata'
 
   useEffect(() => {
     let coinNames = []
-    // let coinsUpper = []
     let coinList = []
 
     axios.get(url)
       .then(data => {
         let initCoinDataSorted = data.data.slice(0,10).sort((a,b) => b.percent_change_24h - a.percent_change_24h)
-        // let currentNames = []
-        // initCoinDataSorted.forEach(coin => {
-        //   coinNames.push(coin.name.charAt(0).toUpperCase() + coin.name.slice(1))
-        // })
+     
         coinList = initCoinDataSorted
         for(let i=0; i<initCoinDataSorted.length; i++){
           if(typeof initCoinDataSorted[i].name.charAt(0) === 'string'){
@@ -47,12 +42,8 @@ const DataContext = ({ children }) => {
       })
   }, [])
 
-
- 
-
   useEffect(() => {
           let coinNames = []
-          // let coinsUpper = []
           let coinList = []
     
           if(sortState === 'highLowPrice'){
@@ -64,7 +55,6 @@ const DataContext = ({ children }) => {
                 priceHighToLow[i].name = priceHighToLow[i].name.charAt(0).toUpperCase() + priceHighToLow[i].name.slice(1)
               }
               coinNames.push(priceHighToLow[i].name)
-              // coinsUpper.push(priceHighToLow[i].name)
             }
           }
           else if(sortState === 'lowHighPrice'){
@@ -76,7 +66,6 @@ const DataContext = ({ children }) => {
                 priceLowToHigh[i].name = priceLowToHigh[i].name.charAt(0).toUpperCase() + priceLowToHigh[i].name.slice(1)
               }
               coinNames.push(priceLowToHigh[i].name)
-              // coinsUpper.push(priceLowToHigh[i].name)
             }
           }
           else if(sortState === 'highLow24h'){
@@ -88,7 +77,6 @@ const DataContext = ({ children }) => {
                 dailyHighLow[i].name = dailyHighLow[i].name.charAt(0).toUpperCase() + dailyHighLow[i].name.slice(1)
               }
               coinNames.push(dailyHighLow[i].name)
-              // coinsUpper.push(dailyHighLow[i].name)
             }
           }
           else if(sortState === 'lowHigh24h'){
@@ -100,7 +88,6 @@ const DataContext = ({ children }) => {
                 dailyLowToHigh[i].name = dailyLowToHigh[i].name.charAt(0).toUpperCase() + dailyLowToHigh[i].name.slice(1)
               }
               coinNames.push(dailyLowToHigh[i].name)
-              // coinsUpper.push(dailyLowToHigh[i].name)
             }
           }
           else if(sortState === 'highLow7d'){
@@ -112,7 +99,6 @@ const DataContext = ({ children }) => {
                 weeklyHighLow[i].name = weeklyHighLow[i].name.charAt(0).toUpperCase() + weeklyHighLow[i].name.slice(1)
               }
               coinNames.push(weeklyHighLow[i].name)
-              // coinsUpper.push(weeklyHighLow[i].name)
             }
           }
           else if(sortState === 'lowHigh7d'){
@@ -124,7 +110,6 @@ const DataContext = ({ children }) => {
                 weeklyLowHigh[i].name = weeklyLowHigh[i].name.charAt(0).toUpperCase() + weeklyLowHigh[i].name.slice(1)
               }
               coinNames.push(weeklyLowHigh[i].name)
-              // coinsUpper.push(weeklyLowHigh[i].name)
             }
           }
           else{
@@ -134,7 +119,6 @@ const DataContext = ({ children }) => {
                 coinData[i].name = coinData[i].name.charAt(0).toUpperCase() + coinData[i].name.slice(1)
               }
               coinNames.push(coinData[i].name)
-              // coinsUpper.push(coinData[i].name)
             }
           }
         setCoinData(coinList)

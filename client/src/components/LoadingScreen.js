@@ -8,6 +8,7 @@ export default function LoadingScreen() {
   if(theme === 'dark'){
     bgColor = 'rgb(29,29,29)'
   }
+  
   return (
     <div style={{backgroundColor: bgColor}} className='loadingScreen'>
       <div style={{color: fgColor}} className='spinners'>

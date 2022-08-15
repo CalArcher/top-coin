@@ -98,9 +98,6 @@ PriceChart.js------------
 /* **************
 LineChart.js------------
 ************** */
-/* .priceChart {
-  cursor: crosshair;
-} */
 .chartStyle {
   width: 100%;
   min-width: 700px;
@@ -211,10 +208,6 @@ LoadingScreen.js------------
 /* **************
 Footer.js------------
 ************** */
-#footer * {
-  /* border: 1px solid red; */
-}
-
 #footer {
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
@@ -489,10 +482,6 @@ Home.js------------
 /* **************
 CoinCard.js------------
 ************** */
-.coinCard * {
-  /* border: 1px solid red; */
-}
-
 .coinCard {
   color: var(--black-color);
   background-color: var(--white-color);
@@ -533,7 +522,6 @@ CoinCard.js------------
 }
 
 .nameStyle {
-  /* color: var(--black-color); */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -575,6 +563,7 @@ Dark Mode------------
   color: var(--white-color);
 }
 
+/* CoinCard.js */
 #dark .coinCard {
   border: 1px solid var(--thin-white-color);
   color: var(--text-white-color);

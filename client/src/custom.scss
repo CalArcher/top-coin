@@ -3,13 +3,12 @@ Imports------------
 ************** */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-@mixin animate {
-  transition: all 0.15s ease-in-out;
-}
 /* **************
 General------------
 ************** */
+@mixin animate {
+  transition: all 0.15s ease-in-out;
+}
 :root{
   --black-color: rgba(29,29,29,1);
   --thin-black-color: rgba(29,29,29,.25);
@@ -63,7 +62,6 @@ PriceChart.js------------
   padding: 0.5em 0 0 0;
   width: 100%;
 }
-
 .priceChart{
   cursor: crosshair;
 }
@@ -85,14 +83,9 @@ PriceChart.js------------
   margin-right: 1rem;
 }
 
-
 /* **************
 LineChart.js------------
 ************** */
-
-/* .priceChart {
-  cursor: crosshair;
-} */
 .chartStyle{
   width: 100%;
   min-width: 700px;
@@ -103,17 +96,13 @@ LineChart.js------------
 /* **************
 TopCoin.js------------
 ************** */
-
 .topCoinTitle{
   padding: 1rem 0 3rem 0;
-}
-#topCoinTitle{
 }
 
 /* **************
 LoadingScreen.js------------
 ************** */
-
 .loadingScreen{
   background-color: var(--white-color);
   width: 100%;
@@ -121,7 +110,6 @@ LoadingScreen.js------------
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
 }
 .spinners{
   width: 80px;
@@ -142,13 +130,11 @@ LoadingScreen.js------------
   border-bottom-color: rgba(0,104,249, 0.6);
   animation: secondSpinner .6s linear infinite;
 }
-
 @keyframes firstSpinner{
   0% { transform: rotate(0deg); border-width: 8px;}
   50% { transform: rotate(180deg); border-width: 2px;}
   100% { transform: rotate(360deg); border-width: 8px;}
 }
-
 @keyframes secondSpinner{
   0% { transform: rotate(0deg); border-width: 2px;}
   50% { transform: rotate(180deg); border-width: 8px;}
@@ -157,9 +143,6 @@ LoadingScreen.js------------
 /* **************
 Footer.js------------
 ************** */
-#footer * {
-  /* border: 1px solid red; */
-}
 #footer{
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
@@ -192,7 +175,6 @@ Footer.js------------
   color: var(--black-color);
   text-decoration: none;
 }
-
 
 /* **************
 Header.js------------
@@ -385,6 +367,7 @@ ModeToggle.js------------
 .toggleStyle:hover ~ .modeText{
   opacity: 1;
 }
+
 /* **************
 Home.js------------
 ************** */
@@ -392,12 +375,10 @@ Home.js------------
   min-width: 1000px;
   flex-grow: 1;
 }
+
 /* **************
 CoinCard.js------------
 ************** */
-.coinCard *{
-  /* border: 1px solid red; */
-}
 .coinCard{
   color: var(--black-color);
   background-color: var(--white-color);
@@ -432,7 +413,6 @@ CoinCard.js------------
   padding: 0;
 }
 .nameStyle{
-  /* color: var(--black-color); */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -454,10 +434,10 @@ CoinLabels.js------------
   width: fit-content;
 }
 
-
 /* **************
 Light Mode------------
 ************** */
+
 /* General */
 #light{
   background-color: var(--white-color);
@@ -466,11 +446,14 @@ Light Mode------------
 /* **************
 Dark Mode------------
 ************** */
+
 /* General */
 #dark{
   background-color: var(--black-color);
   color: var(--white-color);
 }
+
+/* CoinCard.js */
 #dark .coinCard{
   border: 1px solid var(--thin-white-color);
   color: var(--text-white-color);
@@ -481,12 +464,14 @@ Dark Mode------------
   color: var(--white-color);
   background-color: var(--hover-dark-color);
 }
+
 /* CoinLabels */
 #dark .coinLabelStyle{
   min-width: 850px;
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
+
 /* Footer */
 #dark #footer{
   border-top: 1px solid var(--thin-white-color);
@@ -495,6 +480,7 @@ Dark Mode------------
 #dark #footer a{
   color: var(--white-color);
 }
+
 /* Header */
 #dark .header{
   color: var(--white-color);
@@ -529,6 +515,7 @@ Dark Mode------------
   color: inherit;
   text-decoration: inherit;
 }
+
 /* **************
 NotFound.js------------
 ************** */
