@@ -15,7 +15,7 @@
 
 &nbsp;
 
-![](/readmeImg/top-coin-demo.gif)
+![](/readmeImg/demo-top-coin.gif)
 
 &nbsp;
 
