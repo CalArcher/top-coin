@@ -4,7 +4,7 @@ import LineChart from './LineChart';
 
 export default function PriceChart( { name, number } ) {
 
-  const [{ coinData, currentNames, sortState, setSortState, topCoin} , setState] = useContext(Context)
+  const [{ coinData, currentNames, sortState, setSortState, topCoin } , setState] = useContext(Context)
 
   let logoLink = coinData[number].currencyLogo
   let searchName = name.charAt(0).toLowerCase() + name.slice(1)

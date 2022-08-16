@@ -2,26 +2,30 @@ import React, { useContext } from 'react'
 import { Context } from '../contexts/DataContext'
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js'
+import annotationPlugin from 'chartjs-plugin-annotation';
 import { ThemeContext } from '../contexts/ThemeContextSet'
-ChartJS.register(...registerables)
+ChartJS.register(...registerables, annotationPlugin)
 
 
 export default function LineChart({ name, number}) {
 
-  const {check, theme, toggleTheme } = useContext(ThemeContext)
+  const { check, theme, toggleTheme } = useContext(ThemeContext)
 
-  let bgColor = 'rgba(0, 104, 249, 0.5)'
+  let bgColor = 'rgba(240, 240, 240, 0.8)'
   let fgColor = 'rgba(29,29,29,.25)'
   let redColor = 'rgba(231,71,92,1)'
   let greenColor = 'rgba(134,190,69,1)'
   let chartColor = 'rgba(0,104,249.1)'
   let chartColorThin = 'rgba(0,104,249,.5)'
   let fontColor = 'rgba(29,29,29,1)'
+  let strokeColor = 'rgba(192,192,192,1'
+
 
   if(theme === 'dark'){
-    fontColor = 'rgba(240,240,240,.7)'
+    strokeColor = 'rgba(100,100,100,1'
+    fontColor = 'rgba(248,248,248,.8)'
     bgColor = 'rgb(29,29,29)'
-    fgColor = 'rgba(240,240,240,.15)'
+    fgColor = 'rgba(248,248,248,.15)'
   }
 
   let nameNoDash = name.replaceAll('-', ' ')
@@ -35,13 +39,13 @@ export default function LineChart({ name, number}) {
   let allChartPrices = coinData[number].current_price
   let pLength = allChartPrices.length
 
-  //If I want to increase the fetch frequency, and therefor increase the length of ranks, dates, and prices arrays in the future, I will implement either a scroll bar (easier), add a date range selector (harder), or make a feature like CoinGecko has and take the average price of, for example, 7 consecutive days to make one data point. This will allow showing higher ranges without the need for thousands of data points. 
-
-  //Right now, a coin's date, rank, or price array won't get to over 100 for a few years. 
+  //Right now, a coin's date, rank, or price array lengths likely won't get to over 100 for > 1 year. 
 
   let toChartRanks = rLength > 100 ? allChartRanks.slice(rLength - 100, dLength) : allChartRanks
   let toChartDates = dLength > 100 ? allChartDates.slice(dLength - 100, dLength) : allChartDates
   let toChartPrices = pLength > 100 ? allChartPrices.slice(pLength - 100, pLength) : allChartPrices
+
+  let lineStart = +toChartPrices[0].toFixed(4)
 
   const labels = toChartDates
     const data = {
@@ -105,6 +109,28 @@ export default function LineChart({ name, number}) {
       },
       maintainAspectRatio: false,
       plugins: {
+        autocolors: false,
+        annotation: {
+          annotations: {
+            line1: {
+              type: "line",
+              yMin: lineStart,
+              yMax: lineStart,
+              borderColor: strokeColor,
+              borderWidth: 3,
+              borderDash: [20,10],
+              label: {
+                display: true,
+                content: `$ ${lineStart}`,
+                backgroundColor: strokeColor,
+                color: fontColor,
+                height: '40px',
+                width: '70px',
+                position: 'center',
+              }
+            }
+          }
+        },
         tooltip: {
           displayColors: false,
           titleSpacing: 0,
