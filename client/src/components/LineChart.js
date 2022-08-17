@@ -117,8 +117,8 @@ export default function LineChart({ name, number}) {
               yMin: lineStart,
               yMax: lineStart,
               borderColor: strokeColor,
-              borderWidth: 3,
-              borderDash: [20,10],
+              borderWidth: 2.25,
+              borderDash: [20,8],
               label: {
                 display: true,
                 content: `$ ${lineStart}`,
