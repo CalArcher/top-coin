@@ -11,8 +11,8 @@ export default function ModeToggle() {
   return (
     <div className='toggleContainer'>
       <div className='toggleStyle'>
-        <label className='clickable'>
-          <input onChange={toggleTheme} className='checkbox' type='checkbox' checked={check}></input>
+      <label for='modeToggleButton' className='clickable'>
+          <input onChange={toggleTheme} name='modeToggleButton' className='checkbox' type='checkbox' checked={check}></input>
           <div className='space'>
             <div className='lightbulbWrapper'>
               <FontAwesomeIcon className='lightbulb' icon={faLightbulb}></FontAwesomeIcon>
