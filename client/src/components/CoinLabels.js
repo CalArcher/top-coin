@@ -15,19 +15,19 @@ export default function CoinLabels() {
   let sortSymbols;
 
   if(sortState === 'highLowPrice'){
-    sortSymbols = [upComponent, nullComponent, nullComponent]
-  }else if(sortState === 'lowHighPrice'){
     sortSymbols = [downComponent, nullComponent, nullComponent]
+  }else if(sortState === 'lowHighPrice'){
+    sortSymbols = [upComponent, nullComponent, nullComponent]
   }else if(sortState === 'highLow24h'){
-    sortSymbols = [nullComponent, upComponent, nullComponent]
-  }else if(sortState === 'lowHigh24h'){
     sortSymbols = [nullComponent, downComponent, nullComponent]
-  }else if(sortState === 'highLow7d'){
-    sortSymbols = [nullComponent, nullComponent, upComponent]
-  }else if(sortState === 'lowHigh7d'){
-    sortSymbols = [nullComponent, nullComponent, downComponent]
-  }else{
+  }else if(sortState === 'lowHigh24h'){
     sortSymbols = [nullComponent, upComponent, nullComponent]
+  }else if(sortState === 'highLow7d'){
+    sortSymbols = [nullComponent, nullComponent, downComponent]
+  }else if(sortState === 'lowHigh7d'){
+    sortSymbols = [nullComponent, nullComponent, upComponent]
+  }else{
+    sortSymbols = [nullComponent, downComponent, nullComponent]
   }
 
   function orderIt1(){
