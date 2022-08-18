@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from '../contexts/DataContext'
 import LineChart from './LineChart';
 
+
 export default function PriceChart( { name, number } ) {
 
   const [{ coinData, currentNames, sortState, setSortState, topCoin } , setState] = useContext(Context)
