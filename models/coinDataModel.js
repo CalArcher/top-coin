@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const coinDataSchema = new Schema({
+const coinDataSchema = new Schema(
+  {
     name: {
       type: String,
       required: false
@@ -27,7 +28,7 @@ const coinDataSchema = new Schema({
       type: Number,
       required: true
     },
-    percent_change_1y:{
+    percent_change_1y: {
       type: Number,
       required: true
     },
@@ -39,7 +40,9 @@ const coinDataSchema = new Schema({
       type: Array,
       required: true
     }
-}, { timestamps: true })
+  },
+  { timestamps: true }
+)
 
 
 

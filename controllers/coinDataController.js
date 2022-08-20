@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 
 //Get
 const getCoinData = async (req, res) => {
-  try{
-    const coinData = await CoinData.find({}).sort({updatedAt: -1})
+  try {
+    const coinData = await CoinData.find({}).sort({ updatedAt: -1 })
     res.status(200).json(coinData)
-  } catch(err){
+  } catch (err) {
     console.log(err)
-    res.status(500).json({error: 'could not fetch the documents', error: err.message})
+    res.status(500).json({ error: 'could not fetch the documents', error: err.message })
   }
 }
 

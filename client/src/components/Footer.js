@@ -4,16 +4,16 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
   return (
-    <footer id='footer'>
+    <footer id="footer">
       <div>
         <ul>
           <li>
-            <a href='https://github.com/CalArcher/' target={"_blank"} alt='GitHub Logo'>
+            <a href="https://github.com/CalArcher/" target={'_blank'} alt="GitHub Logo">
               <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
             </a>
           </li>
           <li>
-            <a href='https://twitter.com/CalArcher_' target={"_blank"} alt='Twitter Logo'>
+            <a href="https://twitter.com/CalArcher_" target={'_blank'} alt="Twitter Logo">
               <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
             </a>
           </li>

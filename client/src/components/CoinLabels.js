@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as allIcons from '@fortawesome/free-solid-svg-icons'
 import { Context } from '../contexts/DataContext'
 
-
 export default function CoinLabels() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
 
@@ -12,55 +11,61 @@ export default function CoinLabels() {
   let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
   let nullComponent = <span></span>
 
-  let sortSymbols;
+  let sortSymbols
 
-  if(sortState === 'highLowPrice'){
+  if (sortState === 'highLowPrice') {
     sortSymbols = [downComponent, nullComponent, nullComponent]
-  }else if(sortState === 'lowHighPrice'){
+  } else if (sortState === 'lowHighPrice') {
     sortSymbols = [upComponent, nullComponent, nullComponent]
-  }else if(sortState === 'highLow24h'){
+  } else if (sortState === 'highLow24h') {
     sortSymbols = [nullComponent, downComponent, nullComponent]
-  }else if(sortState === 'lowHigh24h'){
+  } else if (sortState === 'lowHigh24h') {
     sortSymbols = [nullComponent, upComponent, nullComponent]
-  }else if(sortState === 'highLow7d'){
+  } else if (sortState === 'highLow7d') {
     sortSymbols = [nullComponent, nullComponent, downComponent]
-  }else if(sortState === 'lowHigh7d'){
+  } else if (sortState === 'lowHigh7d') {
     sortSymbols = [nullComponent, nullComponent, upComponent]
-  }else{
+  } else {
     sortSymbols = [nullComponent, downComponent, nullComponent]
   }
 
-  function orderIt1(){
-    if(sortState === 'highLowPrice'){
+  function orderIt1() {
+    if (sortState === 'highLowPrice') {
       setSortState('lowHighPrice')
-    }else{
+    } else {
       setSortState('highLowPrice')
     }
   }
-  function orderIt2(){
-    if(sortState === 'highLow24h'){
+  function orderIt2() {
+    if (sortState === 'highLow24h') {
       setSortState('lowHigh24h')
-    }else{
+    } else {
       setSortState('highLow24h')
     }
   }
-  function orderIt3(){
-    if(sortState === 'highLow7d'){
+  function orderIt3() {
+    if (sortState === 'highLow7d') {
       setSortState('lowHigh7d')
-    }else{
+    } else {
       setSortState('highLow7d')
     }
   }
 
   return (
-    <Card className='coinLabelStyle'>
-      <Card.Body className='coinLabelBody'>
-        <Stack className='noSelect stackStyle' direction="horizontal">
+    <Card className="coinLabelStyle">
+      <Card.Body className="coinLabelBody">
+        <Stack className="noSelect stackStyle" direction="horizontal">
           <span>Rank</span>
           <span>Name</span>
-          <span className='clickable' onClick={orderIt1}>Price {sortSymbols[0]}</span>
-          <span className='clickable' onClick={orderIt2}>24h% {sortSymbols[1]}</span>
-          <span className='clickable' onClick={orderIt3}>7d% {sortSymbols[2]}</span>
+          <span className="clickable" onClick={orderIt1}>
+            Price {sortSymbols[0]}
+          </span>
+          <span className="clickable" onClick={orderIt2}>
+            24h% {sortSymbols[1]}
+          </span>
+          <span className="clickable" onClick={orderIt3}>
+            7d% {sortSymbols[2]}
+          </span>
           <span></span>
         </Stack>
       </Card.Body>

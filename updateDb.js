@@ -1,74 +1,78 @@
 require('dotenv').config()
 const schedule = require('node-schedule')
 
-
-
-class UpdateData{
-  constructor(){
-   this.currentCoinData
+class UpdateData {
+  constructor() {
+    this.currentCoinData
   }
 
-  async getNewData(){
-    let url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y'
+  async getNewData() {
+    let url =
+      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y'
     let newObjs = []
-    
-    try{
+
+    try {
       let data = await (await fetch(url)).json()
-      let top10Today = await data.sort((a,b) => b.price_change_percentage_24h_in_currency - a.price_change_percentage_24h_in_currency).slice(0,10)
-      
-      for(let i = 0; i<top10Today.length; i++){
-        let date = top10Today[i].last_updated.slice(0,10)
-        let changeOneYear = top10Today[i].price_change_percentage_1y_in_currency === null ? -9999 : top10Today[i].price_change_percentage_1y_in_currency
-        let changeOneMonth = top10Today[i].price_change_percentage_30d_in_currency === null ? -9999 : top10Today[i].price_change_percentage_30d_in_currency
-        newObjs.push(
-          {
-            name: top10Today[i].id,
-            rank: top10Today[i].market_cap_rank,
-            current_price: top10Today[i].current_price,
-            percent_change_24h: top10Today[i].price_change_percentage_24h_in_currency,
-            percent_change_7d: top10Today[i].price_change_percentage_7d_in_currency,
-            percent_change_30d: changeOneMonth,
-            percent_change_1y: changeOneYear,
-            currencyLogo: top10Today[i].image,
-            date: date
-          }
-        )
+      let top10Today = await data
+        .sort((a, b) => b.price_change_percentage_24h_in_currency - a.price_change_percentage_24h_in_currency)
+        .slice(0, 10)
+
+      for (let i = 0; i < top10Today.length; i++) {
+        let date = top10Today[i].last_updated.slice(0, 10)
+        let changeOneYear =
+          top10Today[i].price_change_percentage_1y_in_currency === null
+            ? -9999
+            : top10Today[i].price_change_percentage_1y_in_currency
+        let changeOneMonth =
+          top10Today[i].price_change_percentage_30d_in_currency === null
+            ? -9999
+            : top10Today[i].price_change_percentage_30d_in_currency
+        newObjs.push({
+          name: top10Today[i].id,
+          rank: top10Today[i].market_cap_rank,
+          current_price: top10Today[i].current_price,
+          percent_change_24h: top10Today[i].price_change_percentage_24h_in_currency,
+          percent_change_7d: top10Today[i].price_change_percentage_7d_in_currency,
+          percent_change_30d: changeOneMonth,
+          percent_change_1y: changeOneYear,
+          currencyLogo: top10Today[i].image,
+          date: date
+        })
       }
       return newObjs
-    } catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
 
-  async fetchCurrent(){
+  async fetchCurrent() {
     let url = 'http://localhost:3030/api/coindata'
-    try{
+    try {
       let res = await fetch(url)
       let data = await res.json()
       return data
-    } catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
 
-  async compareAndUpdate(){
+  async compareAndUpdate() {
     let currentData = await this.fetchCurrent()
     let newData = await this.getNewData()
-   
+
     let update = {}
     let updateId = ''
     let newCoin = {}
     let currentObj = {}
 
-    for(let i=0; i<currentData.length; i++){
+    for (let i = 0; i < currentData.length; i++) {
       let name = currentData[i].name
       currentObj[name] = currentData[i]
     }
-    for(let i=0; i<newData.length; i++){
+    for (let i = 0; i < newData.length; i++) {
       let name = newData[i].name
 
-      if(currentObj[name]){
-
+      if (currentObj[name]) {
         let oldRanks = currentObj[name].rank
         let newRank = newData[i].rank
         oldRanks.push(newRank)
@@ -83,16 +87,16 @@ class UpdateData{
 
         updateId = currentObj[name]._id
         update = {
-          'rank': oldRanks,
-          'current_price': oldPrices,
-          'percent_change_24h': newData[i].percent_change_24h,
-          'percent_change_7d': newData[i].percent_change_7d,
-          'percent_change_30d': newData[i].percent_change_30d,
-          'percent_change_1y': newData[i].percent_change_1y,
+          rank: oldRanks,
+          current_price: oldPrices,
+          percent_change_24h: newData[i].percent_change_24h,
+          percent_change_7d: newData[i].percent_change_7d,
+          percent_change_30d: newData[i].percent_change_30d,
+          percent_change_1y: newData[i].percent_change_1y,
           date: oldDates
         }
         let updateURL = `http://localhost:3030/api/coindata/${updateId}`
-        try{
+        try {
           fetch(updateURL, {
             method: 'PATCH',
             headers: {
@@ -102,14 +106,14 @@ class UpdateData{
           }).then(res => {
             return res.json()
           })
-        } catch(e) {
+        } catch (e) {
           console.log('line 109')
           console.log(e)
         }
       } else {
         let postURL = 'http://localhost:3030/api/coindata'
         newCoin = newData[i]
-        try{
+        try {
           fetch(postURL, {
             method: 'POST',
             headers: {
@@ -119,21 +123,21 @@ class UpdateData{
           }).then(res => {
             return res.json()
           })
-        } catch(e) {
+        } catch (e) {
           console.log(e)
         }
       }
     }
   }
-  
-// //Schedule DB update every 24 hours
-  scheduleRun(){
-    try{
+
+  // //Schedule DB update every 24 hours
+  scheduleRun() {
+    try {
       let thisObj = this //not needed, but better safe than sorry
-      schedule.scheduleJob('1/10 * * * *', async () => {
+      schedule.scheduleJob('1/20 * * * *', async () => {
         thisObj.compareAndUpdate()
       })
-    } catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
