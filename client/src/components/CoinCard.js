@@ -7,7 +7,7 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
   let lowName = name.toLowerCase()
   let link = `/about/${lowName}?q=${number}`
 
-  let nameNoDash = name.replaceAll('-', ' ')
+  let coinUpperName = formatName(name)
 
   return (
     <Card className="coinCard">
@@ -17,7 +17,7 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
           <div className="nameStyle">
             <Link to={link} number={number} className="customLinks coinTitleImg">
               <Image className="iconStyle hover-shadow" src={coinLogo} alt={`${name} logo`}></Image>
-              <h5 className="coinInfoHeading">{nameNoDash}</h5>
+              <h5 className="coinInfoHeading">{coinUpperName}</h5>
             </Link>
           </div>
           <span>{currencyFormatter.format(currentPrice)}</span>
@@ -30,4 +30,17 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
       </Card.Body>
     </Card>
   )
+}
+
+
+function formatName(coinId) {
+  let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
+  idArray = idArray.split('')
+  for (let i = 0; i < idArray.length; i++) {
+    if (idArray[i] === '-') {
+      idArray[i] = ' '
+      idArray[i + 1] = idArray[i + 1].toUpperCase()
+    }
+  }
+  return idArray.join('')
 }

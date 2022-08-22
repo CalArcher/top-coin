@@ -47,78 +47,52 @@ const DataContext = ({ children }) => {
     let coinNames = []
     let coinList = []
 
+    function capitalizeNames(sortedCoins) {
+      for (let i = 0; i < sortedCoins.length; i++) {
+        if (typeof sortedCoins[i].name.charAt(0) === 'string') {
+          sortedCoins[i].name = sortedCoins[i].name.charAt(0).toUpperCase() + sortedCoins[i].name.slice(1)
+        }
+        coinNames.push(sortedCoins[i].name)
+      }
+    }
+
     if (sortState === 'highLowPrice') {
       let priceHighToLow = coinData.slice(0, 10)
       priceHighToLow.sort(
         (a, b) => b.current_price[b.current_price.length - 1] - a.current_price[a.current_price.length - 1]
       )
       coinList = priceHighToLow
-      for (let i = 0; i < priceHighToLow.length; i++) {
-        if (typeof priceHighToLow[i].name.charAt(0) === 'string') {
-          priceHighToLow[i].name = priceHighToLow[i].name.charAt(0).toUpperCase() + priceHighToLow[i].name.slice(1)
-        }
-        coinNames.push(priceHighToLow[i].name)
-      }
+      capitalizeNames(priceHighToLow)
     } else if (sortState === 'lowHighPrice') {
       let priceLowToHigh = coinData.slice(0, 10)
       priceLowToHigh.sort(
         (a, b) => a.current_price[a.current_price.length - 1] - b.current_price[b.current_price.length - 1]
       )
       coinList = priceLowToHigh
-      for (let i = 0; i < priceLowToHigh.length; i++) {
-        if (typeof priceLowToHigh[i].name.charAt(0) === 'string') {
-          priceLowToHigh[i].name = priceLowToHigh[i].name.charAt(0).toUpperCase() + priceLowToHigh[i].name.slice(1)
-        }
-        coinNames.push(priceLowToHigh[i].name)
-      }
+      capitalizeNames(priceLowToHigh)
     } else if (sortState === 'highLow24h') {
       let dailyHighLow = coinData.slice(0, 10)
       dailyHighLow.sort((a, b) => b.percent_change_24h - a.percent_change_24h)
       coinList = dailyHighLow
-      for (let i = 0; i < dailyHighLow.length; i++) {
-        if (typeof dailyHighLow[i].name.charAt(0) === 'string') {
-          dailyHighLow[i].name = dailyHighLow[i].name.charAt(0).toUpperCase() + dailyHighLow[i].name.slice(1)
-        }
-        coinNames.push(dailyHighLow[i].name)
-      }
+      capitalizeNames(dailyHighLow)
     } else if (sortState === 'lowHigh24h') {
       let dailyLowToHigh = coinData.slice(0, 10)
       dailyLowToHigh.sort((a, b) => a.percent_change_24h - b.percent_change_24h)
       coinList = dailyLowToHigh
-      for (let i = 0; i < dailyLowToHigh.length; i++) {
-        if (typeof dailyLowToHigh[i].name.charAt(0) === 'string') {
-          dailyLowToHigh[i].name = dailyLowToHigh[i].name.charAt(0).toUpperCase() + dailyLowToHigh[i].name.slice(1)
-        }
-        coinNames.push(dailyLowToHigh[i].name)
-      }
+      capitalizeNames(dailyLowToHigh)
     } else if (sortState === 'highLow7d') {
       let weeklyHighLow = coinData.slice(0, 10)
       weeklyHighLow.sort((a, b) => b.percent_change_7d - a.percent_change_7d)
       coinList = weeklyHighLow
-      for (let i = 0; i < weeklyHighLow.length; i++) {
-        if (typeof weeklyHighLow[i].name.charAt(0) === 'string') {
-          weeklyHighLow[i].name = weeklyHighLow[i].name.charAt(0).toUpperCase() + weeklyHighLow[i].name.slice(1)
-        }
-        coinNames.push(weeklyHighLow[i].name)
-      }
+      capitalizeNames(weeklyHighLow)
     } else if (sortState === 'lowHigh7d') {
       let weeklyLowHigh = coinData.slice(0, 10)
       weeklyLowHigh.sort((a, b) => a.percent_change_7d - b.percent_change_7d)
       coinList = weeklyLowHigh
-      for (let i = 0; i < weeklyLowHigh.length; i++) {
-        if (typeof weeklyLowHigh[i].name.charAt(0) === 'string') {
-          weeklyLowHigh[i].name = weeklyLowHigh[i].name.charAt(0).toUpperCase() + weeklyLowHigh[i].name.slice(1)
-        }
-        coinNames.push(weeklyLowHigh[i].name)
-      }
+      capitalizeNames(weeklyLowHigh)
     } else {
       coinList = coinData
-      for (let i = 0; i < coinData.length; i++) {
-        if (typeof coinData[i].name.charAt(0) === 'string') {
-          coinData[i].name = coinData[i].name.charAt(0).toUpperCase() + coinData[i].name.slice(1)
-        }
-        coinNames.push(coinData[i].name)
-      }
+      capitalizeNames(coinData)
     }
     setCoinData(coinList)
     setCurrentNames(coinNames)

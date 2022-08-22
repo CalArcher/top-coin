@@ -4,28 +4,29 @@ import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, registerables } from 'chart.js'
 import annotationPlugin from 'chartjs-plugin-annotation'
 import { ThemeContext } from '../contexts/ThemeContextSet'
-ChartJS.register(...registerables, annotationPlugin);
+import { ThemeColors, DarkThemeColors, LightThemeColors } from '../ThemeColors'
+ChartJS.register(...registerables, annotationPlugin)
 
 export default function LineChart({ name, number }) {
   const { check, theme, toggleTheme } = useContext(ThemeContext);
 
-  let bgColor = "rgba(240, 240, 240, 0.8)";
-  let fgColor = "rgba(29,29,29,.25)";
-  let redColor = "rgba(231,71,92,1)";
-  let greenColor = "rgba(134,190,69,1)";
-  let chartColor = "rgba(0,104,249.1)";
-  let chartColorThin = "rgba(0,104,249,.5)";
-  let fontColor = "rgba(29,29,29,1)";
-  let strokeColor = "rgba(192,192,192,1";
+  let bgColor = LightThemeColors.bgColor
+  let gridColor = LightThemeColors.gridColor
+  let redColor = ThemeColors.redColor
+  let greenColor = ThemeColors.greenColor
+  let chartColor = ThemeColors.chartColor
+  let chartColorThin = ThemeColors.charColorThin
+  let fontColor = LightThemeColors.fontColor
+  let strokeColor = LightThemeColors.strokeColor
 
   if (theme === "dark") {
-    strokeColor = "rgba(100,100,100,1";
-    fontColor = "rgba(248,248,248,.8)";
-    bgColor = "rgb(29,29,29)";
-    fgColor = "rgba(248,248,248,.15)";
+    strokeColor = DarkThemeColors.strokeColor
+    fontColor = DarkThemeColors.fontColor
+    bgColor = DarkThemeColors.bgColor
+    gridColor = DarkThemeColors.gridColor
   }
 
-  let nameNoDash = name.replaceAll("-", " ");
+  let nameNoDash = formatName(name)
 
   const [
     { coinData, currentNames, sortState, setSortState, topCoin },
@@ -40,7 +41,7 @@ export default function LineChart({ name, number }) {
   let pLength = allChartPrices.length;
 
   //Right now, a coin's date, rank, or price array lengths likely won't get to over 100 for > 1 year.
-
+  
   let toChartRanks =
     rLength > 100 ? allChartRanks.slice(rLength - 100, dLength) : allChartRanks;
   let toChartDates =
@@ -83,10 +84,10 @@ export default function LineChart({ name, number }) {
     scales: {
       x: {
         title: {
-          color: "rgb(222,2,2)",
+          color: fontColor,
         },
         grid: {
-          color: fgColor,
+          color: gridColor,
         },
         ticks: {
           color: fontColor,
@@ -103,7 +104,7 @@ export default function LineChart({ name, number }) {
           },
         },
         grid: {
-          color: fgColor,
+          color: gridColor,
         },
       },
     },
@@ -179,5 +180,18 @@ export default function LineChart({ name, number }) {
 
   return (
     <Line id="myChart" className="priceChart" options={options} data={data} />
-  );
+  )
+}
+
+
+function formatName(coinId) {
+  let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
+  idArray = idArray.split('')
+  for (let i = 0; i < idArray.length; i++) {
+    if (idArray[i] === '-') {
+      idArray[i] = ' '
+      idArray[i + 1] = idArray[i + 1].toUpperCase()
+    }
+  }
+  return idArray.join('')
 }

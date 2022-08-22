@@ -1,12 +1,13 @@
 import React from 'react'
 import { useTheme } from '../contexts/ThemeContextSet'
+import { ThemeColors, LightThemeColors, DarkThemeColors } from '../ThemeColors'
 
 export default function LoadingScreen() {
   const { check, theme, toggleTheme } = useTheme()
-  let bgColor = 'rgb(253,253,253)'
-  let fgColor = 'rgba(0,104,249, 0.6)'
+  let bgColor = LightThemeColors.bgColor
+  let fgColor = ThemeColors.blueColorTrans
   if (theme === 'dark') {
-    bgColor = 'rgb(29,29,29)'
+    bgColor = DarkThemeColors.bgColor
   }
 
   return (

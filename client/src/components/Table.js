@@ -11,9 +11,7 @@ function Home() {
   if (!coinData) {
     return <NotFound />
   }
-
-  let coinsUpper = currentNames
-
+  console.log(coinData)
   return (
     <div>
       <CoinLabels></CoinLabels>
@@ -22,7 +20,7 @@ function Home() {
           <CoinCard
             key={i}
             number={i}
-            name={coinsUpper[i]}
+            name={currentNames[i]}
             currentPrice={coin.current_price[coin.current_price.length - 1]}
             rank={coin.rank[coin.rank.length - 1]}
             dailyChange={coin.percent_change_24h / 100}

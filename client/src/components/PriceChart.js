@@ -12,10 +12,9 @@ export default function PriceChart({ name, number }) {
   }
 
   let logoLink = coinData[number].currencyLogo
-  let searchName = name.charAt(0).toLowerCase() + name.slice(1)
+  let searchName = name.toLowerCase().replaceAll(' ', '-')
   let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
-
-  let nameNoDash = name.replaceAll('-', ' ')
+  let nameNoDash = formatName(name)
 
   return (
     <div className="priceChartWrapper">
@@ -30,4 +29,17 @@ export default function PriceChart({ name, number }) {
       </div>
     </div>
   )
+}
+
+
+function formatName(coinId) {
+  let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
+  idArray = idArray.split('')
+  for (let i = 0; i < idArray.length; i++) {
+    if (idArray[i] === '-') {
+      idArray[i] = ' '
+      idArray[i + 1] = idArray[i + 1].toUpperCase()
+    }
+  }
+  return idArray.join('')
 }
