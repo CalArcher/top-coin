@@ -8,7 +8,7 @@ const useFetchData = url => {
 
   useEffect(() => {
     axios.get(url).then(data => {
-      let coinDataSorted = data.data.slice(0, 10).sort((a, b) => b.percent_change_24h - a.percent_change_24h)
+      const coinDataSorted = data.data.slice(0, 10).sort((a, b) => b.percent_change_24h - a.percent_change_24h)
       let coinNames = []
       coinDataSorted.forEach(coin => {
         coinNames.push(coin.name.charAt(0).toUpperCase() + coin.name.slice(1))

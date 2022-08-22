@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from '
 import React from 'react'
 
 export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
-  let lowName = name.toLowerCase()
-  let link = `/about/${lowName}?q=${number}`
+  const lowName = name.toLowerCase()
+  const link = `/about/${lowName}?q=${number}`
 
-  let coinUpperName = formatName(name)
+  const coinUpperName = formatName(name)
 
   return (
     <Card className="coinCard">

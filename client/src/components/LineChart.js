@@ -10,14 +10,14 @@ ChartJS.register(...registerables, annotationPlugin)
 export default function LineChart({ name, number }) {
   const { check, theme, toggleTheme } = useContext(ThemeContext);
 
-  let bgColor = LightThemeColors.bgColor
-  let gridColor = LightThemeColors.gridColor
-  let redColor = ThemeColors.redColor
-  let greenColor = ThemeColors.greenColor
-  let chartColor = ThemeColors.chartColor
-  let chartColorThin = ThemeColors.charColorThin
-  let fontColor = LightThemeColors.fontColor
-  let strokeColor = LightThemeColors.strokeColor
+  const bgColor = LightThemeColors.bgColor
+  const gridColor = LightThemeColors.gridColor
+  const redColor = ThemeColors.redColor
+  const greenColor = ThemeColors.greenColor
+  const chartColor = ThemeColors.chartColor
+  const chartColorThin = ThemeColors.charColorThin
+  const fontColor = LightThemeColors.fontColor
+  const strokeColor = LightThemeColors.strokeColor
 
   if (theme === "dark") {
     strokeColor = DarkThemeColors.strokeColor
@@ -26,32 +26,32 @@ export default function LineChart({ name, number }) {
     gridColor = DarkThemeColors.gridColor
   }
 
-  let nameNoDash = formatName(name)
+  const nameNoDash = formatName(name)
 
   const [
     { coinData, currentNames, sortState, setSortState, topCoin },
     setState,
   ] = useContext(Context);
 
-  let allChartRanks = coinData[number].rank;
-  let rLength = allChartRanks.length;
-  let allChartDates = coinData[number].date;
-  let dLength = allChartDates.length;
-  let allChartPrices = coinData[number].current_price;
-  let pLength = allChartPrices.length;
+  const allChartRanks = coinData[number].rank;
+  const rLength = allChartRanks.length;
+  const allChartDates = coinData[number].date;
+  const dLength = allChartDates.length;
+  const allChartPrices = coinData[number].current_price;
+  const pLength = allChartPrices.length;
 
   //Right now, a coin's date, rank, or price array lengths likely won't get to over 100 for > 1 year.
   
-  let toChartRanks =
+  const toChartRanks =
     rLength > 100 ? allChartRanks.slice(rLength - 100, dLength) : allChartRanks;
-  let toChartDates =
+  const toChartDates =
     dLength > 100 ? allChartDates.slice(dLength - 100, dLength) : allChartDates;
-  let toChartPrices =
+  const toChartPrices =
     pLength > 100
       ? allChartPrices.slice(pLength - 100, pLength)
       : allChartPrices;
 
-  let lineStart = +toChartPrices[0].toFixed(4);
+  const lineStart = +toChartPrices[0].toFixed(4);
 
   const labels = toChartDates;
   const data = {

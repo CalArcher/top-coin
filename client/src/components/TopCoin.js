@@ -3,7 +3,7 @@ import { percentageFormatter } from '../utils'
 import { Link } from 'react-router-dom'
 
 export default function TopCoin({ number, name, dailyChange }) {
-  let nameNoDash = name.replaceAll('-', ' ')
+  const nameNoDash = name.replaceAll('-', ' ')
 
   return (
     <div className="topCoinTitle">

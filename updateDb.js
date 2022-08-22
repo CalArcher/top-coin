@@ -1,4 +1,3 @@
-require('dotenv').config()
 const schedule = require('node-schedule')
 
 class UpdateData {
@@ -7,26 +6,22 @@ class UpdateData {
   }
 
   async getNewData() {
-    let url =
+    const url =
       'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d%2C1y'
-    let newObjs = []
+    const newObjs = []
 
     try {
-      let data = await (await fetch(url)).json()
-      let top10Today = await data
+      const data = await (await fetch(url)).json()
+      const top10Today = await data
         .sort((a, b) => b.price_change_percentage_24h_in_currency - a.price_change_percentage_24h_in_currency)
         .slice(0, 10)
 
       for (let i = 0; i < top10Today.length; i++) {
-        let date = top10Today[i].last_updated.slice(0, 10)
-        let changeOneYear =
-          top10Today[i].price_change_percentage_1y_in_currency === null
-            ? -9999
-            : top10Today[i].price_change_percentage_1y_in_currency
-        let changeOneMonth =
-          top10Today[i].price_change_percentage_30d_in_currency === null
-            ? -9999
-            : top10Today[i].price_change_percentage_30d_in_currency
+        const date = top10Today[i].last_updated.slice(0, 10)
+        const changeOneYear =
+          top10Today[i].price_change_percentage_1y_in_currency === null ? -9999 : top10Today[i].price_change_percentage_1y_in_currency
+        const changeOneMonth =
+          top10Today[i].price_change_percentage_30d_in_currency === null ? -9999 : top10Today[i].price_change_percentage_30d_in_currency
         newObjs.push({
           name: top10Today[i].id,
           rank: top10Today[i].market_cap_rank,
@@ -46,10 +41,10 @@ class UpdateData {
   }
 
   async fetchCurrent() {
-    let url = 'http://localhost:3030/api/coindata'
+    const url = 'http://localhost:3030/api/coindata'
     try {
-      let res = await fetch(url)
-      let data = await res.json()
+      const res = await fetch(url)
+      const data = await res.json()
       return data
     } catch (error) {
       console.log(error)
@@ -57,8 +52,8 @@ class UpdateData {
   }
 
   async compareAndUpdate() {
-    let currentData = await this.fetchCurrent()
-    let newData = await this.getNewData()
+    const currentData = await this.fetchCurrent()
+    const newData = await this.getNewData()
 
     let update = {}
     let updateId = ''
@@ -95,7 +90,7 @@ class UpdateData {
           percent_change_1y: newData[i].percent_change_1y,
           date: oldDates
         }
-        let updateURL = `http://localhost:3030/api/coindata/${updateId}`
+        const updateURL = `http://localhost:3030/api/coindata/${updateId}`
         try {
           fetch(updateURL, {
             method: 'PATCH',
@@ -111,7 +106,7 @@ class UpdateData {
           console.log(e)
         }
       } else {
-        let postURL = 'http://localhost:3030/api/coindata'
+        const postURL = 'http://localhost:3030/api/coindata'
         newCoin = newData[i]
         try {
           fetch(postURL, {
@@ -133,9 +128,8 @@ class UpdateData {
   // //Schedule DB update every 24 hours
   scheduleRun() {
     try {
-      let thisObj = this //not needed, but better safe than sorry
       schedule.scheduleJob('1/20 * * * *', async () => {
-        thisObj.compareAndUpdate()
+        this.compareAndUpdate()
       })
     } catch (error) {
       console.log(error)
@@ -143,9 +137,6 @@ class UpdateData {
   }
 }
 
-
-
-
-let generateApiData = new UpdateData()
+const generateApiData = new UpdateData()
 
 module.exports = generateApiData

@@ -7,9 +7,9 @@ import { Context } from '../contexts/DataContext'
 export default function CoinLabels() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
 
-  let upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
-  let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
-  let nullComponent = <span></span>
+  const upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
+  const downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
+  const nullComponent = <span></span>
 
   let sortSymbols = [null, null, null]
 

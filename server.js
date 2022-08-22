@@ -7,7 +7,7 @@ const cors = require('cors')
 const PORT = process.env.PORT
 const coinDataRoutes = require('./routes/CoinData')
 const compression = require('compression')
-let updateDb = require('./updateDb')
+const updateDb = require('./updateDb')
 
 const app = express()
 

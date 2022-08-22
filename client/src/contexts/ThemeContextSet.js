@@ -4,7 +4,7 @@ export const ThemeContext = React.createContext()
 
 const ThemeContextSet = ({ children }) => {
   //checks local storage for saved light/dark mode, defaults to false (light mode)
-  let checkMode = JSON.parse(localStorage.getItem('check'))
+  const checkMode = JSON.parse(localStorage.getItem('check'))
   let startValue = false
   if (checkMode) {
     startValue = checkMode

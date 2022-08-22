@@ -11,10 +11,10 @@ export default function PriceChart({ name, number }) {
     return <NotFound />
   }
 
-  let logoLink = coinData[number].currencyLogo
-  let searchName = name.toLowerCase().replaceAll(' ', '-')
-  let moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
-  let nameNoDash = formatName(name)
+  const logoLink = coinData[number].currencyLogo
+  const searchName = name.toLowerCase().replaceAll(' ', '-')
+  const moreCoinInfo = `https://www.coingecko.com/en/coins/${searchName}`
+  const nameNoDash = formatName(name)
 
   return (
     <div className="priceChartWrapper">
