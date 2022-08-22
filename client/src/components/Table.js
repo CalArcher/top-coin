@@ -11,7 +11,7 @@ function Home() {
   if (!coinData) {
     return <NotFound />
   }
-  console.log(coinData)
+
   return (
     <div>
       <CoinLabels></CoinLabels>

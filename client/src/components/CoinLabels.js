@@ -11,20 +11,20 @@ export default function CoinLabels() {
   let downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>
   let nullComponent = <span></span>
 
-  let sortSymbols
+  let sortSymbols = [null, null, null]
 
   if (sortState === 'highLowPrice') {
-    sortSymbols = [downComponent, nullComponent, nullComponent]
+    sortSymbols[0] = downComponent
   } else if (sortState === 'lowHighPrice') {
-    sortSymbols = [upComponent, nullComponent, nullComponent]
+    sortSymbols[0] = upComponent
   } else if (sortState === 'highLow24h') {
-    sortSymbols = [nullComponent, downComponent, nullComponent]
+    sortSymbols[1] = downComponent
   } else if (sortState === 'lowHigh24h') {
-    sortSymbols = [nullComponent, upComponent, nullComponent]
+    sortSymbols[1] = upComponent
   } else if (sortState === 'highLow7d') {
-    sortSymbols = [nullComponent, nullComponent, downComponent]
+    sortSymbols[2] = downComponent
   } else if (sortState === 'lowHigh7d') {
-    sortSymbols = [nullComponent, nullComponent, upComponent]
+    sortSymbols[2] = upComponent
   } else {
     sortSymbols = [nullComponent, downComponent, nullComponent]
   }

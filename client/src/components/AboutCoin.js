@@ -7,6 +7,8 @@ export default function AboutCoin() {
   const { id } = useParams()
   let idUp = formatName(id)
 
+  //the q parameter in the url is to practice modifying and getting data from urls. Right now, it serves the purpose of a prop, and tells AboutCoin which coin the chart is for from the array. It could easily be eliminated by using a prop, but it was to practice manipulating urls
+
   const [searchParams] = useSearchParams()
   let q = searchParams.get('q')
 

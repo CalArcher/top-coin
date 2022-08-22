@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-// import modules / declaring variables
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
@@ -10,7 +9,6 @@ const coinDataRoutes = require('./routes/CoinData')
 const compression = require('compression')
 let updateDb = require('./updateDb')
 
-//app
 const app = express()
 
 // middleware
