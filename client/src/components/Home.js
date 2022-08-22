@@ -3,10 +3,16 @@ import { Container } from 'react-bootstrap'
 import CoinCard from './CoinCard'
 import CoinLabels from './CoinLabels'
 import TopCoin from './TopCoin'
+import NotFound from './NotFound'
 import { Context } from '../contexts/DataContext'
 
 function Home() {
   const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
+
+  //handles database being empty crashing the site
+  if (!coinData) {
+    return <NotFound />
+  }
 
   let coinsUpper = currentNames
 

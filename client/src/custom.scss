@@ -11,10 +11,10 @@ General------------
 }
 :root{
   --black-color: rgba(29,29,29,1);
-  --thin-black-color: rgba(29,29,29,.25);
+  --thin-black-color: rgba(29,29,29, 0.25);
   --white-color: rgba(253,253,253,1);
   --text-white-color: rgba(235,235,235,1);
-  --thin-white-color: rgba(253,253,253,.15);
+  --thin-white-color: rgba(253,253,253, 0.15);
   --green-color: rgb(134, 190, 69);
   --blue-color: rgba(0,104,249);
   --hover-dark-color: rgb(40,40,40);
@@ -25,6 +25,10 @@ General------------
 }
 .clickable{
   cursor: pointer;
+}
+.externalLink{
+  font-size: .75rem;
+  color: rgba(126,126,126, 0.5);
 }
 * {
   margin: 0;
@@ -271,7 +275,7 @@ AboutCoin.js------------
 ************** */
 
 /* **************
-ModeToggle.js------------
+ThemeToggle.js------------
 ************** */
 .toggleContainer{
   display: flex;

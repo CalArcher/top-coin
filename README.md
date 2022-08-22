@@ -38,7 +38,7 @@ In the end, this project took well over 200 hours from start to finish, and allo
 &nbsp;
 
 ## Overview
-Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the top 10 performing coins, based on their percent growth in the last 24 hours, are added to the database. If the coin hasn't been in the top 10 before, a new document is created for that coin. If the coin has been in the top 10 coins previously, the coins relevant data is updated. 
+Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the top 10 performing coins, based on their percent growth in the last 24 hours, are added to the database. If the coin hasn't been in the top 10 before, a new document is created for that coin. If the coin has been in the top 10 coins previously, the coin's relevant data is updated. 
 
 &nbsp;
 
@@ -47,7 +47,6 @@ Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the to
 - Site-wide dark and light mode.
 - Site path /api/coindata route will show all historical collected data in the database.
 - Each current top 10 coin displays a chart with data points of each time they were in the top 10 coins of the day.
-- Chart that populates dynamic data.
 - Dynamic routing, each coin has its own unique route.
 
 &nbsp;
@@ -64,8 +63,8 @@ Step 2: Server setup:
 - Note, for the first day in production, I set the server to fetch every 30 minutes just to start with a decent amount of starting data. 
 
 Step 3: React:
-- After I had the backend working as I wanted, I started laying out how I wanted my site to look in Figma. I only layed out a rough idea, as I intended to change the site as I went, I knew I would have problems/features come up during development that I would want to address.
-- As this was my biggest project to date, how my files were set up was not ideal for a project this size. I had to change my entire file structure from how I initially had it layed out, both for future scaling and best practices. 
+- After I had the backend working as I wanted, I started laying out how I wanted my site to look in Figma. I only laid out a rough idea, as I intended to change the site as I went, I knew I would have problems/features come up during development that I would want to address.
+- As this was my biggest project to date, how my files were set up was not ideal for a project this size. I had to change my entire file structure from how I initially had it laid out, both for future scaling and best practices. 
 
 Step 4: Deployment:
 - I chose to deploy my app on Heroku. The main two reasons for this choice were that I had already used Heroku and was familiar with it, and because it was free and performs very well. 
@@ -89,9 +88,9 @@ I learned a lot throughout this entire process. From small housekeeping lessons 
 
   1. Dealing with dynamic data in all manners, for example, making dynamic routes or making charts that can handle dynamic data.
 
-  2. How crucial organization is from the **very beginning** of the project. Something I will now implement into my planning stage of making a project is laying out my file structure before hand. Trying to imagine and plan for the largest possible size my project could get to, and make the file structure suite that size is one way I will approach this.
+  2. How crucial organization is from the **very beginning** of the project. Something I will now implement into my planning stage of making a project is laying out my file structure before hand. Trying to imagine and plan for the largest possible size my project could get to, and make the file structure suit that size is one way I will approach this.
 
-  3. React hooks! Before this project, I had heard of React hooks, but I was putting off learning about what they were, as the topic seemed daunting. In this project, thanks to the suggestion from CG on the 100Devs Discord, I spent a few hours diving into React hooks and how to build a custom React hook. I ended up using many built in React hooks, and building a custom hook that I needed for my project (/client/src/hooks/useFetchData.js). By the end of the project, I was very confident with useContext, useState, and useEffect.
+  3. React hooks! Before this project, I had heard of React hooks, but I was putting off learning about what they were, as the topic seemed daunting. In this project, thanks to the suggestion from someone on the 100Devs Discord, I spent a few hours diving into React hooks and how to build a custom React hook. I ended up using many built in React hooks, and building a custom hook that I needed for my project (/client/src/hooks/useFetchData.js). By the end of the project, I was very confident with useContext, useState, and useEffect.
 
 &nbsp;
 

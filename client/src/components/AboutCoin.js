@@ -11,7 +11,7 @@ export default function AboutCoin() {
   let q = searchParams.get('q')
 
   return (
-    <div>
+    <div style={{ height: '100%' }}>
       <Container>
         <PriceChart name={idUp} number={q} className="me-auto"></PriceChart>
       </Container>

@@ -33,7 +33,7 @@ mongoose.connect(process.env.DATABASE_URL)
     app.listen(PORT, () => {
       console.log('listening on port', PORT)
       //Schedule DB update every 24 hours
-      updateDb.scheduleRun()
+      // updateDb.scheduleRun()
     })    
   })
   .catch(err => {
