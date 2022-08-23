@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -7,7 +9,7 @@ export default function Footer() {
     <footer id="footer">
       <div className="footerCont">
         <span>
-          Data provided by{' '}
+          Data provided by
           <a className="coinGeckoCredit" href="https://www.coingecko.com/">
             CoinGecko
           </a>

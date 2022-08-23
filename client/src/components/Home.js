@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useContext } from 'react'
 import { Container } from 'react-bootstrap'
 import TopCoin from './TopCoin'
@@ -21,4 +23,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Home

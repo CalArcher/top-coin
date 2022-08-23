@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import { percentageFormatter } from '../utils'
 import { Link } from 'react-router-dom'

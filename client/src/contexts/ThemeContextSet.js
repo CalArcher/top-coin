@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useContext } from 'react'
 
 export const ThemeContext = React.createContext()
@@ -27,6 +29,6 @@ const ThemeContextSet = ({ children }) => {
   return <ThemeContext.Provider value={{ check, theme, toggleTheme }}>{children}</ThemeContext.Provider>
 }
 
-export default ThemeContextSet;
+export default ThemeContextSet
 
 export const useTheme = () => useContext(ThemeContext)

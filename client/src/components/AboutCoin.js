@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import Container from 'react-bootstrap/Container'
 import PriceChart from './PriceChart'
@@ -20,7 +22,6 @@ export default function AboutCoin() {
     </div>
   )
 }
-
 
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)

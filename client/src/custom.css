@@ -1,21 +1,26 @@
-/* **************
-Imports------------
-************** */
+/**
+ * /* **************
+ * Imports------------
+ * *************
+ *
+ * @format
+ */
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 /* **************
 General------------
 ************** */
 :root {
-  --black-color: rgba(29,29,29,1);
-  --thin-black-color: rgba(29,29,29, 0.25);
-  --white-color: rgba(253,253,253,1);
-  --text-white-color: rgba(235,235,235,1);
-  --thin-white-color: rgba(253,253,253, 0.15);
+  --black-color: rgba(29, 29, 29, 1);
+  --thin-black-color: rgba(29, 29, 29, 0.25);
+  --white-color: rgba(253, 253, 253, 1);
+  --text-white-color: rgba(235, 235, 235, 1);
+  --thin-white-color: rgba(253, 253, 253, 0.15);
   --green-color: rgb(134, 190, 69);
-  --blue-color: rgba(0,104,249);
+  --blue-color: rgba(0, 104, 249);
   --blue-color-light: rgb(113, 190, 253);
-  --hover-dark-color: rgb(40,40,40);
-  --hover-light-color: rgb(237,237,237);
+  --hover-dark-color: rgb(40, 40, 40);
+  --hover-light-color: rgb(237, 237, 237);
 }
 
 .hoverColor {
@@ -39,9 +44,9 @@ General------------
 
 .noSelect {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .customLinksUnderlined {
@@ -144,14 +149,14 @@ LoadingScreen.js------------
   border-top-color: rgba(0, 104, 249, 0.6);
   border-radius: 50%;
   -webkit-animation: firstSpinner 1.6s linear infinite;
-          animation: firstSpinner 1.6s linear infinite;
+  animation: firstSpinner 1.6s linear infinite;
 }
 
 .spinners div:nth-child(2) {
   border: 8px solid transparent;
   border-bottom-color: rgba(0, 104, 249, 0.6);
   -webkit-animation: secondSpinner 0.6s linear infinite;
-          animation: secondSpinner 0.6s linear infinite;
+  animation: secondSpinner 0.6s linear infinite;
 }
 
 @-webkit-keyframes firstSpinner {
@@ -343,7 +348,8 @@ ul .dropdownUl li:not(:last-child) {
   padding-bottom: 1.5em;
 }
 
-#light .hoverColor:hover, .dropdown:hover .hoverColor {
+#light .hoverColor:hover,
+.dropdown:hover .hoverColor {
   color: var(--green-color);
 }
 
@@ -510,7 +516,8 @@ CoinCard.js------------
   min-width: 850px;
 }
 
-.coinCard .coinCardBody, .coinLabelStyle .coinLabelBody {
+.coinCard .coinCardBody,
+.coinLabelStyle .coinLabelBody {
   min-width: 850px;
 }
 
@@ -681,13 +688,16 @@ html {
   height: 100%;
 }
 
-#root, body, #root > div {
+#root,
+body,
+#root > div {
   height: inherit;
 }
 
-#dark, #light {
+#dark,
+#light {
   height: 100%;
   overflow: auto;
   display: flex;
   flex-direction: column;
-}/*# sourceMappingURL=custom.css.map */
+} /*# sourceMappingURL=custom.css.map */

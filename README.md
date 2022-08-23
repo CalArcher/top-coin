@@ -2,22 +2,22 @@
 
 ## [API](https://top-coin.herokuapp.com/api/coindata) | [Website](https://top-coin.herokuapp.com/) 
 
-&nbsp;
+<br/>
 
 ![](https://img.shields.io/badge/MongoDB-informational?style=flat&logo=mongodb&logoColor=white&color=green)
-&nbsp;
+<br/>
 ![](https://img.shields.io/badge/Express-informational?style=flat&logo=express&logoColor=white&color=lightgray)
-&nbsp; ![](https://img.shields.io/badge/React-informational?style=flat&logo=react&logoColor=white&color=informational)
-&nbsp; 
+<br/> ![](https://img.shields.io/badge/React-informational?style=flat&logo=react&logoColor=white&color=informational)
+<br/> 
 ![](https://img.shields.io/badge/Node.js-informational?style=flat&logo=node.js&logoColor=white&color=darkgreen) 
-&nbsp; 
+<br/> 
 ![](https://img.shields.io/badge/Chart.js-informational?style=flat&logo=Chart.js&logoColor=white&color=important)
 
-&nbsp;
+<br/>
 
 ![](/readmeImg/demo-top-coin.gif)
 
-&nbsp;
+<br/>
 
 This project was meant to allow me to deep-dive into the MERN stack. I focused on adhering to best practices, and trying to achieve the best performance possible, especially as this database could grow to a very large size. I initially intended this project to take around 100 hours to build, but as I progressed further in my learning, I found more and more features I wanted to add, like the ability to sort coins by different categories, and add a dark mode that saves your preference to local storage. 
 
@@ -35,12 +35,12 @@ In the end, this project took well over 200 hours from start to finish, and allo
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-&nbsp;
+<br />
 
 ## Overview
 Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the top 10 performing coins, based on their percent growth in the last 24 hours, are added to the database. If the coin hasn't been in the top 10 before, a new document is created for that coin. If the coin has been in the top 10 coins previously, the coin's relevant data is updated. 
 
-&nbsp;
+<br/>
 
 ## Features
 - Sort current coins in ascending or descending order based on 24h change, 7d change, or by price. 
@@ -49,7 +49,7 @@ Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the to
 - Each current top 10 coin displays a chart with data points of each time they were in the top 10 coins of the day.
 - Dynamic routing, each coin has its own unique route.
 
-&nbsp;
+<br/>
 
 ## My process
 
@@ -70,7 +70,7 @@ Step 4: Deployment:
 - I chose to deploy my app on Heroku. The main two reasons for this choice were that I had already used Heroku and was familiar with it, and because it was free and performs very well. 
 
 
-&nbsp;
+<br/>
 
 ### Performance
 
@@ -80,7 +80,7 @@ Step 4: Deployment:
 
 - Secondly, after running a Lighthouse audit, I noticed that the loading of all of my API data was taking a long time. I implemented compression middleware, and as a result, my time to interactive went from 1.3 seconds down to 0.8 - 0.9 seconds. 
 
-&nbsp;
+<br/>
 
 ### What I learned
 
@@ -92,7 +92,7 @@ I learned a lot throughout this entire process. From small housekeeping lessons 
 
   3. React hooks! Before this project, I had heard of React hooks, but I was putting off learning about what they were, as the topic seemed daunting. In this project, thanks to the suggestion from someone on the 100Devs Discord, I spent a few hours diving into React hooks and how to build a custom React hook. I ended up using many built in React hooks, and building a custom hook that I needed for my project (/client/src/hooks/useFetchData.js). By the end of the project, I was very confident with useContext, useState, and useEffect.
 
-&nbsp;
+<br/>
 
 ### Continued development
 
@@ -105,7 +105,7 @@ I learned a lot throughout this entire process. From small housekeeping lessons 
 
   2. Make a page system with two clickable arrows which will show 100 data points on each page, or a horizontal scroll bar. This would be idea for getting the exact dates of when the coin was in the top 10 coins of the day. For accuracy, I will most likely chose this option.  
 
-&nbsp;
+<br/>
 
 ### Useful resources
 
@@ -115,7 +115,7 @@ I learned a lot throughout this entire process. From small housekeeping lessons 
 
 - [The Net Ninja](https://www.youtube.com/c/TheNetNinja) - Shaun also has some amazing tutorial series on his channel. I used his React series for help setting up my dynamic routes on my site. 
 
-&nbsp;
+<br/>
 
 ## Acknowledgments
 

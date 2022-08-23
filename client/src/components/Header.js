@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
@@ -23,8 +25,7 @@ export default function Header() {
               <ul className="dropdownUl">
                 <li>
                   <a href="https://www.coingecko.com/en/all-cryptocurrencies" target={'_blank'}>
-                    All Cryptocurrencies{' '}
-                    <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
+                    All Cryptocurrencies <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
@@ -66,8 +67,7 @@ export default function Header() {
                 </li>
                 <li>
                   <a href="https://www.youtube.com/watch?v=NtcvJSA6B3M" target={'_blank'}>
-                    What is Cryptocurrency? (video){' '}
-                    <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
+                    What is Cryptocurrency? (video) <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>

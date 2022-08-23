@@ -5,17 +5,13 @@
   "semi": false,
   "singleQuote": true,
   "quoteProps": "consistent",
-  "jsxSingleQuote": false,
   "trailingComma": "none",
   "bracketSpacing": true,
   "bracketSameLine": false,
   "arrowParens": "avoid",
-  "rangeStart": 0,
-  "rangeEnd": 300,
   "insertPragma": true,
   "proseWrap": "preserve",
   "htmlWhitespaceSensitivity": "css",
   "endOfLine": "lf",
-  "embeddedLanguageFormatting": "auto",
   "singleAttributePerLine": false
 }

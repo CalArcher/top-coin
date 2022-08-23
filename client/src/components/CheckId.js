@@ -1,3 +1,5 @@
+/** @format */
+
 import NotFound from './NotFound'
 import AboutCoin from './AboutCoin'
 import { useParams, useSearchParams } from 'react-router-dom'

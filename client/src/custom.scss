@@ -1,6 +1,11 @@
-/* **************
-Imports------------
-************** */
+/**
+ * /* **************
+ * Imports------------
+ * *************
+ *
+ * @format
+ */
+
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 /* **************
@@ -9,34 +14,34 @@ General------------
 @mixin animate {
   transition: all 0.15s ease-in-out;
 }
-:root{
-  --black-color: rgba(29,29,29,1);
-  --thin-black-color: rgba(29,29,29, 0.25);
-  --white-color: rgba(253,253,253,1);
-  --text-white-color: rgba(235,235,235,1);
-  --thin-white-color: rgba(253,253,253, 0.15);
+:root {
+  --black-color: rgba(29, 29, 29, 1);
+  --thin-black-color: rgba(29, 29, 29, 0.25);
+  --white-color: rgba(253, 253, 253, 1);
+  --text-white-color: rgba(235, 235, 235, 1);
+  --thin-white-color: rgba(253, 253, 253, 0.15);
   --green-color: rgb(134, 190, 69);
-  --blue-color: rgba(0,104,249);
+  --blue-color: rgba(0, 104, 249);
   --blue-color-light: rgb(113, 190, 253);
-  --hover-dark-color: rgb(40,40,40);
-  --hover-light-color: rgb(237,237,237);
+  --hover-dark-color: rgb(40, 40, 40);
+  --hover-light-color: rgb(237, 237, 237);
 }
-.hoverColor{
+.hoverColor {
   cursor: pointer;
 }
-.clickable{
+.clickable {
   cursor: pointer;
 }
-.externalLink{
-  font-size: .75rem;
-  color: rgba(126,126,126, 0.5);
+.externalLink {
+  font-size: 0.75rem;
+  color: rgba(126, 126, 126, 0.5);
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.noSelect{
+.noSelect {
   user-select: none;
 }
 .customLinksUnderlined {
@@ -50,10 +55,10 @@ General------------
   color: var(--black-color);
   text-decoration: inherit;
 }
-.successGreen{
+.successGreen {
   color: var(--green-color);
 }
-.primaryBlue{
+.primaryBlue {
   color: var(--blue-color);
 }
 /* **************
@@ -67,22 +72,22 @@ PriceChart.js------------
   padding: 0.5em 0 0 0;
   width: 100%;
 }
-.priceChart{
+.priceChart {
   cursor: crosshair;
 }
-.coinTitle{
+.coinTitle {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
 }
-.coinTitle a{
+.coinTitle a {
   font-weight: 500;
   font-size: 40px;
   text-decoration: none;
 }
-.coinTitle img{
+.coinTitle img {
   width: 60px;
   height: 60px;
   margin-right: 1rem;
@@ -91,7 +96,7 @@ PriceChart.js------------
 /* **************
 LineChart.js------------
 ************** */
-.chartStyle{
+.chartStyle {
   width: 100%;
   min-width: 700px;
   height: 60vh;
@@ -101,14 +106,14 @@ LineChart.js------------
 /* **************
 TopCoin.js------------
 ************** */
-.topCoinTitle{
+.topCoinTitle {
   padding: 1rem 0 3rem 0;
 }
 
 /* **************
 LoadingScreen.js------------
 ************** */
-.loadingScreen{
+.loadingScreen {
   background-color: var(--white-color);
   width: 100%;
   display: flex;
@@ -116,40 +121,58 @@ LoadingScreen.js------------
   align-items: center;
   height: 100vh;
 }
-.spinners{
+.spinners {
   width: 80px;
   height: 80px;
   position: relative;
 }
-.spinner{
+.spinner {
   position: absolute;
   width: 100%;
   height: 100%;
   border: 8px solid transparent;
-  border-top-color: rgba(0,104,249, 0.6);
+  border-top-color: rgba(0, 104, 249, 0.6);
   border-radius: 50%;
   animation: firstSpinner 1.6s linear infinite;
 }
-.spinners div:nth-child(2){
+.spinners div:nth-child(2) {
   border: 8px solid transparent;
-  border-bottom-color: rgba(0,104,249, 0.6);
-  animation: secondSpinner .6s linear infinite;
+  border-bottom-color: rgba(0, 104, 249, 0.6);
+  animation: secondSpinner 0.6s linear infinite;
 }
-@keyframes firstSpinner{
-  0% { transform: rotate(0deg); border-width: 8px;}
-  50% { transform: rotate(180deg); border-width: 2px;}
-  100% { transform: rotate(360deg); border-width: 8px;}
+@keyframes firstSpinner {
+  0% {
+    transform: rotate(0deg);
+    border-width: 8px;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-width: 2px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-width: 8px;
+  }
 }
-@keyframes secondSpinner{
-  0% { transform: rotate(0deg); border-width: 2px;}
-  50% { transform: rotate(180deg); border-width: 8px;}
-  100% { transform: rotate(360deg); border-width: 2px;}
+@keyframes secondSpinner {
+  0% {
+    transform: rotate(0deg);
+    border-width: 2px;
+  }
+  50% {
+    transform: rotate(180deg);
+    border-width: 8px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-width: 2px;
+  }
 }
 
 /* **************
 Footer.js------------
 ************** */
-#footer{
+#footer {
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
   padding: 2em 5.5em;
@@ -160,35 +183,35 @@ Footer.js------------
   justify-content: flex-end;
   align-items: center;
 }
-#footer div{
+#footer div {
   min-width: 170px;
 }
-.footerCont{
+.footerCont {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.footerCont span{
-  font-size: .65rem;
+.footerCont span {
+  font-size: 0.65rem;
   color: var(--text-black-color);
 }
-#footer .coinGeckoCredit{
+#footer .coinGeckoCredit {
   color: var(--blue-color);
 }
-#footer ul{
+#footer ul {
   margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   min-width: 170px;
 }
-#footer li{
+#footer li {
   display: flex;
   padding-left: 2em;
   list-style-type: none;
 }
-#footer a{
+#footer a {
   display: inline-flex;
   align-self: center;
   color: var(--black-color);
@@ -198,7 +221,7 @@ Footer.js------------
 /* **************
 Header.js------------
 ************** */
-.header{
+.header {
   background: var(--white-color);
   position: sticky;
   top: 0;
@@ -214,18 +237,18 @@ Header.js------------
   justify-content: space-between;
   align-items: center;
 }
-.header h6{
+.header h6 {
   font-weight: 400;
   margin: 0;
 }
-.header ul{
+.header ul {
   margin-bottom: 0;
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(170px, 1fr));
   width: 40vw;
 }
-.header li{
+.header li {
   display: flex;
   align-items: center;
   line-height: normal;
@@ -234,32 +257,33 @@ Header.js------------
   line-height: normal;
   text-decoration: none;
 }
-.header h4{
+.header h4 {
   margin: 0;
   text-decoration: none;
   color: var(--black-color);
   min-width: 100px;
 }
-#headerToggle{
+#headerToggle {
   min-width: 450px;
   margin-bottom: 1em;
 }
 
 /* header dropdown */
-ul .dropdownUl{
+ul .dropdownUl {
   display: flex;
   flex-direction: column;
   width: fit-content;
   min-width: 200px;
-  padding: .75em 1em;
+  padding: 0.75em 1em;
 }
-ul .dropdownUl li{
+ul .dropdownUl li {
   font-size: 14px;
 }
-ul .dropdownUl li:not(:last-child){
+ul .dropdownUl li:not(:last-child) {
   padding-bottom: 1.5em;
 }
-#light .hoverColor:hover, .dropdown:hover .hoverColor{
+#light .hoverColor:hover,
+.dropdown:hover .hoverColor {
   color: var(--green-color);
 }
 .dropdown {
@@ -270,18 +294,18 @@ ul .dropdownUl li:not(:last-child){
   position: absolute;
   background: var(--white-color);
   border: 1px solid var(--thin-black-color);
-  border-radius: .2em;
+  border-radius: 0.2em;
   z-index: 1;
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 .dropdown:hover .dropdown-content {
   display: block;
   width: fit-content;
 }
-.dropdownUl a:hover{
+.dropdownUl a:hover {
   color: var(--green-color);
 }
-.dropdownUl a{
+.dropdownUl a {
   color: var(--black-color);
 }
 /* **************
@@ -291,20 +315,20 @@ AboutCoin.js------------
 /* **************
 ThemeToggle.js------------
 ************** */
-.toggleContainer{
+.toggleContainer {
   display: flex;
   flex-direction: row-reverse;
   min-width: 180px;
   justify-content: center;
   align-items: center;
 }
-.toggleStyle{
+.toggleStyle {
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
   align-items: center;
 }
-.modeText{
+.modeText {
   @include animate;
   opacity: 0;
   pointer-events: none;
@@ -330,19 +354,19 @@ ThemeToggle.js------------
   background-color: #374151;
 }
 .button {
-  transform: translate(.25em, .18em);
+  transform: translate(0.25em, 0.18em);
   position: absolute;
   height: 1.35em;
   width: 1.35em;
   border-radius: 50%;
   background-color: #ffeccf;
   box-shadow: inset 0px 0px 0px 0.75em #ffbb52;
-  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 .checkbox:checked ~ .space .button {
   background-color: #485367;
   box-shadow: inset 0px 0px 0px 0.75em white;
-  transform: translate(2.1em, .185em);
+  transform: translate(2.1em, 0.185em);
 }
 .lightbulb {
   position: absolute;
@@ -355,9 +379,9 @@ ThemeToggle.js------------
   height: 1rem;
   width: 1rem;
   opacity: 1;
-  transform: translate(2.35em, .35em);
+  transform: translate(2.35em, 0.35em);
   transform-origin: 50% 50%;
-  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
 }
 .checkbox:checked ~ .space .lightbulbWrapper {
   opacity: 0;
@@ -376,21 +400,21 @@ ThemeToggle.js------------
   opacity: 0;
   transform: translate(1rem, 0) rotate(45deg);
   transform-origin: 50% 50%;
-  transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+  transition: opacity 150ms, transform 500ms cubic-bezier(0.26, 2.5, 0.46, 0.71);
 }
 .checkbox:checked ~ .space .moonWrapper {
   opacity: 1;
-  transform: translate(.35em, .35em) rotate(-15deg);
+  transform: translate(0.35em, 0.35em) rotate(-15deg);
 }
 
-.toggleStyle:hover ~ .modeText{
+.toggleStyle:hover ~ .modeText {
   opacity: 1;
 }
 
 /* **************
 Home.js------------
 ************** */
-.homeCont{
+.homeCont {
   min-width: 1000px;
   flex-grow: 1;
 }
@@ -398,40 +422,41 @@ Home.js------------
 /* **************
 CoinCard.js------------
 ************** */
-.coinCard{
+.coinCard {
   color: var(--black-color);
   background-color: var(--white-color);
   min-width: 850px;
 }
-.coinCard .coinCardBody, .coinLabelStyle .coinLabelBody{
+.coinCard .coinCardBody,
+.coinLabelStyle .coinLabelBody {
   min-width: 850px;
 }
-.coinCard:hover{
+.coinCard:hover {
   color: var(--black-color);
   background-color: var(--hover-light-color);
 }
 
-.iconStyle{
+.iconStyle {
   margin-right: 5px;
   width: 20px;
   height: 20px;
 }
-.coinTitleImg{
+.coinTitleImg {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
-.coinCard .coinCardStack{
+.coinCard .coinCardStack {
   display: grid;
-  grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
+  grid-template-columns: 50px 1.75fr 1fr 0.9fr 0.9fr 1.1fr;
   gap: 1em;
 }
-.coinInfoHeading{
+.coinInfoHeading {
   margin: 0;
   padding: 0;
 }
-.nameStyle{
+.nameStyle {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -444,12 +469,12 @@ CoinCard.js------------
 /* **************
 CoinLabels.js------------
 ************** */
-.coinLabelStyle .stackStyle{
+.coinLabelStyle .stackStyle {
   display: grid;
-  grid-template-columns: 50px 1.75fr 1fr .9fr .9fr 1.1fr;
+  grid-template-columns: 50px 1.75fr 1fr 0.9fr 0.9fr 1.1fr;
   gap: 1em;
 }
-.stackStyle span{
+.stackStyle span {
   width: fit-content;
 }
 
@@ -458,7 +483,7 @@ Light Mode------------
 ************** */
 
 /* General */
-#light{
+#light {
   background-color: var(--white-color);
 }
 
@@ -467,56 +492,56 @@ Dark Mode------------
 ************** */
 
 /* General */
-#dark{
+#dark {
   background-color: var(--black-color);
   color: var(--white-color);
 }
 
 /* CoinCard.js */
-#dark .coinCard{
+#dark .coinCard {
   border: 1px solid var(--thin-white-color);
   color: var(--text-white-color);
   background-color: var(--black-color);
   min-width: 850px;
 }
-#dark .coinCard:hover{
+#dark .coinCard:hover {
   color: var(--white-color);
   background-color: var(--hover-dark-color);
 }
 
 /* CoinLabels */
-#dark .coinLabelStyle{
+#dark .coinLabelStyle {
   min-width: 850px;
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
 
 /* Footer */
-#dark #footer{
+#dark #footer {
   border-top: 1px solid var(--thin-white-color);
   background-color: var(--black-color);
 }
-#dark #footer a{
+#dark #footer a {
   color: var(--white-color);
 }
-#dark .footerCont span{
-  font-size: .65rem;
+#dark .footerCont span {
+  font-size: 0.65rem;
   color: var(--text-white-color);
 }
-#dark #footer .coinGeckoCredit{
+#dark #footer .coinGeckoCredit {
   color: var(--blue-color-light);
 }
 
 /* Header */
-#dark .header{
+#dark .header {
   color: var(--white-color);
   background-color: var(--black-color);
   border-bottom: 1px solid var(--thin-white-color);
 }
-#dark .header h4{
+#dark .header h4 {
   color: var(--white-color);
 }
-#dark .hoverColor:hover{
+#dark .hoverColor:hover {
   color: var(--green-color);
 }
 #dark .dropdown-content {
@@ -527,10 +552,10 @@ Dark Mode------------
 #dark .dropdown-content {
   border: 1px solid var(--thin-white-color);
 }
-#dark .dropdownUl a{
+#dark .dropdownUl a {
   color: var(--white-color);
 }
-#dark .dropdownUl a:hover{
+#dark .dropdownUl a:hover {
   color: var(--green-color);
 }
 
@@ -545,23 +570,25 @@ Dark Mode------------
 /* **************
 NotFound.js------------
 ************** */
-.notFound{
+.notFound {
   padding-top: 4em;
   flex-grow: 1;
 }
-.notFound h3{
+.notFound h3 {
   padding-bottom: 20px;
 }
-html{
+html {
   height: 100%;
 }
-#root, body, #root>div{
+#root,
+body,
+#root > div {
   height: inherit;
 }
-#dark, #light{
+#dark,
+#light {
   height: 100%;
   overflow: auto;
   display: flex;
   flex-direction: column;
 }
-

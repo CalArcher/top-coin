@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useContext } from 'react'
 import CoinCard from './CoinCard'
 import CoinLabels from './CoinLabels'
@@ -33,4 +35,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Home

@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState, useEffect } from 'react'
 import LoadingScreen from '../components/LoadingScreen'
 import axios from 'axios'
@@ -105,4 +107,4 @@ const DataContext = ({ children }) => {
   )
 }
 
-export default DataContext;
+export default DataContext

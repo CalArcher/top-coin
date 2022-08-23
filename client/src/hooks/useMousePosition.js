@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState, useEffect } from 'react'
 
 const useMousePosition = () => {
@@ -16,4 +18,4 @@ const useMousePosition = () => {
   return mousePosition
 }
 
-export default useMousePosition;
+export default useMousePosition

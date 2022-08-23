@@ -5,7 +5,7 @@ const ThemeColors = {
   redColor: 'rgba(231,71,92,1)',
   greenColor: 'rgba(134,190,69,1)',
   chartColor: 'rgba(0,104,249.1)',
-  charColorThin: 'rgba(0,104,249,0.5)',
+  charColorThin: 'rgba(0,104,249,0.5)'
 }
 
 const LightThemeColors = {

@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useContext } from 'react'
 import { Context } from '../contexts/DataContext'
 import LineChart from './LineChart'
@@ -30,7 +32,6 @@ export default function PriceChart({ name, number }) {
     </div>
   )
 }
-
 
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
