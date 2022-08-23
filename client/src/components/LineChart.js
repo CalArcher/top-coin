@@ -10,14 +10,14 @@ ChartJS.register(...registerables, annotationPlugin)
 export default function LineChart({ name, number }) {
   const { check, theme, toggleTheme } = useContext(ThemeContext);
 
-  const bgColor = LightThemeColors.bgColor
-  const gridColor = LightThemeColors.gridColor
+  let bgColor = LightThemeColors.bgColor
+  let gridColor = LightThemeColors.gridColor
   const redColor = ThemeColors.redColor
   const greenColor = ThemeColors.greenColor
   const chartColor = ThemeColors.chartColor
   const chartColorThin = ThemeColors.charColorThin
-  const fontColor = LightThemeColors.fontColor
-  const strokeColor = LightThemeColors.strokeColor
+  let fontColor = LightThemeColors.fontColor
+  let strokeColor = LightThemeColors.strokeColor
 
   if (theme === "dark") {
     strokeColor = DarkThemeColors.strokeColor

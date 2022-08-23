@@ -5,7 +5,13 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 export default function Footer() {
   return (
     <footer id="footer">
-      <div>
+      <div className="footerCont">
+        <span>
+          Data provided by{' '}
+          <a className="coinGeckoCredit" href="https://www.coingecko.com/">
+            CoinGecko
+          </a>
+        </span>
         <ul>
           <li>
             <a href="https://github.com/CalArcher/" target={'_blank'} alt="GitHub Logo">
