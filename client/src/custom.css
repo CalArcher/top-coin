@@ -5,7 +5,6 @@
  *
  * @format
  */
-
 @import 'bootstrap/dist/css/bootstrap.min.css';
 /* **************
 General------------
@@ -44,9 +43,9 @@ General------------
 
 .noSelect {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .customLinksUnderlined {
@@ -149,14 +148,14 @@ LoadingScreen.js------------
   border-top-color: rgba(0, 104, 249, 0.6);
   border-radius: 50%;
   -webkit-animation: firstSpinner 1.6s linear infinite;
-  animation: firstSpinner 1.6s linear infinite;
+          animation: firstSpinner 1.6s linear infinite;
 }
 
 .spinners div:nth-child(2) {
   border: 8px solid transparent;
   border-bottom-color: rgba(0, 104, 249, 0.6);
   -webkit-animation: secondSpinner 0.6s linear infinite;
-  animation: secondSpinner 0.6s linear infinite;
+          animation: secondSpinner 0.6s linear infinite;
 }
 
 @-webkit-keyframes firstSpinner {
@@ -344,8 +343,13 @@ ul .dropdownUl li {
   font-size: 14px;
 }
 
+ul .dropdownUl li a {
+  width: 100%;
+  font-size: 14px;
+}
+
 ul .dropdownUl li:not(:last-child) {
-  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 #light .hoverColor:hover,
@@ -700,4 +704,4 @@ body,
   overflow: auto;
   display: flex;
   flex-direction: column;
-} /*# sourceMappingURL=custom.css.map */
+}/*# sourceMappingURL=custom.css.map */

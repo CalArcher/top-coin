@@ -279,8 +279,12 @@ ul .dropdownUl {
 ul .dropdownUl li {
   font-size: 14px;
 }
+ul .dropdownUl li a {
+  width: 100%;
+  font-size: 14px;
+}
 ul .dropdownUl li:not(:last-child) {
-  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
 #light .hoverColor:hover,
 .dropdown:hover .hoverColor {
