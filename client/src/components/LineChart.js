@@ -10,7 +10,7 @@ import { ThemeColors, DarkThemeColors, LightThemeColors } from '../ThemeColors'
 ChartJS.register(...registerables, annotationPlugin)
 
 export default function LineChart({ name, number }) {
-  const { check, theme, toggleTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
 
   let bgColor = LightThemeColors.bgColor
   let gridColor = LightThemeColors.gridColor
@@ -30,7 +30,7 @@ export default function LineChart({ name, number }) {
 
   const nameNoDash = formatName(name)
 
-  const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
+  const [{ coinData }] = useContext(Context)
 
   const allChartRanks = coinData[number].rank
   const rLength = allChartRanks.length
@@ -161,8 +161,8 @@ export default function LineChart({ name, number }) {
   }
 
   function getGradient(ctx, chartArea, data, scales) {
-    const { left, right, top, bottom, width, height } = chartArea
-    const { x, y } = scales
+    const { bottom } = chartArea
+    const { y } = scales
     const gradientBorder = ctx.createLinearGradient(0, 0, 0, bottom)
     const shift = y.getPixelForValue(data.datasets[0].data[0]) / bottom
     gradientBorder.addColorStop(0, greenColor)
@@ -175,6 +175,7 @@ export default function LineChart({ name, number }) {
   return <Line id="myChart" className="priceChart" options={options} data={data} />
 }
 
+//turns coin's name from format xxx-xxx to Xxx Xxx
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
   idArray = idArray.split('')

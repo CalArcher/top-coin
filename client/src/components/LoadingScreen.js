@@ -5,7 +5,7 @@ import { useTheme } from '../contexts/ThemeContextSet'
 import { ThemeColors, LightThemeColors, DarkThemeColors } from '../ThemeColors'
 
 export default function LoadingScreen() {
-  const { check, theme, toggleTheme } = useTheme()
+  const { theme } = useTheme()
   let bgColor = LightThemeColors.bgColor
   let fgColor = ThemeColors.blueColorTrans
   if (theme === 'dark') {

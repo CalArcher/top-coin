@@ -23,6 +23,7 @@ export default function AboutCoin() {
   )
 }
 
+//turns coin's name from format xxx-xxx to Xxx Xxx
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
   idArray = idArray.split('')

@@ -1,13 +1,13 @@
 /** @format */
 
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Card, Stack } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as allIcons from '@fortawesome/free-solid-svg-icons'
 import { Context } from '../contexts/DataContext'
 
 export default function CoinLabels() {
-  const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
+  const [{ sortState, setSortState }] = useContext(Context)
 
   const upComponent = <FontAwesomeIcon icon={allIcons['faCaretUp']}></FontAwesomeIcon>
   const downComponent = <FontAwesomeIcon icon={allIcons['faCaretDown']}></FontAwesomeIcon>

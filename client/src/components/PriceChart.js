@@ -6,7 +6,7 @@ import LineChart from './LineChart'
 import NotFound from './NotFound'
 
 export default function PriceChart({ name, number }) {
-  const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
+  const [{ coinData }] = useContext(Context)
 
   //handles number prop being passed in as null or undefined
   if (!number) {
@@ -22,7 +22,7 @@ export default function PriceChart({ name, number }) {
     <div className="priceChartWrapper">
       <div className="coinTitle">
         <img className="noSelect" src={logoLink} alt="cryptocurrency logo"></img>
-        <a className="noSelect" href={moreCoinInfo} target="_blank">
+        <a className="noSelect" href={moreCoinInfo} target="_blank" rel="noreferrer">
           {nameNoDash}
         </a>
       </div>
@@ -33,6 +33,7 @@ export default function PriceChart({ name, number }) {
   )
 }
 
+//turns coin's name from format xxx-xxx to Xxx Xxx
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
   idArray = idArray.split('')

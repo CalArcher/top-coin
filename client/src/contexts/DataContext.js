@@ -13,7 +13,6 @@ const DataContext = ({ children }) => {
   const [sortState, setSortState] = useState('highLow24h')
   const [topCoin, setTopCoin] = useState([])
   const [state, setState] = useState([])
-  const [coinDataSorted, setCoinDataSorted] = useState([])
 
   const url = 'http://localhost:3030/api/coindata'
 

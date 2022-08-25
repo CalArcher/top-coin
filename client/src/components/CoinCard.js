@@ -2,7 +2,7 @@
 
 import { Card, Stack, Button, Image } from 'react-bootstrap'
 import { currencyFormatter, percentageFormatter } from '../utils'
-import { BrowserRouter as Router, Routes, Switch, Route, Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 export default function CoinCard({ number, name, currentPrice, dailyChange, weeklyChange, rank, coinLogo }) {
@@ -34,6 +34,7 @@ export default function CoinCard({ number, name, currentPrice, dailyChange, week
   )
 }
 
+//turns coin's name from format xxx-xxx to Xxx Xxx
 function formatName(coinId) {
   let idArray = coinId.charAt(0).toUpperCase() + coinId.slice(1)
   idArray = idArray.split('')

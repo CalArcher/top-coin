@@ -9,7 +9,7 @@ import { Context } from '../contexts/DataContext'
 export default function IdCheck() {
   let response
 
-  const [{ currentNames }, setState] = useContext(Context)
+  const [{ currentNames }] = useContext(Context)
   const { id } = useParams()
   const idAny = id.charAt(0).toUpperCase() + id.slice(1)
 

@@ -8,7 +8,7 @@ import NotFound from './NotFound'
 import { Context } from '../contexts/DataContext'
 
 function Home() {
-  const [{ coinData, currentNames, sortState, setSortState, topCoin }, setState] = useContext(Context)
+  const [{ coinData, topCoin }] = useContext(Context)
 
   //handles database being empty crashing the site
   if (!coinData) {

@@ -24,17 +24,17 @@ export default function Header() {
             <div className="dropdown-content">
               <ul className="dropdownUl">
                 <li>
-                  <a href="https://www.coingecko.com/en/all-cryptocurrencies" target={'_blank'}>
+                  <a href="https://www.coingecko.com/en/all-cryptocurrencies" target={'_blank'} rel="noreferrer">
                     All Cryptocurrencies <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.coingecko.com/en/new-cryptocurrencies" target={'_blank'}>
+                  <a href="https://www.coingecko.com/en/new-cryptocurrencies" target={'_blank'} rel="noreferrer">
                     New Coins <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.coingecko.com/en/exchanges" target={'_blank'}>
+                  <a href="https://www.coingecko.com/en/exchanges" target={'_blank'} rel="noreferrer">
                     Exchanges <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
@@ -51,27 +51,27 @@ export default function Header() {
             <div className="dropdown-content">
               <ul className="dropdownUl">
                 <li>
-                  <a href="https://www.coingecko.com/learn/category/guides" target={'_blank'}>
+                  <a href="https://www.coingecko.com/learn/category/guides" target={'_blank'} rel="noreferrer">
                     Guides <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.coindesk.com/" target={'_blank'}>
+                  <a href="https://www.coindesk.com/" target={'_blank'} rel="noreferrer">
                     News <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.coindesk.com/learn/what-are-nfts-and-how-do-they-work/" target={'_blank'}>
+                  <a href="https://www.coindesk.com/learn/what-are-nfts-and-how-do-they-work/" target={'_blank'} rel="noreferrer">
                     What are NFTs <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/watch?v=NtcvJSA6B3M" target={'_blank'}>
+                  <a href="https://www.youtube.com/watch?v=NtcvJSA6B3M" target={'_blank'} rel="noreferrer">
                     What is Cryptocurrency? (video) <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://coinmarketcap.com/airdrop/" target={'_blank'}>
+                  <a href="https://coinmarketcap.com/airdrop/" target={'_blank'} rel="noreferrer">
                     Airdrops <FontAwesomeIcon className="externalLink" icon={faExternalLink}></FontAwesomeIcon>
                   </a>
                 </li>
