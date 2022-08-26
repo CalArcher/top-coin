@@ -1,3 +1,5 @@
+/** @format */
+
 const schedule = require('node-schedule')
 
 class UpdateData {
@@ -125,10 +127,10 @@ class UpdateData {
     }
   }
 
-  // //Schedule DB update every 24 hours
+  //Schedule DB update every 24 hours at 1am
   scheduleRun() {
     try {
-      schedule.scheduleJob('1/20 * * * *', async () => {
+      schedule.scheduleJob('0 1 * * *', async () => {
         this.compareAndUpdate()
       })
     } catch (error) {
