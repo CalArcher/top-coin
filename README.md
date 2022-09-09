@@ -59,16 +59,16 @@ Step 1: Planning
   - Cryptocurrency sites, like [CoinMarketCap](https://coinmarketcap.com/) and [CoinGecko](https://www.coingecko.com/) are great examples of websites that display a lot of dynamic data, so I modeled my idea after their sites. I did not want to make a copy that only displays data; I wanted there to be a separate purpose, which is why I came up with the idea to only log the top 10 performing coins of the day.
 
 Step 2: Server setup: 
-- I began building the backend of the app, designing my own API for the project, and building its enpoints. With a custom API, I would have all the data I needed ready to use when building the frontend.
-- I set up a simple backend server, and connected to my MongoDB cluster. From there, I set up my site routes. I knew I would only need get all data, post, and patch requests, so I did not make a delete route or a get specific id route. Next, I setup a function that would fetch data at whatever interval I specified. For testing, this was set at every 1 - 10 minutes to find bugs, but at the production stage, the database was completely deleted, and the interval was set to once per day. 
-- Note, for the first day in production, I set the server to fetch every 30 minutes just to start with a decent amount of starting data. 
+- I began building the backend of the app, designing my own API for the project, and building its endpoints. With a custom API, I would have all the data I needed ready to use when building the frontend.
+- I set up a simple backend server and connected it to my MongoDB cluster. From there, I set up my site routes. I knew I would only need to get all data as well as post and patch requests, so there was no need to make a delete route or a get specific ID route. 
+- I implemented a function to fetch data at whatever interval I specified–ultimately, this interval would be set to once daily. For testing however, I set it to every 1 - 10 minutes to help me find bugs. The database created by the inconsistent fetching intervals was deleted once I took the project into the production stage.
 
 Step 3: React:
-- After I had the backend working as I wanted, I started laying out how I wanted my site to look in Figma. I only laid out a rough idea, as I intended to change the site as I went, I knew I would have problems/features come up during development that I would want to address.
-- As this was my biggest project to date, how my files were set up was not ideal for a project this size. I had to change my entire file structure from how I initially had it laid out, both for future scaling and best practices. 
+- Once the backend was working efficiently, I began planning my site layout in Figma. I knew that there would be unexpected problems/features that popped up during development of the frontend that I would want to address. Therefore, I kept this initial layout rough in preparation to change the site as I went. 
+- As this was my biggest project to date, I quickly realized that the way I set up my files was not ideal for a project of this size. I needed to change my entire file structure in order to optimize for future scaling as well as best practices.
 
 Step 4: Deployment:
-- I chose to deploy my app on Heroku. The main two reasons for this choice were that I had already used Heroku and was familiar with it, and because it was free and performs very well. 
+- I chose to deploy my app on Heroku. The main two reasons for this choice were that I had previous experience with Heroku and was familiar with it, and because it was free and performs very well.
 
 
 <br/>
@@ -77,34 +77,34 @@ Step 4: Deployment:
 
 ![](/readmeImg/performance.png)
 
-- The first big performance improvement I made was learning about and utilizing memoization (caching the result of a function's output). As each different page load was making another fetch request to my API, my load times were greatly reduced. I implemented this by setting a global context that stored the fetched data. It would only make another fetch request if the page was manually refreshed, not every time internal pages were routed to. You will now notice that when clicking on one of the top 10 coins from the home page, its corresponding chart will load instantly, as well as when you return back to the home page. 
+- The first major performance improvement I made was utilizing memoization (caching the result of a function's output). Before doing so, each different page load was making an independent fetch request to my API; after making this change, my load times were greatly reduced. I implemented this by setting a global context that stored the fetched data. The page would only make another fetch request if manually refreshed by the user, not every time internal pages were routed to. You will now notice that when clicking on one of the top 10 coins from the home page, its corresponding chart will load instantly as well as when you return back to the home page.
 
-- Secondly, after running a Lighthouse audit, I noticed that the loading of all of my API data was taking a long time. I implemented compression middleware, and as a result, my time to interactive went from 1.3 seconds down to 0.8 - 0.9 seconds. 
+- After running a Lighthouse audit, I noticed that loading of all of my API data was taking a long time. I implemented compression middleware and as a result, my time to interactive went from 1.3 seconds down to 0.8 - 0.9 seconds.
 
 <br/>
 
 ### What I learned
 
-I learned a lot throughout this entire process. From small housekeeping lessons to structural changes in how I thought about complex processes, like that splitting my controllers in separate files from my routes for organization and readability. The top three things I learned that made me into a better developer in this project were:
+From small housekeeping lessons to structural changes in how I consider complex processes, I learned a lot through the creation of Top Coins. The most important concepts I learned from this experience that I believe have made me into a better developer are:
 
-  1. Dealing with dynamic data in all manners, for example, making dynamic routes or making charts that can handle dynamic data.
+  1. How to utilize dynamic data in a website. For example: making dynamic routes or making charts that can handle dynamic data.
 
-  2. How crucial organization is from the **very beginning** of the project. Something I will now implement into my planning stage of making a project is laying out my file structure before hand. Trying to imagine and plan for the largest possible size my project could get to, and make the file structure suit that size is one way I will approach this.
+  2. Organization is crucial from the very beginning of the project. Moving forward, I will lay out my file structure early on in the planning stage of each new project. Planning for and constructing the file structure around the largest possible size for my project is one way I will approach this.
 
-  3. React hooks! Before this project, I had heard of React hooks, but I was putting off learning about what they were, as the topic seemed daunting. In this project, thanks to the suggestion from someone on the 100Devs Discord, I spent a few hours diving into React hooks and how to build a custom React hook. I ended up using many built in React hooks, and building a custom hook that I needed for my project (/client/src/hooks/useFetchData.js). By the end of the project, I was very confident with useContext, useState, and useEffect.
+  3. React hooks! Before this project, I had heard of React hooks, but I was putting off learning about what they were, as the topic seemed daunting. In this project, thanks to the suggestion from someone on the 100Devs Discord, I spent a few hours diving into React hooks and how to build a custom React hook. I ended up using many built-in React hooks, and even building a custom hook that I needed for my project (/client/src/hooks/useFetchData.js). By the end of the project, I was very confident with useContext, useState, and useEffect.
 
 <br/>
 
 ### Continued development
 
-- Currently, the site is not responsive or mobile friendly. The main purpose of this project was to improve my talents in MERN, so I prioritized that first. In the coming months I plan to have this site fully responsive. 
-- Right now, all of the links in the dropdown menus are to external sources. I would like to find a better way to do this, like having internal routes to that information. There is still a lot to plan here and think about, so this improvement might be a ways off.
-- The last big piece I see that needs fixing is the individual coin's charts. After around 250 data points are shown on the chart at a time, the chart starts lagging when you move your cursor over it. To solve this, I have the chart limited to 100 of the coin's most recent data points shown at a time. This is not currently a concern, as it is highly unlikely that within a year, a single coin will have accumulated over 100 data points. My solution to fix this is to either: 
+- Currently, the Top Coins site is not responsive or mobile friendly. The main purpose of this project was to improve my talents in MERN, so I prioritized that first. In the coming months I plan to have this site fully responsive.
+- Right now, all of the links in the dropdown menus lead to external sources. Ideally, I would like to host all of this information internally. There is still a lot to plan here and think about, so this improvement might be a ways off.
+- The last big area that could be improved is the individual coin charts. After around 250 data points are shown on the chart at a time, the chart starts lagging when you move your cursor over it. To solve this, I have limited the chart to show the 100 most recent data points at a time. This is not currently a concern, as it is highly unlikely that within a year, a single coin will have accumulated over 100 data points. However, I know that my site should be prepared for any situation. My solution to optimize this is to either:
   
-  1. Display the data similar to how other coin tracker sites work, and have range selectors. If the user selects "all time data," I would have an array that has found the average price of however data points are necessary to keep the total data points on the chart (array length) less than 100.
+  1. Display the data with a method similar to other coin tracker sites and have range selectors. If the user selects "all time data," the site would average the selected coin’s price history into an array of 100 data points.
 
 
-  2. Make a page system with two clickable arrows which will show 100 data points on each page, or a horizontal scroll bar. This would be idea for getting the exact dates of when the coin was in the top 10 coins of the day. For accuracy, I will most likely chose this option.  
+  2. Make a page system with two clickable arrows or a horizontal scroll bar which would display 100 data points on each page. This would be ideal for getting the exact dates of when the coin was in the top 10 coins of the day. For accuracy, I will most likely choose this option.
 
 <br/>
 
@@ -120,4 +120,4 @@ I learned a lot throughout this entire process. From small housekeeping lessons 
 
 ## Acknowledgments
 
-Thank you to fellow 100 Devs folks, especially GC on Discord for doing a code review with me on my project, and for helping me with a few React challenges I faced. Also, a big thanks to [octoshrimpy](https://github.com/octoshrimpy) for helping me with the site's favicon, and countless random troubleshooting sessions. 
+Thank you to fellow 100 Devs folks, especially a helpful Discord user for conducting a code review with me on my project, and for helping me with a few React challenges I faced. Also, a big thanks to [octoshrimpy](https://github.com/octoshrimpy) for helping me with the site's favicon, and countless random troubleshooting sessions. 
