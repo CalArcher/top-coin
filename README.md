@@ -59,7 +59,7 @@ Step 1: Planning
   - Cryptocurrency sites, like [CoinMarketCap](https://coinmarketcap.com/) and [CoinGecko](https://www.coingecko.com/) are great examples of websites that display a lot of dynamic data, so I modeled my idea after their sites. I did not want to make a copy that only displays data; I wanted there to be a separate purpose, which is why I came up with the idea to only log the top 10 performing coins of the day.
 
 Step 2: Server setup: 
-- I began building the backend of the app and creating the structure for a custom API. With a custom API, I would have all the data I needed ready to use when building the frontend.
+- I began building the backend of the app, designing my own API for the project, and building its enpoints. With a custom API, I would have all the data I needed ready to use when building the frontend.
 - I set up a simple backend server, and connected to my MongoDB cluster. From there, I set up my site routes. I knew I would only need get all data, post, and patch requests, so I did not make a delete route or a get specific id route. Next, I setup a function that would fetch data at whatever interval I specified. For testing, this was set at every 1 - 10 minutes to find bugs, but at the production stage, the database was completely deleted, and the interval was set to once per day. 
 - Note, for the first day in production, I set the server to fetch every 30 minutes just to start with a decent amount of starting data. 
 
