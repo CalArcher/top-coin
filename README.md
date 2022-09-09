@@ -19,9 +19,10 @@
 
 <br/>
 
-This project was meant to allow me to deep-dive into the MERN stack. I focused on adhering to best practices, and trying to achieve the best performance possible, especially as this database could grow to a very large size. I initially intended this project to take around 100 hours to build, but as I progressed further in my learning, I found more and more features I wanted to add, like the ability to sort coins by different categories, and add a dark mode that saves your preference to local storage. 
+This project allowed me to deep-dive into the MERN stack. I focused on adhering to best practices while still striving to achieve the best performance possible. Performance was especially important with this project as the database could grow to a very large size. My initial intention was to spend about 100 hours building this fullstack app, however once I actually began the process of doing so, I discovered more and more features I wanted to implement. Some of these features included the ability to sort coins by different categories and light/dark mode toggle that would save the user’s preference to local storage.
 
-In the end, this project took well over 200 hours from start to finish, and allowed me to have a great understanding and improve my skills in MongoDB, Express, React, and Node. 
+In the end, this project took well over 200 hours from start to finish. The experience presented me with many opportunities to improve my skills and ultimately left me with a better understanding of MongoDB, Express, React, and Node.
+ 
 
 ## Table of contents
 
@@ -38,27 +39,27 @@ In the end, this project took well over 200 hours from start to finish, and allo
 <br />
 
 ## Overview
-Top Coin is a cryptocurrency tracker. At the end of every day (12am MST), the top 10 performing coins, based on their percent growth in the last 24 hours, are added to the database. If the coin hasn't been in the top 10 before, a new document is created for that coin. If the coin has been in the top 10 coins previously, the coin's relevant data is updated. 
+Top Coin is a cryptocurrency tracker. At the end of every day (11:59pm MST), the top 10 performing coins – based on their percent growth in the last 24 hours – are added to the database. If one of these top-performing coins hasn't been in the top 10 before, a new document is created for that coin. If the coin has been in the top 10 coins previously, the coin's relevant data is updated.
 
 <br/>
 
 ## Features
-- Sort current coins in ascending or descending order based on 24h change, 7d change, or by price. 
+- Variety of sorting options including ascending or descending order based on 24h change, 7d change, or by price.
 - Site-wide dark and light mode.
 - Site path /api/coindata route will show all historical collected data in the database.
-- Each current top 10 coin displays a chart with data points of each time they were in the top 10 coins of the day.
-- Dynamic routing, each coin has its own unique route.
+- Each Top 10 Coin displays a chart with data points that depict all previous dates wherein that coin was among the top 10 coins of the day.
+- Dynamic routing; each coin has its own unique route.
 
 <br/>
 
 ## My process
 
 Step 1: Planning
-  - The first step of this project was deciding what would work with my goals I wanted to achieve - to build a website with a lot of dynamic data, and get some repetition for my React skills.
-  - Cryptocurrency sites, like [CoinMarketCap](https://coinmarketcap.com/) and [CoinGecko](https://www.coingecko.com/) are great examples of websites that display a lot of dynamic data, so I modelled my idea after their sites. I did not want to make a copy that just displays data, I wanted there to be a separate purpose, which is why I came up with the idea to only log the top 10 performing coins of the day. 
+  - The first step of my process was finding a project that would align with my goals - to build a website with a lot of dynamic data and get some repetition for my React skills.
+  - Cryptocurrency sites, like [CoinMarketCap](https://coinmarketcap.com/) and [CoinGecko](https://www.coingecko.com/) are great examples of websites that display a lot of dynamic data, so I modeled my idea after their sites. I did not want to make a copy that only displays data; I wanted there to be a separate purpose, which is why I came up with the idea to only log the top 10 performing coins of the day.
 
 Step 2: Server setup: 
-- This stage was rather easy. After creating the React app structure, I started with making the backend API. This way, I would have all the data I needed to be displayed solidified and ready to be used. 
+- I began building the backend of the app and creating the structure for a custom API. With a custom API, I would have all the data I needed ready to use when building the frontend.
 - I set up a simple backend server, and connected to my MongoDB cluster. From there, I set up my site routes. I knew I would only need get all data, post, and patch requests, so I did not make a delete route or a get specific id route. Next, I setup a function that would fetch data at whatever interval I specified. For testing, this was set at every 1 - 10 minutes to find bugs, but at the production stage, the database was completely deleted, and the interval was set to once per day. 
 - Note, for the first day in production, I set the server to fetch every 30 minutes just to start with a decent amount of starting data. 
 
