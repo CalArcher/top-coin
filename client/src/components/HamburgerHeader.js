@@ -1,25 +1,32 @@
 /** @format */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
-import HamburgerHeader from './HamburgerHeader'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faExternalLink } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faExternalLink, faBars } from '@fortawesome/free-solid-svg-icons'
 
-export default function Header() {
+function HamburgerHeader() {
+  const [menuState, setMenuState] = useState('closed')
+
+  const changeMenuState = () => {
+    if (menuState === 'closed') {
+      setMenuState('open')
+    } else if (menuState === 'open') {
+      setMenuState('closed')
+    }
+  }
+
   return (
-    <header>
-      <HamburgerHeader></HamburgerHeader>
-
-      <div className="header">
+    <div className="hamburgerHeader">
+      <Link to="/" className="customLinks">
+        <h4>Top Coin</h4>
+      </Link>
+      <div className="hamburgerIcon" onClick={changeMenuState}>
+        <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+      </div>
+      <div className={`hamburgerContent ${menuState === 'closed' ? 'closeMenu' : 'openMenu'}`}>
         <ul>
-          <li>
-            <Link to="/" className="customLinks">
-              <h4>Top Coin</h4>
-            </Link>
-          </li>
-
           <li>
             <div className="dropdown">
               <h6 className="hoverColor">
@@ -86,6 +93,8 @@ export default function Header() {
         </ul>
         <ThemeToggle id="headerToggle"></ThemeToggle>
       </div>
-    </header>
+    </div>
   )
 }
+
+export default HamburgerHeader

@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useContext } from 'react'
-import { Container } from 'react-bootstrap'
 import TopCoin from './TopCoin'
 import Table from './Table'
 import NotFound from './NotFound'
@@ -16,10 +15,10 @@ function Home() {
   }
 
   return (
-    <Container className="homeCont">
+    <div className="homeInfoContainer">
       <TopCoin number={0} name={topCoin.name} dailyChange={topCoin.percent_change_24h / 100}></TopCoin>
-      <Table></Table>
-    </Container>
+      <Table className="coinTable"></Table>
+    </div>
   )
 }
 

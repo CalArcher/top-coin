@@ -119,7 +119,7 @@ LineChart.js------------
 TopCoin.js------------
 ************** */
 .topCoinTitle {
-  padding: 1rem 0 3rem 0;
+  padding: 1rem 1rem 3rem 1rem;
 }
 
 /* **************
@@ -223,7 +223,7 @@ Footer.js------------
   border-top: 1px solid var(--thin-black-color);
   padding: 2em 5.5em;
   width: 100%;
-  margin-top: 5em;
+  margin-top: 0.5em;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -284,8 +284,7 @@ Header.js------------
   border-bottom: 1px solid var(--thin-black-color);
   padding: 2.5em 5.5em;
   width: 100%;
-  min-width: 865px;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -506,9 +505,21 @@ ThemeToggle.js------------
 /* **************
 Home.js------------
 ************** */
-.homeCont {
-  min-width: 1000px;
+.homeInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
   flex-grow: 1;
+}
+
+.tableCont {
+  width: 70%;
+}
+
+#coinLabelDataCont {
+  min-width: 720px;
 }
 
 /* **************
@@ -517,11 +528,6 @@ CoinCard.js------------
 .coinCard {
   color: var(--black-color);
   background-color: var(--white-color);
-  min-width: 850px;
-}
-
-.coinCard .coinCardBody,
-.coinLabelStyle .coinLabelBody {
   min-width: 850px;
 }
 
@@ -580,6 +586,36 @@ CoinLabels.js------------
 }
 
 /* **************
+HamburgerHeader.js------------
+************** */
+.hamburgerHeader * {
+  border: 1px solid red;
+}
+
+.hamburgerHeader {
+  background: var(--white-color);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 90px;
+  border-bottom: 1px solid var(--thin-black-color);
+  padding: 2.5em 5.5em;
+  width: 100%;
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#dark .hamburgerHeader {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
+}
+
+/* **************
 Light Mode------------
 ************** */
 /* General */
@@ -601,7 +637,6 @@ Dark Mode------------
   border: 1px solid var(--thin-white-color);
   color: var(--text-white-color);
   background-color: var(--black-color);
-  min-width: 850px;
 }
 
 #dark .coinCard:hover {
@@ -611,7 +646,6 @@ Dark Mode------------
 
 /* CoinLabels */
 #dark .coinLabelStyle {
-  min-width: 850px;
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
@@ -704,4 +738,73 @@ body,
   overflow: auto;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 1260px) {
+  .coinCard .coinCardStack,
+.coinLabelStyle .stackStyle {
+    grid-template-columns: 50px 1.6fr 1fr 0.9fr 0.9fr 1.4fr;
+  }
+}
+@media screen and (max-width: 860px) {
+  .tableCont {
+    overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .tableCont {
+    width: 90%;
+  }
+}
+.openMenu {
+  display: block;
+}
+
+.closeMenu {
+  display: none;
+}
+
+.hamburgerIcon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.hamburgerContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+  margin: 0 3.5rem;
+  padding: 2rem 1rem;
+  z-index: 1000;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--text-white-color);
+  border: 1px solid var(--thin-black-color);
+}
+
+.hamburgerContent ul {
+  width: 100%;
+}
+
+.hamburgerHeader {
+  display: none;
+  position: relative;
+}
+
+@media screen and (max-width: 918px) {
+  .header {
+    display: none;
+  }
+  .hamburgerHeader {
+    padding: 0.1rem 3.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=custom.css.map */
