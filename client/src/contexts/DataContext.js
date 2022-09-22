@@ -14,7 +14,7 @@ const DataContext = ({ children }) => {
   const [topCoin, setTopCoin] = useState([])
   const [state, setState] = useState([])
 
-  const url = 'http://localhost:3030/api/coindata'
+  const url = 'https://top-coin.herokuapp.com/api/coindata'
 
   useEffect(() => {
     let coinNames = []

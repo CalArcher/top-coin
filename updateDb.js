@@ -43,7 +43,7 @@ class UpdateData {
   }
 
   async fetchCurrent() {
-    const url = 'http://localhost:3030/api/coindata'
+    const url = 'https://top-coin.herokuapp.com/api/coindata'
     try {
       const res = await fetch(url)
       const data = await res.json()
@@ -92,7 +92,7 @@ class UpdateData {
           percent_change_1y: newData[i].percent_change_1y,
           date: oldDates
         }
-        const updateURL = `http://localhost:3030/api/coindata/${updateId}`
+        const updateURL = `https://top-coin.herokuapp.com/api/coindata/${updateId}`
         try {
           fetch(updateURL, {
             method: 'PATCH',
@@ -108,7 +108,7 @@ class UpdateData {
           console.log(e)
         }
       } else {
-        const postURL = 'http://localhost:3030/api/coindata'
+        const postURL = 'https://top-coin.herokuapp.com/api/coindata'
         newCoin = newData[i]
         try {
           fetch(postURL, {
