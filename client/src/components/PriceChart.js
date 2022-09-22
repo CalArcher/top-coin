@@ -26,6 +26,7 @@ export default function PriceChart({ name, number }) {
           {nameNoDash}
         </a>
       </div>
+      <span className="coinInfoSpan">{nameNoDash}'s performance history while ranked in the top 10 coins of the day</span>
       <div className="chartStyle">
         <LineChart name={name} number={number}></LineChart>
       </div>

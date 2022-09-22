@@ -78,10 +78,9 @@ PriceChart.js------------
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 0;
+  margin: 1rem 0 3rem 0;
   padding: 0.5em 0 0 0;
   width: 100%;
-  overflow-x: scroll;
 }
 
 .priceChart {
@@ -108,21 +107,28 @@ PriceChart.js------------
   margin-right: 1rem;
 }
 
+.coinInfoSpan {
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--text-black-color);
+}
+
 /* **************
 LineChart.js------------
 ************** */
 .chartStyle {
-  width: 100%;
-  min-width: 700px;
   height: 60vh;
-  min-height: 450px;
+  width: 100%;
 }
 
 /* **************
 TopCoin.js------------
 ************** */
 .topCoinTitle {
-  padding: 1rem 1rem 3rem 1rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* **************
@@ -222,11 +228,12 @@ LoadingScreen.js------------
 Footer.js------------
 ************** */
 #footer {
+  bottom: 0;
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
   padding: 2em 5.5em;
   width: 100%;
-  margin-top: 0.5em;
+  margin-top: 3em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -737,6 +744,10 @@ Dark Mode------------
   border: 1px solid var(--thin-white-color);
 }
 
+#dark .coinInfoSpan {
+  color: var(--text-white-color);
+}
+
 /* Footer */
 #dark #footer {
   border-top: 1px solid var(--thin-white-color);
@@ -883,12 +894,35 @@ Media Queries------------
     overflow-x: scroll;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 570px) {
   .hamburgerContent {
     left: 0;
     right: 0;
     width: auto;
     flex-grow: 1;
     max-width: 450px;
+  }
+  .coinTitle {
+    margin-bottom: 2rem;
+  }
+  .coinTitle a {
+    font-size: 33px;
+  }
+  .coinTitle img {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .coinTitle a {
+    font-size: 25px;
+  }
+  .coinTitle img {
+    width: 33px;
+    height: 33px;
+  }
+  .coinInfoSpan {
+    font-size: 12px;
+    padding: 0.5rem;
   }
 }/*# sourceMappingURL=custom.css.map */

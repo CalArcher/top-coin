@@ -149,7 +149,7 @@ export default function LineChart({ name, number }) {
         display: false
       },
       title: {
-        display: true,
+        display: false,
         text: `${nameNoDash}'s performance history while ranked in the top 10 coins of the day`,
         color: fontColor,
         font: {
