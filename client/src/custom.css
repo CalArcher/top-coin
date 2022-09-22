@@ -20,6 +20,8 @@ General------------
   --blue-color-light: rgb(113, 190, 253);
   --hover-dark-color: rgb(40, 40, 40);
   --hover-light-color: rgb(237, 237, 237);
+  --modal-background-dark: rgba(0, 0, 0, 0.1);
+  --modal-background-light: rgba(255, 255, 255, 0.1);
 }
 
 .hoverColor {
@@ -79,6 +81,7 @@ PriceChart.js------------
   margin: 0;
   padding: 0.5em 0 0 0;
   width: 100%;
+  overflow-x: scroll;
 }
 
 .priceChart {
@@ -226,7 +229,7 @@ Footer.js------------
   margin-top: 0.5em;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -242,6 +245,7 @@ Footer.js------------
 }
 
 .footerCont span {
+  min-width: 100px;
   font-size: 0.65rem;
   color: var(--text-black-color);
 }
@@ -588,10 +592,6 @@ CoinLabels.js------------
 /* **************
 HamburgerHeader.js------------
 ************** */
-.hamburgerHeader * {
-  border: 1px solid red;
-}
-
 .hamburgerHeader {
   background: var(--white-color);
   position: -webkit-sticky;
@@ -609,16 +609,104 @@ HamburgerHeader.js------------
   align-items: center;
 }
 
-#dark .hamburgerHeader {
-  color: var(--white-color);
-  background-color: var(--black-color);
-  border-bottom: 1px solid var(--thin-white-color);
+.hamburgerHeader ul {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 0;
+  list-style: none;
+}
+
+.hamburgerHeader ul li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.hamburgerIcon {
+  font-size: 1.75rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.hamburgerContent {
+  position: absolute;
+  top: 80%;
+  right: 0;
+  width: 70%;
+  max-width: 450px;
+  margin: 0 3.5rem;
+  padding: 2rem 1rem;
+  z-index: 1000;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  border: 2px solid var(--thin-black-color);
+}
+
+.hamburgerContStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hamburgerContent ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburgerBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh;
+  z-index: 900;
+  background: transparent;
+}
+
+.hamburgerHeader .dropdown-content {
+  padding-left: 0.5rem;
+  border: 2px solid var(--thin-black-color);
+}
+
+.hamburgerHeader .dropdown-content a {
+  text-decoration: none;
+  color: var(--green-color);
+}
+
+.hamburgerHeader li:nth-child(2) .dropdown-content {
+  margin-top: 2rem;
+}
+
+.hamburgerContStyle > ul > li {
+  margin-bottom: 0.5rem;
+}
+
+.hamburgerHeader {
+  display: none;
+}
+
+.openMenu {
+  display: block;
+}
+
+.closeMenu {
+  display: none;
 }
 
 /* **************
 Light Mode------------
 ************** */
-/* General */
 #light {
   background-color: var(--white-color);
 }
@@ -626,7 +714,6 @@ Light Mode------------
 /* **************
 Dark Mode------------
 ************** */
-/* General */
 #dark {
   background-color: var(--black-color);
   color: var(--white-color);
@@ -710,6 +797,21 @@ Dark Mode------------
   text-decoration: inherit;
 }
 
+#dark .hamburgerContent {
+  background-color: var(--black-color);
+  border: 3px solid var(--thin-white-color);
+}
+
+#dark .hamburgerBackground {
+  background: transparent;
+}
+
+#dark .hamburgerHeader {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
+}
+
 /* **************
 NotFound.js------------
 ************** */
@@ -740,15 +842,13 @@ body,
   flex-direction: column;
 }
 
+/* **************
+Media Queries------------
+************** */
 @media screen and (max-width: 1260px) {
   .coinCard .coinCardStack,
 .coinLabelStyle .stackStyle {
     grid-template-columns: 50px 1.6fr 1fr 0.9fr 0.9fr 1.4fr;
-  }
-}
-@media screen and (max-width: 860px) {
-  .tableCont {
-    overflow-x: scroll;
   }
 }
 @media screen and (max-width: 1160px) {
@@ -756,48 +856,15 @@ body,
     width: 90%;
   }
 }
-.openMenu {
-  display: block;
-}
-
-.closeMenu {
-  display: none;
-}
-
-.hamburgerIcon {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.hamburgerContent {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  flex-grow: 1;
-  margin: 0 3.5rem;
-  padding: 2rem 1rem;
-  z-index: 1000;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  background-color: var(--text-white-color);
-  border: 1px solid var(--thin-black-color);
-}
-
-.hamburgerContent ul {
-  width: 100%;
-}
-
-.hamburgerHeader {
-  display: none;
-  position: relative;
-}
-
 @media screen and (max-width: 918px) {
+  .toggleContainer {
+    padding-bottom: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .modeText {
+    padding: 0 0 0 1em;
+  }
   .header {
     display: none;
   }
@@ -806,5 +873,22 @@ body,
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+@media screen and (max-width: 860px) {
+  #footer {
+    padding: 2em 2em;
+  }
+  .tableCont {
+    overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 550px) {
+  .hamburgerContent {
+    left: 0;
+    right: 0;
+    width: auto;
+    flex-grow: 1;
+    max-width: 450px;
   }
 }/*# sourceMappingURL=custom.css.map */

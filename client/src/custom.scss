@@ -11,6 +11,7 @@
 /* **************
 General------------
 ************** */
+
 @mixin animate {
   transition: all 0.15s ease-in-out;
 }
@@ -25,6 +26,8 @@ General------------
   --blue-color-light: rgb(113, 190, 253);
   --hover-dark-color: rgb(40, 40, 40);
   --hover-light-color: rgb(237, 237, 237);
+  --modal-background-dark: rgba(0, 0, 0, 0.1);
+  --modal-background-light: rgba(255, 255, 255, 0.1);
 }
 .hoverColor {
   cursor: pointer;
@@ -61,9 +64,11 @@ General------------
 .primaryBlue {
   color: var(--blue-color);
 }
+
 /* **************
 PriceChart.js------------
 ************** */
+
 .priceChartWrapper {
   display: flex;
   flex-direction: column;
@@ -71,6 +76,7 @@ PriceChart.js------------
   margin: 0;
   padding: 0.5em 0 0 0;
   width: 100%;
+  overflow-x: scroll;
 }
 .priceChart {
   cursor: crosshair;
@@ -96,6 +102,7 @@ PriceChart.js------------
 /* **************
 LineChart.js------------
 ************** */
+
 .chartStyle {
   width: 100%;
   min-width: 700px;
@@ -106,6 +113,7 @@ LineChart.js------------
 /* **************
 TopCoin.js------------
 ************** */
+
 .topCoinTitle {
   padding: 1rem 1rem 3rem 1rem;
 }
@@ -113,6 +121,7 @@ TopCoin.js------------
 /* **************
 LoadingScreen.js------------
 ************** */
+
 .loadingScreen {
   background-color: var(--white-color);
   width: 100%;
@@ -172,6 +181,7 @@ LoadingScreen.js------------
 /* **************
 Footer.js------------
 ************** */
+
 #footer {
   height: 70px;
   border-top: 1px solid var(--thin-black-color);
@@ -180,7 +190,7 @@ Footer.js------------
   margin-top: 0.5em;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 #footer div {
@@ -193,6 +203,7 @@ Footer.js------------
   justify-content: space-between;
 }
 .footerCont span {
+  min-width: 100px;
   font-size: 0.65rem;
   color: var(--text-black-color);
 }
@@ -221,6 +232,7 @@ Footer.js------------
 /* **************
 Header.js------------
 ************** */
+
 .header {
   background: var(--white-color);
   position: sticky;
@@ -266,7 +278,6 @@ Header.js------------
   min-width: 450px;
   margin-bottom: 1em;
 }
-
 /* header dropdown */
 ul .dropdownUl {
   display: flex;
@@ -311,6 +322,7 @@ ul .dropdownUl li:not(:last-child) {
 .dropdownUl a {
   color: var(--black-color);
 }
+
 /* **************
 AboutCoin.js------------
 ************** */
@@ -318,6 +330,7 @@ AboutCoin.js------------
 /* **************
 ThemeToggle.js------------
 ************** */
+
 .toggleContainer {
   display: flex;
   flex-direction: row-reverse;
@@ -409,7 +422,6 @@ ThemeToggle.js------------
   opacity: 1;
   transform: translate(0.35em, 0.35em) rotate(-15deg);
 }
-
 .toggleStyle:hover ~ .modeText {
   opacity: 1;
 }
@@ -426,11 +438,9 @@ Home.js------------
   padding: 1rem;
   flex-grow: 1;
 }
-
 .tableCont {
   width: 70%;
 }
-
 #coinLabelDataCont {
   min-width: 720px;
 }
@@ -438,17 +448,16 @@ Home.js------------
 /* **************
 CoinCard.js------------
 ************** */
+
 .coinCard {
   color: var(--black-color);
   background-color: var(--white-color);
   min-width: 850px;
 }
-
 .coinCard:hover {
   color: var(--black-color);
   background-color: var(--hover-light-color);
 }
-
 .iconStyle {
   margin-right: 5px;
   width: 20px;
@@ -482,6 +491,7 @@ CoinCard.js------------
 /* **************
 CoinLabels.js------------
 ************** */
+
 .coinLabelStyle .stackStyle {
   display: grid;
   grid-template-columns: 50px 1.75fr 1fr 0.9fr 0.9fr 1.1fr;
@@ -494,9 +504,7 @@ CoinLabels.js------------
 /* **************
 HamburgerHeader.js------------
 ************** */
-.hamburgerHeader * {
-  border: 1px solid red;
-}
+
 .hamburgerHeader {
   background: var(--white-color);
   position: sticky;
@@ -512,17 +520,88 @@ HamburgerHeader.js------------
   justify-content: flex-end;
   align-items: center;
 }
-#dark .hamburgerHeader {
-  color: var(--white-color);
-  background-color: var(--black-color);
-  border-bottom: 1px solid var(--thin-white-color);
+.hamburgerHeader ul {
+  max-width: fit-content;
+  padding: 0;
+  list-style: none;
+}
+.hamburgerHeader ul li {
+  width: fit-content;
+}
+.hamburgerIcon {
+  font-size: 1.75rem;
+  width: fit-content;
+}
+.hamburgerContent {
+  position: absolute;
+  top: 80%;
+  // left: 0;
+  right: 0;
+  width: 70%;
+  // flex-grow: 1;
+  max-width: 450px;
+  margin: 0 3.5rem;
+  padding: 2rem 1rem;
+  z-index: 1000;
+  height: fit-content;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  border: 2px solid var(--thin-black-color);
+}
+.hamburgerContStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hamburgerContent ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburgerBackground {
+  position: fixed;
+  // top: 90px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh;
+  z-index: 900;
+  background: transparent;
+}
+.hamburgerHeader .dropdown-content {
+  padding-left: 0.5rem;
+  border: 2px solid var(--thin-black-color);
+}
+.hamburgerHeader .dropdown-content a {
+  text-decoration: none;
+  color: var(--green-color);
+}
+.hamburgerHeader li:nth-child(2) .dropdown-content {
+  margin-top: 2rem;
+}
+.hamburgerContStyle > ul > li {
+  margin-bottom: 0.5rem;
+}
+.hamburgerHeader {
+  display: none;
+}
+.openMenu {
+  display: block;
+}
+.closeMenu {
+  display: none;
 }
 
 /* **************
 Light Mode------------
 ************** */
 
-/* General */
 #light {
   background-color: var(--white-color);
 }
@@ -531,12 +610,10 @@ Light Mode------------
 Dark Mode------------
 ************** */
 
-/* General */
 #dark {
   background-color: var(--black-color);
   color: var(--white-color);
 }
-
 /* CoinCard.js */
 #dark .coinCard {
   border: 1px solid var(--thin-white-color);
@@ -547,13 +624,11 @@ Dark Mode------------
   color: var(--white-color);
   background-color: var(--hover-dark-color);
 }
-
 /* CoinLabels */
 #dark .coinLabelStyle {
   background-color: var(--black-color);
   border: 1px solid var(--thin-white-color);
 }
-
 /* Footer */
 #dark #footer {
   border-top: 1px solid var(--thin-white-color);
@@ -569,7 +644,6 @@ Dark Mode------------
 #dark #footer .coinGeckoCredit {
   color: var(--blue-color-light);
 }
-
 /* Header */
 #dark .header {
   color: var(--white-color);
@@ -596,7 +670,6 @@ Dark Mode------------
 #dark .dropdownUl a:hover {
   color: var(--green-color);
 }
-
 #dark .customLinks:hover,
 #dark .customLinks:active,
 #dark .customLinks,
@@ -604,10 +677,23 @@ Dark Mode------------
   color: inherit;
   text-decoration: inherit;
 }
+#dark .hamburgerContent {
+  background-color: var(--black-color);
+  border: 3px solid var(--thin-white-color);
+}
+#dark .hamburgerBackground {
+  background: transparent;
+}
+#dark .hamburgerHeader {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  border-bottom: 1px solid var(--thin-white-color);
+}
 
 /* **************
 NotFound.js------------
 ************** */
+
 .notFound {
   padding-top: 4em;
   flex-grow: 1;
@@ -631,7 +717,9 @@ body,
   flex-direction: column;
 }
 
-//Media Queries
+/* **************
+Media Queries------------
+************** */
 
 @media screen and (max-width: 1260px) {
   .coinCard .coinCardStack,
@@ -639,57 +727,20 @@ body,
     grid-template-columns: 50px 1.6fr 1fr 0.9fr 0.9fr 1.4fr;
   }
 }
-
-@media screen and (max-width: 860px) {
-  .tableCont {
-    overflow-x: scroll;
-  }
-}
-
 @media screen and (max-width: 1160px) {
   .tableCont {
     width: 90%;
   }
 }
-
-.openMenu {
-  display: block;
-}
-.closeMenu {
-  display: none;
-}
-
-.hamburgerIcon {
-  width: fit-content;
-}
-
-.hamburgerContent {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  flex-grow: 1;
-  margin: 0 3.5rem;
-  padding: 2rem 1rem;
-  z-index: 1000;
-  height: fit-content;
-  background-color: var(--text-white-color);
-  border: 1px solid var(--thin-black-color);
-}
-
-.hamburgerContent ul {
-  width: 100%;
-}
-
-//hamburger menu
-.hamburgerHeader {
-  display: none;
-  position: relative;
-}
-
 @media screen and (max-width: 918px) {
+  .toggleContainer {
+    padding-bottom: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .modeText {
+    padding: 0 0 0 1em;
+  }
   .header {
     display: none;
   }
@@ -698,5 +749,22 @@ body,
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+@media screen and (max-width: 860px) {
+  #footer {
+    padding: 2em 2em;
+  }
+  .tableCont {
+    overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 550px) {
+  .hamburgerContent {
+    left: 0;
+    right: 0;
+    width: auto;
+    flex-grow: 1;
+    max-width: 450px;
   }
 }
